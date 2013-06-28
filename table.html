@@ -5,6 +5,10 @@
 	<link rel="icon" type="image/png" href="favicon.png">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    
     <script type="text/javascript">
 var bands = [
 		    	{
@@ -142,7 +146,7 @@ var mySize = function(underbust, overbust) {
 				else {
 					var cupMax = band.cups[j+1].start
 				};	
-				if (overbust >= cup.start && overbust < cupMax){
+				if (overbust > cup.start && overbust <= cupMax){
 					return {band: band.value, cup: cup.value}
 				}
 				else {
@@ -190,8 +194,8 @@ $(document).ready(function(){
 
 	// Shows size suggestion based on user's measurements input "Size Calculator"
 	function sizeSuggestion(){
-	var under = $('#underbust').val()
-	var over = $('#overbust').val()
+	var under = $('#underbust').slider( "value" );
+	var over = $('#overbust').slider("value");
 	return mySize(under,over)
 	};
 	$('#calculateSize').click(function(){
@@ -215,6 +219,33 @@ $(document).ready(function(){
 			return false;
 		};
 	  });
+
+	//Sliders for measurements
+	$(function() {
+		//underbust
+	    $( "#underbust" ).slider({
+	      value:34,
+	      min: bands[0].start,
+	      max: bands[6].stop,
+	      step: .1,
+	      slide: function( event, ui ) {
+	        $( "#underbustLabel" ).text( ui.value + 'in');
+	      }
+	    });
+	    $( "#underbustLabel" ).text($( "#underbust" ).slider( "value" ) + 'in' );
+	    //overbust
+	    $( "#overbust" ).slider({
+	      value:43,
+	      min: bands[0].cups[0].start,
+	      max: bands[6].cups[6].stop,
+	      step: .1,
+	      slide: function( event, ui ) {
+	        $( "#overbustLabel" ).text( ui.value + 'in');
+	      }
+	    });
+	    $( "#overbustLabel" ).text($( "#overbust" ).slider( "value" ) + 'in' );
+	});
+
 });
 
     </script>
@@ -271,8 +302,14 @@ $(document).ready(function(){
 <body>
 	<section id="sizeCalculator">
 		<form>
-			<label>Underbust:</label><input type="number" id="underbust"  placeholder="eg. 34" step=".1" min="0" autofocus>
-			<label>Overbust:</label><input type="number" id="overbust" name="overbust" placeholder="eg. 43" step=".1" min="0">
+			<label>Underbust:</label>
+			<div id="underbust"></div>
+			<span id="underbustLabel"></span>
+			<br>
+			<label>Overbust:</label>
+			<div id="overbust"></div>
+			<span id="overbustLabel"></span>
+			<br>
 			<input type="submit" value="Show my size!" id="calculateSize">
 			<br><br>
 			<span id="sizeSuggestion"></span>
@@ -284,98 +321,6 @@ $(document).ready(function(){
 		<h2>Available Sizes</h2>
 		<small>Highlight a size to see exact measurements</small>
 	</div>
-
-
-<hr>
-<!-- 	<table>
-		<tr>
-			<td class="odd">28B<div class="tooltip"></div></td>
-			<td>28C<div class="tooltip"></div></td>
-			<td class="odd">28D<div class="tooltip"></div></td>
-			<td>28E<div class="tooltip"></div></td>								
-			<td class="odd">28F<div class="tooltip"></div></td>
-			<td>28G<div class="tooltip"></div></td>
-			<td class="odd">28H<div class="tooltip"></div></td>
-			<td>28HH<div class="tooltip"></div></td>								
-			<td class="odd">28J<div class="tooltip"></div></td>
-			<td>28K<div class="tooltip"></div></td>
-			<td class="odd">28L<div class="tooltip"></div></td>
-			<td>28M<div class="tooltip"></div></td>								
-			<td class="odd">28N<div class="tooltip"></div></td>							
-		</tr>
-		<tr>
-			<td class="odd">30B<div class="tooltip"></div></td>
-			<td>30C<div class="tooltip"></div></td>
-			<td class="odd">30D<div class="tooltip"></div></td>
-			<td>30E<div class="tooltip"></div></td>
-			<td class="odd">30F<div class="tooltip"></div></td>
-			<td>30G<div class="tooltip"></div></td>
-			<td class="odd">30H<div class="tooltip"></div></td>
-			<td>30HH<div class="tooltip"></div></td>
-			<td class="odd">30J<div class="tooltip"></div></td>
-			<td>30K<div class="tooltip"></div></td>
-			<td class="odd">30L<div class="tooltip"></div></td>
-			<td>30M<div class="tooltip"></div></td>			
-		</tr>
-		<tr>
-			<td class="odd">32B<div class="tooltip"></div></td>
-			<td>32C<div class="tooltip"></div></td>
-			<td class="odd">32D<div class="tooltip"></div></td>
-			<td>32E<div class="tooltip"></div></td>
-			<td class="odd">32F<div class="tooltip"></div></td>
-			<td>32G<div class="tooltip"></div></td>
-			<td class="odd">32H<div class="tooltip"></div></td>
-			<td>32HH<div class="tooltip"></div></td>
-			<td class="odd">32J<div class="tooltip"></div></td>
-			<td>32K<div class="tooltip"></div></td>
-			<td class="odd">32L<div class="tooltip"></div></td>			
-		</tr>
-		<tr>
-			<td class="odd">34B<div class="tooltip"></div></td>
-			<td>34C<div class="tooltip"></div></td>
-			<td class="odd">34D<div class="tooltip"></div></td>
-			<td>34E<div class="tooltip"></div></td>
-			<td class="odd">34F<div class="tooltip"></div></td>
-			<td>34G<div class="tooltip"></div></td>
-			<td class="odd">34H<div class="tooltip"></div></td>
-			<td>34HH<div class="tooltip"></div></td>
-			<td class="odd">34J<div class="tooltip"></div></td>
-			<td>34K<div class="tooltip"></div></td>			
-		</tr>
-		<tr>
-			<td class="odd">36B<div class="tooltip"></div></td>
-			<td>36C<div class="tooltip"></div></td>
-			<td class="odd">36D<div class="tooltip"></div></td>
-			<td>36E<div class="tooltip">36E Fits<br>30.7-32.3 UNDERBUST<br>39.4-40.2 OVERBUST</div></td>
-			<td class="odd">36F<div class="tooltip"></div></td>
-			<td>36G<div class="tooltip"></div></td>
-			<td class="odd">36H<div class="tooltip"></div></td>
-			<td>36HH<div class="tooltip"></div></td>
-			<td class="odd">36J<div class="tooltip"></div></td>
-		</tr>
-		<tr>
-			<td class="odd">38B<div class="tooltip"></div></td>
-			<td>38C<div class="tooltip"></div></td>
-			<td class="odd">38D<div class="tooltip"></div></td>
-			<td>38E<div class="tooltip"></div></td>
-			<td class="odd">38F<div class="tooltip"></div></td>
-			<td>38G<div class="tooltip"></div></td>
-			<td class="odd">38H<div class="tooltip"></div></td>
-			<td>38HH<div class="tooltip"></div></td>
-		</tr>
-		<tr>
-			<td class="odd">40B<div class="tooltip"></div></td>
-			<td>40C<div class="tooltip"></div></td>
-			<td class="odd">40D<div class="tooltip"></div></td>
-			<td>40E<div class="tooltip"></div></td>
-			<td class="odd">40F<div class="tooltip"></div></td>
-			<td>40G<div class="tooltip"></div></td>
-			<td class="odd">40H<div class="tooltip"></div></td>
-		</tr>
-	</table>
- -->
-
-
 </body>
 
 </html>
