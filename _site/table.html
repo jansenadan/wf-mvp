@@ -160,14 +160,44 @@ var mySize = function(underbust, overbust) {
 
 
 
-$(document).ready(function(){
-	// Shows size suggestion based on user's measurements input
+$(document).ready(function(){	
+	//Generates size information table
+	var table = $('<table></table>');
+	for(var i=0; i < bands.length; i++){
+		var band = bands[i];
+    	var row = $('<tr></tr>');
+		for (var j=0; j < band.cups.length; j++) {
+			var cup = band.cups[j];
+			//determine cup.stop
+			if (j+1 === band.cups.length){
+				var cupStop = cup.stop;
+			}
+			else {
+				var cupStop = band.cups[j+1].start;
+			};
+			//append cell content with exact cup measurements in a tooltip
+			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString() +'<div class="tooltip">FITS:<br>' +band.start.toString() +'-' +band.stop.toString() + ' UNDERBUST<br>' +cup.start.toString() +'-' +cupStop.toString() +' OVERBUST</div></td>');
+			row.append(cell);
+		};
+		//alternate .odd css class in rows
+    	if (i%2 === 0) {
+    		row.addClass('odd')
+    	};
+    	table.append(row);
+	};
+	//create size table
+	$('#sizeTable').append(table);
+
+	// Shows size suggestion based on user's measurements input "Size Calculator"
 	function sizeSuggestion(){
 	var under = $('#underbust').val()
 	var over = $('#overbust').val()
 	return mySize(under,over)
 	};
 	$('#calculateSize').click(function(){
+		//remove highlights from table cells, if any
+		$("#sizeTable td").removeClass('highlighted');
+		//calculate suggestion
 		var suggestion = sizeSuggestion();	
 		if (sizeSuggestion().band === null) {
 			$('#sizeSuggestion').text("Sorry, seems like we don't carry your size yet:(");
@@ -179,77 +209,85 @@ $(document).ready(function(){
 		}
 		else {
 			$('#sizeSuggestion').text("We recommend size " + suggestion.band.toString() + suggestion.cup.toString());
+			//Highlight recommended size in a table
+			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
+		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
 			return false;
 		};
 	  });
-	//Generates size information table
-	var table = $('<table></table>');
-	for(var i=0; i < bands.length; i++){
-		var band = bands[i];
-    	var row = $('<tr></tr>');
-		for (var j=0; j < band.cups.length; j++) {
-			var cup = band.cups[j];
-			var cell = $('<td>' +band.value.toString() +cup.value.toString() +'<div class="tooltip">Fits<br>' +band.start.toString() +'-' +band.stop.toString() + 'UNDERBUST<br>' +cup.start.toString() +'OVERBUST</div></td>');
-			row.append(cell);
-		};
-    	table.append(row);
-}
-
-$('#sizeTable').append(table);
 });
 
     </script>
 
     <style type="text/css">
     table {
-    	font-size: 10px;
+    	font-size: 12px;
     	
     }
 
 	td {
 		display: inline-block;
-		
+		cursor: pointer;
 		text-align: center;
 		padding: .5em; 
 	}
     .odd {
-    	background: #e0e0e0;
+    	background: rgba(200,90,150,.2);
     }
 
     .tooltip {
     	display: none;
     	position: absolute;
-    	margin-left: 0em;
-    	margin-top: -1em;
-    	background: rgba(200,90,150,0.7);
+    	margin-left: 2.5em;
+    	margin-top: -1.5em;
+    	background: #fff;
+    	color: rgba(200,90,150,1);
+    	border: solid 1px rgba(200,90,150,.5);
     	text-align: left;    	
-    	color: #fff;
     	z-index: 1000;
+    	padding: .5em;
+    	border-radius: .5em;
+    	font-weight: bold;
+    	font-size: 10px;
     }
+	#sizeTable td:hover {
+		background: rgba(200,90,150,1);
+		color: #fff;
+	}
 
     #sizeTable td:hover .tooltip {
     	display: block;
     }
+
+    #sizeTable td.highlighted {
+    	background: green;
+    	color: #fff;
+    }
+
+
     </style>
 </head>
 
 <body>
 	<section id="sizeCalculator">
 		<form>
-			<label>Underbust:</label><input type="number" id="underbust"  placeholder="eg. 34" step=".1" min="0">
+			<label>Underbust:</label><input type="number" id="underbust"  placeholder="eg. 34" step=".1" min="0" autofocus>
 			<label>Overbust:</label><input type="number" id="overbust" name="overbust" placeholder="eg. 43" step=".1" min="0">
-			<input type="submit" name="Show me!" id="calculateSize">
+			<input type="submit" value="Show my size!" id="calculateSize">
 			<br><br>
 			<span id="sizeSuggestion"></span>
 			<br><br>
 		</form>
 	</section>
 	
-	<div id="sizeTable"></div>
+	<div id="sizeTable">
+		<h2>Available Sizes</h2>
+		<small>Highlight a size to see exact measurements</small>
+	</div>
 
 
 <hr>
-	<table>
+<!-- 	<table>
 		<tr>
 			<td class="odd">28B<div class="tooltip"></div></td>
 			<td>28C<div class="tooltip"></div></td>
@@ -335,7 +373,7 @@ $('#sizeTable').append(table);
 			<td class="odd">40H<div class="tooltip"></div></td>
 		</tr>
 	</table>
-
+ -->
 
 
 </body>
