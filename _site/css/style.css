@@ -16,14 +16,7 @@ small {
 	font-size: 75%;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-}
 
-a:hover {
-	text-decoration: underline;
-}
 
 .sidebar-1 {
 	display: block;
