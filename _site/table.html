@@ -180,7 +180,7 @@ $(document).ready(function(){
 				var cupStop = band.cups[j+1].start;
 			};
 			//append cell content with exact cup measurements in a tooltip
-			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString() +'<div class="tooltip">FITS:<br>' +band.start.toString() +'-' +band.stop.toString() + ' UNDERBUST<br>' +cup.start.toString() +'-' +cupStop.toString() +' OVERBUST</div></td>');
+			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString().toUpperCase() +'<div class="tooltip">FITS:<br>' +band.start.toString() +'-' +band.stop.toString() + ' UNDERBUST<br>' +cup.start.toString() +'-' +cupStop.toString() +' OVERBUST</div></td>');
 			row.append(cell);
 		};
 		//alternate .odd css class in rows
@@ -201,18 +201,25 @@ $(document).ready(function(){
 	$('#calculateSize').click(function(){
 		//remove highlights from table cells, if any
 		$("#sizeTable td").removeClass('highlighted');
-		//calculate suggestion
+		//calculate suggestion and display appropriate message
 		var suggestion = sizeSuggestion();	
 		if (sizeSuggestion().band === null) {
-			$('#sizeSuggestion').text("Sorry, seems like we don't carry your size yet:(");
+			var message = "Sorry, seems like we don't carry your size yet:(";
+			$('#sizeSuggestion').html('' + message + '');
+			$('#sizeSuggestionAside').hide()
 			return false;
 		}; 
 		if (sizeSuggestion().cup === null) {
-			$('#sizeSuggestion').text("Your band is " +suggestion.band + ", but we don't carry your cup:(" );
+			var message = "Your band is " +suggestion.band + ", but we don't carry your cup:(" 
+			$('#sizeSuggestion').html('' + message + '');
+			$('#sizeSuggestionAside').hide()
 			return false;
 		}
 		else {
-			$('#sizeSuggestion').text("We recommend size " + suggestion.band.toString() + suggestion.cup.toString() + ".");
+			var message = "We recommend size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + ".";
+			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
+			$('#sizeSuggestion').html('' + message + '');
+			$('#sizeSuggestionAside').html('' + aside + '').show();
 			//Highlight recommended size in a table
 			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
 		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
@@ -226,7 +233,7 @@ $(document).ready(function(){
 	    $( "#underbust" ).slider({
 	      value:28,
 	      min: bands[0].start,
-	      max: bands[6].stop,
+	      max: bands[bands.length-1].stop,
 	      step: .1,
 	      slide: function( event, ui ) {
 	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
@@ -237,7 +244,7 @@ $(document).ready(function(){
 	    $( "#overbust" ).slider({
 	      value:35,
 	      min: bands[0].cups[0].start,
-	      max: bands[6].cups[6].stop,
+	      max: bands[bands.length -1].cups[bands.length -1].stop,
 	      step: .1,
 	      slide: function( event, ui ) {
 	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
@@ -269,11 +276,17 @@ $(document).ready(function(){
     	
     	margin: 0 auto;
     	width: 960px;
-    	background: #fff;
+    	
     }
 
 	#container > section {
 		padding: 33px 0;
+		background: #fff;
+	}
+
+	#container section header{
+		text-align: center;
+		margin: 30px 0 60px 0;
 	}
 
 /*Grid*/	
@@ -302,10 +315,9 @@ $(document).ready(function(){
 	}
 
 /*----Sizes----*/	
-
-    .sizes {
-    	
-    }
+	#sizes {
+		height: 380px;
+	}
 
     #sizeTable {
     	display: block;
@@ -383,6 +395,7 @@ $(document).ready(function(){
     #sizeCalculator .sliderRightLabel {
     	font-size: 9px;
     	text-transform: uppercase; 
+    	font-weight: bold;
     	color: #b3b3b3;
     	position: absolute;
     	margin-top: 10px;
@@ -444,13 +457,13 @@ $(document).ready(function(){
 
 	#sizeSuggestion {
 		width: 100%;
-		margin: 15px 0;
+		margin: 15px 0 0 0;
 		color: rgba(200,90,150,1);
 		font-size: 85%;
 		font-weight: bold;
 	}
 
-	blockquote p{
+	#sizes blockquote p{
 		color: #b3b3b3;
 		font-size: 135%;
 		line-height: 1.3;
@@ -460,22 +473,112 @@ $(document).ready(function(){
 	blockquote small {
 		font-style: italic;
 	}
+
+/*Realphotos*/
+	#realphotos .thumbnail{
+		background: #4A4848;
+		color: #fcfeec;
+		border-radius: 10px;
+	}
+
+	#realphotos .thumbnail img {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	#realphotos figcaption {
+		font-size: 14px;
+		padding: 10px;
+		line-height: 1.5;
+	}
+
+	#realphotos figcaption p {
+		font-size: 12px;
+		font-variant: small-caps;
+	}
+
+/*Testimonials*/	
+	#testimonials blockquote {
+		line-height: 1.2;
+		margin: 0 0 30px 0;
+		height: 120px;
+	}
+
+	#testimonials ul {
+		font-size: 14px;
+		line-height: 1.2;
+		list-style-position: outside;
+		list-style-type: square;
+	}
+
+	#testimonials ul li {
+		padding: 0;
+		margin: 10px 20px;
+	}
+
+/*Preorder*/
+
+	#preorder h1 {
+		text-align: center;
+	}
+
+	.button-huge {
+		font-weight: bold;
+		font-size: 24px;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		padding: 10px 20px;
+		color: #fff;
+		text-shadow: 0 1px 0 #3b3b3b;
+		background: #7abcff; /* Old browsers */
+		background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+		background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+	}
     </style>
 </head>
 
 <body>
+	<!--Facebook -->
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=593381654006218";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--#Facebook-->
+	<nav>
+		<a href="">Looking for a bra?</a>
+		<a href="">Sizing</a>
+		<a href="">Real reviews</a>
+		<a href="">Bloggers say</a>
+		<a href="">Our story</a>
+	</nav>
+
 	<div id="container">
-		<div class="grid4">
-			<h1>Designed & made by Comexim Company from Poland, a country famous for sexy lingerie beyond the G cup.<br>Now available in the US in over 65 sizes!</h1>
-		</div>
-		<section class="sizes grid4">
+		<section>
+			<header>
+				<h1>Are you looking for a #wellfitting bra???</h1>
+			</header>
+		</section>
+		<section class="grid4" id="sizes">
+			<header>
+				<h1>Designed & made by Comexim Company from Poland,<br> a country famous for sexy lingerie beyond the G cup.</h1>
+				<h2>Now available in the US in over 65 sizes!</h2>
+			</header>
 			<div id="sizeTable" class="grid1">
-				<h2>Available Sizes</h2>
+				<h3>Available Sizes</h3>
 				<small>Highlight a size to see exact measurements</small>
 			</div>
 
 			<div id="sizeCalculator" class="grid2">
-				<h2>Holy cannoli! 65 sizes? Which one should I pick?</h2>
+				<h3>Holy cannoli! 65 sizes? Which one should I pick?</h3>
 				<form>
 					<label>Underbust:</label>
 					<small class="sliderLeftLabel">22.8</small>
@@ -492,6 +595,7 @@ $(document).ready(function(){
 					
 					<button id="calculateSize" class="button" >Show my size!</button>
 					<p id="sizeSuggestion"></p>
+					<small id="sizeSuggestionAside"></small>
 				</form>
 			</div>
 
@@ -501,8 +605,167 @@ $(document).ready(function(){
 					<small>&mdash;<a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank">The Lingerie Addict</a></small>
 				</blockquote>
 			</div>
+		</section>
+
+		<section class="grid4" id="realphotos">
+			<header>
+				<h1>This is how these bras fit real breasts!</h1>
+				<h2>Wellfitting Hall of Fame</h2>
+			</header>
+			<figure class="grid1 thumbnail">
+				<a href="http://balkonetka.pl/katalog/bra/comexim-geisha-8">
+					<img src="img/30e-review.jpg">
+				</a>
+				<figcaption>
+					<h2>Geisha Plunge Bra in 30E</h2>
+					<p>
+						Underbust: 67cm | 26.4in <br>
+						Overbust: 91cm | 35.8in
+					</p>
+				</figcaption>
+			</figure>
+			<figure class="grid1 thumbnail">
+				<a href="http://balkonetka.pl/katalog/bra/comexim-geisha-7">
+					<img src="img/30hh-review.jpg">
+				</a>
+				<figcaption>
+					<h2>Geisha Plunge Bra in 30HH</h2>
+					<p>Underbust: 69cm | 27.2in <br>
+						Overbust: 94cm | 37in
+					</p>
+				</figcaption>
+			</figure>
+			<figure class="grid1 thumbnail">
+				<a href="http://balkonetka.pl/katalog/bra/comexim-jasmine">
+					<img src="img/32h-review.jpg">
+				</a>
+				<figcaption>
+					<h2>Jasmine Plunge Bra in 32H</h2>
+					<p>
+						Underbust: 72cm | 28.3in <br>
+						Overbust: 97cm | 38.2in
+					</p>
+				</figcaption>
+			</figure>
+			<figure class="grid1 thumbnail">
+				<a href="http://balkonetka.pl/katalog/bra/comexim-juliette-4">
+					<img src="img/34ff-review.jpg">
+				</a>
+				<figcaption>
+					<h2>Juliette Plunge Bra in 34FF</h2>
+					<p>
+						Underbust: 77cm | 30.3in <br>
+						Overbust: 99cm | 39in
+					</p>
+				</figcaption>
+			</figure>
+		</section>
+
+		<section class="grid4" id="testimonials">
+			<header>
+				<h1>Women all over the world just LOVE these bras!</h1>
+			</header>
+			<div class="grid1">
+				<blockquote>
+					<p>"I never want to buy another brand again"</p>
+					<small>&mdash; <a href="http://hourglassy.com/2013/04/off-the-rack-comexim-review/" target="_blank">HourGlassy, New York City</a></small>
+				</blockquote>
+
+				<blockquote>
+					<p>"I adore this bra, and so pleased that the 60L advice was pretty spot on!"</p>
+					<small>&mdash; <a href="http://bravolution-blog.blogspot.com/2013/05/comexim-review.html" target="_blank">BRAvolution, Chicago</a></small>
+				</blockquote>
+			</div>
+
+			<div class="grid1">
+				<blockquote>
+					<p>"A rose by any other name would smell as sweet..."</p>
+					<small>&mdash; <a href="http://thefemininecurve.wordpress.com/2013/04/07/bra-review-a-rose-by-any-other-name-would-smell-as-sweet-the-comexim-juliet/" target="_blank">The Feminine Curve</a></small>
+				</blockquote>
+				<blockquote>
+					<p>"Again I am blown away of the detailing and the excellent quality of this bra."</p>
+					<small>&mdash;<a href="http://www.bralessinbrasil.com/2012/11/linda-comexim-magic-blue-bra-review.html" target="_blank">Braless in Brasil</a></small>
+				</blockquote>
+			</div>
+
+			<div class="grid1">
+				<blockquote>
+					<p>"I'm not sure how many other companies I'll be buying from after trying Comexim... they are exactly what I'm looking for in a sexy bra"</p>
+					<small>&mdash;<a href="http://obsessedwithbreasts.wordpress.com/2013/04/22/review-comexim-carmen/" target="_blank">Obsessed with Breasts</a></small>
+				</blockquote>
+				<blockquote>
+					<p>"This is a lovely plunge bra.  The material is wonderfully soft."</p>
+					<small>&mdash;<a href="http://brajunkie.blogspot.com/2013/04/ewa-michalak-vs-comexim-sizing-reviews.html" target="_blank">BraJunkie</a></small>
+				</blockquote>
+			</div>
+
+			<div class="grid1">
+				<h2>Other bloggers love'em too!</h2>
+				<ul>
+					<li><a href="http://dimpseybrafit.blogspot.com/2013/06/comexim-tropical-garden-review-60hh.html" target="_blank">These ladies really know how to make gorgeous bras!</a></li>
+					<li><a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank">Why Full Busted Women Are Buying Their Bras In Poland (and Why You Should Too)</a></li>
+					<li><a href="http://www.missunderpinnings.com/2013/05/comexim.html" target="_blank">Claims to fame: Signature plunge shape. Rare fabrics.</a></li>
+				</ul>
+			</div>
 
 		</section>
+
+		<section class="grid4" id="preorder">
+			<header>
+				<h1>Time to make friends with your breasts<br>and give them a bra they deserve!</h1>
+				<button class="button-huge">Pre-order now!</button>
+				<h2>Only 10 days left to pre-order!</h2>
+			</header>
+			<div class="grid1">
+				<h3>Free shipping</h3>
+				<p>Free shipping with your home country postal service all over the US and Europe.</p>
+				<p><a href="">Shipping policy</a></p>
+			</div>
+			<div class="grid1">
+				<h3>Pre-order by July 15th!</h3>
+				<p>Your bra will be handcrafted specially for you, in a size that will fit you best.</p>
+			</div>
+			<div class="grid1">
+				<h3>Delivery times</h3>
+				<p>Your bra will be shipped to you directly from the lingerie craftsmen in Poland.</p>
+				<p><a href="">Why wait?</a></p>
+			</div>
+			<div class="grid1">
+				<h3>Exchange & Returns</h3>
+				<p>If your bra doesn't fit you or you just don't like it, you can simply return it, or exchange for a different size.</p>
+				<p><a href="">Returns & Exchange Policy</a></p>
+			</div>
+		</section>
+
+		<section class="grid4">
+			<header>
+				<h1>Let us know more about you!</h1>
+			</header>
+			<div class="grid1">
+				<h2>My Story</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>xoxo</p>
+				<p>&mdash;Julia</p>
+				<img src="img/julia.png">
+
+			</div>
+
+			<div class="grid2">
+				<h2>Questions? Need advice? </h2>
+				<p>Email us at hello@wellfitting.com or leave a comment here!</p>
+				<div class="fb-comments" data-href="http://example.com" data-width="460" data-num-posts="5"></div>
+			</div>
+
+			<div class="grid1">
+				<h2>Stay connected!</h2>
+				<a class="twitter-timeline" href="https://twitter.com/wellfitting" data-widget-id="351868947634741248">Tweets by @wellfitting</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+		</section>
+
+		<footer>
+			&copy; Wellfitting.com 2013 | hello@wellfitting.com
+		</footer>
 	</div><!--#container-->
 </body>
 
