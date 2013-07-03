@@ -180,7 +180,7 @@ $(document).ready(function(){
 				var cupStop = band.cups[j+1].start;
 			};
 			//append cell content with exact cup measurements in a tooltip
-			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString().toUpperCase() +'<div class="tooltip">FITS:<br>' +band.start.toString() +'-' +band.stop.toString() + ' UNDERBUST<br>' +cup.start.toString() +'-' +cupStop.toString() +' OVERBUST</div></td>');
+			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString().toUpperCase() +'<div class="tooltip"> underbust<br>' +band.start.toString() +'&mdash;' +band.stop.toString() + '<hr>overbust<br>' +cup.start.toString() +'&mdash;' +cupStop.toString() +'</div></td>');
 			row.append(cell);
 		};
 		//alternate .odd css class in rows
@@ -189,10 +189,25 @@ $(document).ready(function(){
     	};
     	table.append(row);
 	};
-	//create size table
+	//Create size table
 	$('#sizeTable').append(table);
 
-	// Shows size suggestion based on user's measurements input "Size Calculator"
+	//Show a tooltip on table cell mouseover
+	$("#sizeTable td").hover(
+		function(){
+			$(this).find(".tooltip").show();
+		},
+		function(){
+			$(this).find(".tooltip").hide();	
+		}
+	);
+	//Hide a tooltip on click
+	$(".tooltip").click(function(){
+		$(this).hide();
+	});
+	
+
+	// Show size suggestion based on user's measurements input "Size Calculator"
 	function sizeSuggestion(){
 	var under = $('#underbust').slider( "value" );
 	var over = $('#overbust').slider("value");
@@ -201,32 +216,36 @@ $(document).ready(function(){
 	$('#calculateSize').click(function(){
 		//remove highlights from table cells, if any
 		$("#sizeTable td").removeClass('highlighted');
+		//hide #sizeSuggestion
+		$("#sizeSuggestion").hide();
 		//calculate suggestion and display appropriate message
 		var suggestion = sizeSuggestion();	
 		if (sizeSuggestion().band === null) {
 			var message = "Sorry, seems like we don't carry your size yet:(";
 			$('#sizeSuggestion').html('' + message + '');
-			$('#sizeSuggestionAside').hide()
+			$("#sizeSuggestion").show();
 			return false;
 		}; 
 		if (sizeSuggestion().cup === null) {
 			var message = "Your band is " +suggestion.band + ", but we don't carry your cup:(" 
 			$('#sizeSuggestion').html('' + message + '');
-			$('#sizeSuggestionAside').hide()
+			$("#sizeSuggestion").show();
 			return false;
 		}
 		else {
 			var message = "We recommend size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + ".";
 			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
-			$('#sizeSuggestion').html('' + message + '');
+			$('#sizeSuggestion').html('' + message + '<br><small id="sizeSuggestionAside"></small>');
 			$('#sizeSuggestionAside').html('' + aside + '').show();
+			$("#sizeSuggestion").fadeIn(500);
 			//Highlight recommended size in a table
 			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
 		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
+		    $('td.highlighted').find(".tooltip").show();
 			return false;
 		};
 	  });
-
+	
 	//Sliders for measurements
 	$(function() {
 		//underbust
@@ -258,12 +277,31 @@ $(document).ready(function(){
     </script>
 
     <style type="text/css">
+    /*COLORS:
+    
+    turqoise: #30C4C9; 
+    turqoise super light: #EBF2F2;
+    
+    dark (text): #092324;
+	light (background): #FCF9FA;
+	
+	
+	pink: #FC328A;
+	pink light: #FC9AC5;
+	pink gray: #E6D1DA;
+
+	orange: #FFAC40;
+    
+
+    */
     body {
-    	background: #fff;
+    	background: #FCF9FA;
+    	color: #092324;
+    	line-height: 1.3;
     }
 
     a {
-	color: #4096ee;
+	color: #FC328A;
 	text-decoration: none;
 }
 
@@ -281,12 +319,27 @@ $(document).ready(function(){
 
 	#container > section {
 		padding: 33px 0;
-		background: #fff;
+
+		
 	}
 
 	#container section header{
 		text-align: center;
-		margin: 30px 0 60px 0;
+		margin: 30px 0 100px 0;
+	}
+
+	h1 {
+		color: #30C4C9;
+	}
+
+	small {
+		color: rgba(9,35,36,.5);
+		font-size: 65%;
+		font-style: italic;
+	}
+
+	blockquote {
+		color: rgba(9,35,36,.5);
 	}
 
 /*Grid*/	
@@ -314,67 +367,109 @@ $(document).ready(function(){
 		float: left;
 	}
 
+/*--Nav---*/
+	nav {
+		background: #092324;
+		padding: 10px 0;
+		display: block;
+		width: 100%;
+		float: left;
+		position: fixed;
+		z-index: 10000;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+	nav a {
+		margin: 5px 20px 0 0;
+		font-weight: bold;
+		display: inline-block;
+	}
+
+	nav a:hover {
+		color: #FFAC40;
+	}
+
+	.navMain{
+		width: 960px;
+		margin: 0 auto;
+	}
+
+	.navSocial {
+		display: block;
+		float: right;
+	}
+	
 /*----Sizes----*/	
 	#sizes {
-		height: 380px;
+		
 	}
 
     #sizeTable {
     	display: block;
-    	width: 260px;
-    	padding: 10px;
-    	position: relative;
-    	background: #fff;
-    	margin-left: -60px;
-    	border-radius: 5px;
-    	box-shadow: 0 0 5px #b3b3b3;
+    	width: 332px;
+    	padding: 20px 10px;
+    	position: absolute;
+    	margin-left: 720px;
+    	margin-top: -20px;
+    	border-radius: 0px;
+    	box-shadow:  0 0 5px rgba(9,35,36,.1);
+    	text-align: center;
     }
     
     #sizeTable table{
     	margin: 10px 0 0 0;
     	font-size: 9px;
-    	
+    	text-align: left;
     }
 
 	#sizeTable td {
 		display: inline-block;
 		cursor: pointer;
 		text-align: center;
-		width: 20px; 
-		padding: 5px 0;
+		width: 21px; 
+		padding: 4px 0;
+		border: solid 1px rgba(48,196,201,.2);
+		margin: 2px 2px 0 0;
+		background: #fff;
 	}
-    .odd {
-    	background: rgba(200,90,150,.2);
-    }
 
     .tooltip {
     	display: none;
     	position: absolute;
-    	margin-left: 2.5em;
-    	margin-top: -1.5em;
-    	background: #fff;
-    	color: rgba(200,90,150,1);
-    	border: solid 1px rgba(200,90,150,.5);
+    	margin-left: -30px;
+    	margin-top: 0em;
     	text-align: left;    	
     	z-index: 1000;
     	padding: 5px;
     	width: 70px;
-    	border-radius: .5em;
     	font-weight: bold;
-    	font-size: 10px;
+    	font-size: 12px;
+    	background: #fff;
+    	box-shadow:  0 0 5px rgba(9,35,36,.2);
+    	font-variant: small-caps;
     }
+	
 	#sizeTable td:hover {
-		background: rgba(200,90,150,1);
-		color: #fff;
+		background: #EBF2F2;
+		font-weight: bold;
 	}
 
     #sizeTable td:hover .tooltip {
     	display: block;
+    	border: solid 1px rgba(48,196,201,.2);
+    	color: rgba(9,35,36,.6);
     }
 
     #sizeTable td.highlighted {
-    	background: #4096ee;
-    	color: #fff;
+    	background: #FFAC40 !important;
+    	font-weight: bold;
+    }
+
+    #sizeTable td.highlighted:hover .tooltip,
+    #sizeTable td.highlighted .tooltip {
+    	border: solid 1px #FFAC40;
+    	color: rgba(9,35,36,1);
     }
 
     #sizeCalculator form{
@@ -396,7 +491,6 @@ $(document).ready(function(){
     	font-size: 9px;
     	text-transform: uppercase; 
     	font-weight: bold;
-    	color: #b3b3b3;
     	position: absolute;
     	margin-top: 10px;
     	z-index: 999;
@@ -406,84 +500,88 @@ $(document).ready(function(){
 		margin-left: 4px;
 	}
     #sizeCalculator .sliderRightLabel {
-		margin-left: 280px;	
+		margin-left: 260px;	
     }
 
     .ui-slider-handle{
     	z-index: 1000 !important;
+    	background: rgba(255,172,64,.3) !important; 
+    	border: solid 1px #999 !important;
     }
 
 	#sizeCalculator .slider {
 		display: inline-block;
 		position: relative;
 		top: 3px;
-		width: 300px;
-		margin: 0px 10px 0 0;
+		width: 280px;
+		margin: 0px 15px 0 0;
+		background: #EBF2F2; 
 	}
 
 	#sizeCalculator .sliderLabel{
-		width: 90px;
+		display: inline-block;
+		width: 50px;
 		text-transform: uppercase;
-		font-size: 11px;
+		font-size: 14px;
     	font-weight: bold;
+    	background: #FFAC40;
+    	text-align: center;
+    	
 	}
 
 	#sizeCalculator .sliderLabel span{
 		text-transform: none;
 	}
 
-	#sizeCalculator p {
-
-	}
-	.button {
-		margin-left: 94px;
-		font-weight: bold;
-		font-size: 14px;
-		border-radius: 5px;
+	#sizeCalculator .button {
+		font-size: 12px;
+		border-radius: 4px;
 		border: none;
 		cursor: pointer;
 		padding: 5px 10px;
-		color: #fff;
-		text-shadow: 0 1px 0 #3b3b3b;
-		background: #7abcff; /* Old browsers */
-		background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
-		background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+		background: #FC328A;
+		color: #FCF9FA;
+		margin-left: 94px;
+	}
+
+	#sizeCalculator .button:hover{
+		box-shadow: 0 0 10px #FFAC40;
 	}
 
 	#sizeSuggestion {
-		width: 100%;
-		margin: 15px 0 0 0;
-		color: rgba(200,90,150,1);
+		display: none;
+		position: absolute;
+		background: #EBF2F2;
+		width: 430px;
+		padding: 10px;
 		font-size: 85%;
 		font-weight: bold;
+		margin: 15px 0;
 	}
 
-	#sizes blockquote p{
-		color: #b3b3b3;
-		font-size: 135%;
-		line-height: 1.3;
-		text-align: left;
+	#sizes blockquote {
+		color: rgba(9,35,36,.5);		
+		text-align: center;
+		padding: 0 20px;
+		font-size: 120%;
+		border-right: solid 1px rgba(9,35,36,.1);
 	}
 
-	blockquote small {
-		font-style: italic;
-	}
+	
 
 /*Realphotos*/
+	#realphotos figure {
+		background: #fff;
+		box-shadow: 0 0 5px #bbb;
+	}
 	#realphotos .thumbnail{
-		background: #4A4848;
-		color: #fcfeec;
-		border-radius: 10px;
+		background: #FCF9FA;
+		color: #092324;
+		
 	}
 
 	#realphotos .thumbnail img {
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
+		
 	}
 	#realphotos figcaption {
 		font-size: 14px;
@@ -553,12 +651,17 @@ $(document).ready(function(){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!--#Facebook-->
-	<nav>
-		<a href="">Looking for a bra?</a>
-		<a href="">Sizing</a>
-		<a href="">Real reviews</a>
-		<a href="">Bloggers say</a>
-		<a href="">Our story</a>
+	<nav class="">
+		<div class="navMain">
+			<a href="">Looking for a bra?</a>
+			<a href="">Sizing</a>
+			<a href="">Real reviews</a>
+			<a href="">Bloggers say</a>
+			<a href="">Our story</a>
+			<div class="navSocial">
+				<div class="fb-like" data-href="http://facebook.com/wellfitting" data-send="false" data-layout="button_count" data-show-faces="true" data-colorscheme="dark"></div>
+			</div>
+		</div>	
 	</nav>
 
 	<div id="container">
@@ -572,9 +675,11 @@ $(document).ready(function(){
 				<h1>Designed & made by Comexim Company from Poland,<br> a country famous for sexy lingerie beyond the G cup.</h1>
 				<h2>Now available in the US in over 65 sizes!</h2>
 			</header>
-			<div id="sizeTable" class="grid1">
-				<h3>Available Sizes</h3>
-				<small>Highlight a size to see exact measurements</small>
+			<div class="grid1">
+				<blockquote>
+					<p>"It turns out there is a magical land where bra manufacturers are making bras in all shapes, sizes, and colors of the rainbow."</p>
+					<small>&mdash;<a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank">The Lingerie Addict</a></small>
+				</blockquote>
 			</div>
 
 			<div id="sizeCalculator" class="grid2">
@@ -593,18 +698,17 @@ $(document).ready(function(){
 					<div id="overbust" class="slider"></div>
 					<span id="overbustLabel" class="sliderLabel"></span>
 					
-					<button id="calculateSize" class="button" >Show my size!</button>
-					<p id="sizeSuggestion"></p>
-					<small id="sizeSuggestionAside"></small>
+					<button id="calculateSize" class="button" >Calculate &#10140;</button>
+					<div id="sizeSuggestion"></div>
 				</form>
 			</div>
 
-			<div class="grid1">
-				<blockquote>
-					<p>"It turns out there is a magical land where bra manufacturers are making bras in all shapes, sizes, and colors of the rainbow."</p>
-					<small>&mdash;<a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank">The Lingerie Addict</a></small>
-				</blockquote>
+			<div id="sizeTable" class="grid1">
+				<h3>Available Sizes</h3>
+				<small>Highlight a size to see exact measurements</small>
 			</div>
+
+			
 		</section>
 
 		<section class="grid4" id="realphotos">
