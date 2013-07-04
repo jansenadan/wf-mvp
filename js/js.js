@@ -4,7 +4,7 @@ var bands = [
 		    		start: 22.8, 
 		    		stop: 24.8,
 		    		cups: [
-		    			{value: 'b', start: 29.1},
+		    			{value: 'a', start: 29.1},
 			    		{value: 'c', start: 29.9},
 			    		{value: 'd', start: 30.7},
 		    			{value: 'e', start: 31.5},
@@ -121,42 +121,155 @@ var bands = [
 			];
 // assert: bands is sorted by start.
 
-//myBand recommends Comexim size based on underbust and overbust measurements in inches
-var myBand = function(underbust, overbust) {
+//mySize recommends Comexim size based on underbust and overbust measurements in inches
+var mySize = function(underbust, overbust) {
 	for (var i = 0; i < bands.length; i++) {
 		var band = bands[i]    		
 		if (underbust >= band.start && underbust < band.stop) {	
 			for (var j = 0; j < band.cups.length; j++){
 				var cup = band.cups[j]
-				if (band.cups[j+1] == undefined){
+				if (j+1  === band.cups.length){
 					var cupMax = cup.stop
 				}
 				else {
 					var cupMax = band.cups[j+1].start
-				}	
-				if (overbust >= cup.start && overbust < cupMax){
+				};	
+				if (overbust > cup.start && overbust <= cupMax){
 					return {band: band.value, cup: cup.value}
 				}
 				else {
-					message = "Your band size is " + band.value + " but we don't carry your cup size:("
-				}
+					noSize = {band:band.value, cup:null}
+				};
 			}
-			return message
+			return noSize
 		}
 		else {
-			message = "Sorry, we don't carry your band size"
+			noSize = {band:null, cup:null}
 		}			
 	}
-	return message
+	return noSize
 };
 
-//Dynamic size calculation
+
+
+$(document).ready(function(){	
+	//Shrink the bras gallery (change class on #mainGallery from .init to .onscroll)
+	// var galleryHeight = $('#mainGallery').height();	
+	// var scrollTop = $(window).scrollTop();	
+		// if (true) {
+		// 	$('#mainGallery').parent().removeClass('init').addClass('onscroll');
+		// 	return true;
+		// };
+	$(window).scroll(function() {
+		$('#mainGallery').hide();
+	});
+
+	//Generates size information table
+	var table = $('<table></table>');
+	for(var i=0; i < bands.length; i++){
+		var band = bands[i];
+    	var row = $('<tr></tr>');
+		for (var j=0; j < band.cups.length; j++) {
+			var cup = band.cups[j];
+			//determine cup.stop
+			if (j+1 === band.cups.length){
+				var cupStop = cup.stop;
+			}
+			else {
+				var cupStop = band.cups[j+1].start;
+			};
+			//append cell content with exact cup measurements in a tooltip
+			var cell = $('<td data-size="' + band.value.toString() + cup.value.toString() + '">' +band.value.toString() +cup.value.toString().toUpperCase() +'<div class="tooltip"> underbust<br>' +band.start.toString() +'&mdash;' +band.stop.toString() + '<hr>overbust<br>' +cup.start.toString() +'&mdash;' +cupStop.toString() +'</div></td>');
+			row.append(cell);
+		};
+		//alternate .odd css class in rows
+    	if (i%2 === 0) {
+    		row.addClass('odd')
+    	};
+    	table.append(row);
+	};
+	//Create size table
+	$('#sizeTable').append(table);
+
+	//Show a tooltip on table cell mouseover
+	$("#sizeTable td").hover(
+		function(){
+			$(this).find(".tooltip").show();
+		},
+		function(){
+			$(this).find(".tooltip").hide();	
+		}
+	);
+	//Hide a tooltip on click
+	$(".tooltip").click(function(){
+		$(this).hide();
+	});
 	
 
-$(document).ready(function(){
-	i = 10
-	var underbust1 = $('#underbust').val();
-	var overbust = $('#overbust').val();
-}
-
-
+	// Show size suggestion based on user's measurements input "Size Calculator"
+	function sizeSuggestion(){
+	var under = $('#underbust').slider( "value" );
+	var over = $('#overbust').slider("value");
+	return mySize(under,over)
+	};
+	$('#calculateSize').click(function(){
+		//remove highlights from table cells, if any
+		$("#sizeTable td").removeClass('highlighted');
+		//hide all tooltips
+		$('#sizeTable .tooltip').hide();
+		//hide #sizeSuggestion
+		$("#sizeSuggestion").hide();
+		//calculate suggestion and display appropriate message
+		var suggestion = sizeSuggestion();	
+		if (sizeSuggestion().band === null) {
+			var message = "Sorry, seems like we don't carry your size yet:(";
+			$('#sizeSuggestion').html('' + message + '');
+			$("#sizeSuggestion").show();
+			return false;
+		}; 
+		if (sizeSuggestion().cup === null) {
+			var message = "Your band is " +suggestion.band + ", but we don't carry your cup:(" 
+			$('#sizeSuggestion').html('' + message + '');
+			$("#sizeSuggestion").show();
+			return false;
+		}
+		else {
+			var message = "We recommend size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + ".";
+			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
+			$('#sizeSuggestion').html('' + message + '<br><small id="sizeSuggestionAside"></small>');
+			$('#sizeSuggestionAside').html('' + aside + '').show();
+			$("#sizeSuggestion").fadeIn(500);
+			//Highlight recommended size in a table
+			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
+		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
+		    $('td.highlighted').find(".tooltip").show();
+			return false;
+		};
+	  });
+	
+	//Sliders for measurements
+	$(function() {
+		//underbust
+	    $( "#underbust" ).slider({
+	      value:28,
+	      min: bands[0].start,
+	      max: bands[bands.length-1].stop,
+	      step: .1,
+	      slide: function( event, ui ) {
+	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
+	      }
+	    });
+	    $( "#underbustLabel" ).html($( "#underbust" ).slider( "value" ) + '<span>in</span>' );
+	    //overbust
+	    $( "#overbust" ).slider({
+	      value:35,
+	      min: bands[0].cups[0].start,
+	      max: bands[bands.length -1].cups[bands.length -1].stop,
+	      step: .1,
+	      slide: function( event, ui ) {
+	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
+	      }
+	    });
+	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
+	});
+});
