@@ -42,35 +42,36 @@ a:hover {
 
 #container > section {
 	width: 100%;
-	padding: 1em 0 3em 0;
+	padding: 0 0 4em 0;
 }
 
 #container > section .inner {
 	margin: 0 auto;
 	width: 960px;
-	padding: 3em 0 0 0;
+	padding: 0em;
 }
 
 
 #container section header{
-	text-align: center;
-	margin: 0;
+	text-align: left;
+	margin: 0 auto ;
 	position: relative;
-	width: 100%;
-	padding: 1em 0;
+	width: 960px;
+	padding: 3em 0 0em 0;
 }
 
 h1 {
-	color: #30C4C9;
-	font-size: 200%;
-	margin: 0 0 1em 0;
 	
+	font-size: 300%;
+	margin: 0 0 1em 0;
+	letter-spacing: -1px;
 	text-shadow: 1px 1px 0 #fff;
 }
 
 h2 {
-	font-size: 150%;
-	margin: 0 0 1em 0;
+	color: #30C4C9;
+	font-size: 100%;
+	margin: 0 0 .5em 0;
 }
 
 small {
@@ -113,7 +114,7 @@ blockquote {
 /*--Nav---*/
 nav {
 	background: #092324;
-	padding: 10px 0;
+	padding: 0;
 	display: block;
 	width: 100%;
 	float: left;
@@ -150,84 +151,158 @@ nav .logo {
 }
 
 /*Main gallery and main header*/	
-/*.init shows on load before scroll*/
-.init #mainGallery{
+#mainGallery{
 	float: left;
 	background: #FCF9FA;
 	background-image:  url(../img/css/dot-pattern-alpha1.png);
 	-webkit-background-size: .25%;
 	-moz-background-size: .25%;
 	-o-background-size: .25%;
-	background-size: .252%;		
+	background-size: .25%;		
 	width: 100%;
-
+	border-bottom: solid 1px rgba(9,35,36,.1);
+	overflow: hidden;
+	padding: 0 !important;
+	margin: 0 0 0 0;
 }
-.init #mainGallery figure {
+
+#mainGallery header {
+	padding: 0 !important;
+	text-align: center;
+}
+#mainGallery figure {
 	display: block;
 	float: left;
 	width: 25%;
-	padding: 0 0 10px 0;
+	overflow: hidden;
+	cursor: pointer;
 }
 
-.init #mainGallery figure:hover {
-	-webkit-transform:rotate(5deg);
-}
+#mainGallery figure:hover {
 
-/*.onscroll*/	
-.onscroll #mainGallery {
-	position: fixed;
-	display: block;
-	float: left;
-	background: #FCF9FA;
-	width: 3000px;
-	height: 150px;
-	
-	z-index: 1500;	
-	box-shadow: 0 0 5px rgba(9,35,36,.3);	
-	bottom: 0;
-}
-
-.onscroll #mainGallery figure{
-	display: block;
-	width: 200px;
-	float: left;
-}
-
-.onscroll #mainHeader {
-	display: none;
-}
-
-.onscroll #mainGallery figure:hover {
-	margin: -20px 0;
 }
 
 #mainGallery figure img {
 	width: 100%;
+	-webkit-filter: saturate(100%);  
+}
+
+#mainGallery figure:hover img {
+	-webkit-filter: saturate(100%);  
 }
 
 #mainHeader {
 	position: absolute;
 	top: 300px;
 	left: 50%;
+	width: 60%;
+	margin-left: -30%;
+}
+
+#mainHeader h1{
+	background: rgba(252,249,250,.9);
+	font-size: 300%;
+	border-radius: 4px;
+	padding: 0px 0;
+	color: #092324;
+	margin: 0 0 0 0;
+}
+
+#mainHeader span {
+	color: #30C4C9;
+}
+
+.scrollArrow{
+	position: fixed;
+	font-size: 300%;
+	font-weight: normal;
+	-webkit-transform:rotate(90deg);
+	color: #FC328A;
+	text-shadow: 0px 0px 5px rgba(255,255,255,.9);
+	bottom: 15px;
+	left: 50%;
+	width: 60px;
+	margin-left: -30px;
+}
+
+/*item gallery carousel to display items while user scrolls*/	
+.onscroll {
+	position: fixed;
+	display: none;
+	float: left;
+	background: #EBF2F2;
+	height: 150px;	
 	width: 100%;
-	margin-left: -50%;
-	background: rgba(252,249,250,1);
-	font-size: 400%;
-	border-radius: 0px;
+	z-index: 1500;	
+	box-shadow: 0 0 5px rgba(9,35,36,.3);	
+	bottom: 0;
+}
+
+.onscroll #galleryCarousel {	
+	position: absolute;
+	left: 0;
+	margin: 0 40px;
+}
+.onscroll figure{
+	display: block;
+	width: 200px;
+	float: left;
+}
+
+.onscroll figure:hover {
+	margin: -20px 0;
+}
+
+.onscroll figure img {
+	width: 100%;
+}
+
+.onscroll #scrollLeft,
+.onscroll #scrollRight {
+	display: block;
+	font-size: 300%;
+	position: absolute;
+	height: 70px;
+	padding: 40px 10px;
+	z-index: 1501;
+	color: #FC328A ;
+	font-weight: normal;
+	background: rgba(255,255,255,.0);
+}
+
+.onscroll #scrollLeft {
+	float: left;
+}
+.onscroll #scrollRight {
+	float: right;
+	right: 0;
+}
+
+.onscroll #scrollLeft.active,
+.onscroll #scrollRight.active {
+	color: #FC328A;
+	cursor: pointer;
+}
+
+.onscroll #scrollLeft.active:hover,
+.onscroll #scrollRight.active:hover{
+	background: rgba(255,255,255,.9)
+}
+
+.onscroll #scrollLeft.inactive,
+.onscroll #scrollRight.inactive	 {
+	color: #FC9AC5;
+	cursor: default;
 }
 /*----Sizes----*/	
 #sizes {
-	
+		
 }
 
 #sizeTable {
 	display: block;
-	width: 332px;
-	padding: 20px 10px;
-	position: absolute;
-	margin-left: 720px;
+	padding: 20px;
 	margin-top: -0px;
-	border-radius: 0px;
 	box-shadow:  0 0 5px rgba(9,35,36,.3);
 	text-align: center;
 	background: #FCF9FA;
@@ -235,7 +310,7 @@ nav .logo {
 
 #sizeTable table{
 	margin: 10px 0 0 0;
-	font-size: 9px;
+	font-size: 11px;
 	text-align: left;
 }
 
@@ -243,7 +318,7 @@ nav .logo {
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
-	width: 21px; 
+	width: 28px; 
 	padding: 4px 0;
 	border: solid 1px rgba(48,196,201,.2);
 	margin: 2px 2px 0 0;
@@ -387,7 +462,7 @@ nav .logo {
 
 /*Realphotos*/
 #realphotos figure {
-	background: #fff;
+	background: #EBF2F2;
 	box-shadow: 0 0 5px #bbb;
 	-webkit-transform:rotate(-1deg);
 	
@@ -402,7 +477,7 @@ nav .logo {
 }
 
 #realphotos .thumbnail{
-	background: #fff;
+	background: #EBF2F2;
 	color: #092324;
 	
 }
