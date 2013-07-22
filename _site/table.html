@@ -186,6 +186,12 @@ $(document).ready(function(){
     });
 	}, 2000);
 
+//Scroll down after $scrollArrow is clicked
+	$scrollArrow.click(function(){
+		$('html, body').animate({
+         scrollTop: $("#sizes").offset().top
+     }, 2000)
+	});
 
 	$(window).scroll(function(){
 		var scrolltop = $(window).scrollTop();
@@ -197,9 +203,9 @@ $(document).ready(function(){
 			$scrollArrow.show();
 		}			
 		//Shrink the bras gallery (change class on #mainGallery from .init to .onscroll)
-		var breakpoint = $('#mainGallery').height() * .5;
+		var breakpoint = $('#sizes h1').offset()['top']-300;
 		if (scrolltop >= breakpoint) {
-			//$('.onscroll').show(1000);	//
+			$('.onscroll').show(1000);		
 		}
 		else {
 			$('.onscroll').hide(1000);
@@ -301,6 +307,16 @@ $(document).ready(function(){
 		};
 	});
 
+	//Animate highlights on mouse over #galleryCarousel figure
+	$('#galleryCarousel figure').hover(
+		function(){
+			$(this).switchClass('','highlighted',100,"swing");
+		},
+		function(){
+			$(this).switchClass('highlighted', '', 100,"swing");
+		}
+	);
+
 
 //Generate size information table
 	var table = $('<table></table>');
@@ -369,7 +385,7 @@ $(document).ready(function(){
 			return false;
 		}
 		else {
-			var message = "We recommend size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + ".";
+			var message = "Try size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + "!";
 			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
 			$('#sizeSuggestion').html('' + message + '<br><small id="sizeSuggestionAside"></small>');
 			$('#sizeSuggestionAside').html('' + aside + '').show();
@@ -383,7 +399,7 @@ $(document).ready(function(){
 	  });
 	
 //Create sliders for measurements input
-//Requieres jQuery UI
+//Requires jQuery UI
 	$(function() {
 		//underbust
 	    $( "#underbust" ).slider({
@@ -393,6 +409,14 @@ $(document).ready(function(){
 	      step: .1,
 	      slide: function( event, ui ) {
 	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
+	      },
+	      change: function( event, ui ) {
+	      	//hide #sizeSuggestion
+			$("#sizeSuggestion").fadeOut(100);
+	      	//remove highlights from table cells, if any
+			$("#sizeTable td").removeClass('highlighted');
+			//hide all tooltips
+			$('#sizeTable .tooltip').fadeOut(100);
 	      }
 	    });
 	    $( "#underbustLabel" ).html($( "#underbust" ).slider( "value" ) + '<span>in</span>' );
@@ -404,10 +428,18 @@ $(document).ready(function(){
 	      step: .1,
 	      slide: function( event, ui ) {
 	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
+	      },
+	      change: function( event, ui ) {
+	      	//hide #sizeSuggestion
+			$("#sizeSuggestion").fadeOut(100);
+	      	//remove highlights from table cells, if any
+			$("#sizeTable td").removeClass('highlighted');
+			//hide all tooltips
+			$('#sizeTable .tooltip').fadeOut(100);
 	      }
 	    });
 	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
-	});
+	});	
 });
     </script>
 
@@ -425,7 +457,7 @@ $(document).ready(function(){
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<!--#Facebook-->
 
-	<nav class="">
+	<nav id="topMenu">
 		<img src="img/css/logo.png" class="logo">
 		<div class="navMain">
 			<a href="">Looking for a bra?</a>
@@ -476,43 +508,12 @@ $(document).ready(function(){
 			</header>			
 		</div>
 
-		<section>
-			<div class="onscroll">
-				<span id="scrollLeft">&#10094;</span>
-				<span id="scrollRight">&#10095;</span>  
-				<div id="galleryCarousel">
-					<figure id="first">
-						<img src="img/free-time.png">
-					</figure>
-					<figure>
-						<img src="img/summer-time.png">
-					</figure>
-					<figure>
-						<img src="img/mint-sorbet.png">
-					</figure>
-					<figure>
-						<img src="img/lychee-sorbet.png">
-					</figure>
-					<figure>
-						<img src="img/geisha.png">
-					</figure>
-					<figure>
-						<img src="img/jasmine.png">
-					</figure>
-					<figure>
-						<img src="img/kelly.png">
-					</figure>
-					<figure>
-						<img src="img/juliette.png">
-					</figure>
-				</div>
-
-			</div>
-		</section>	
 		
 		<section class="grid4" id="sizes">
 			<header>
-				<h1>Pick one from over 65 sizes!</h1>
+				<div id="bubble"></div>
+				<h2>Big bust? Small bust?</h2>
+				<h1>Choose from over 65 sizes!</h1>
 			</header>
 			<div class="inner">
 				<!--div class="grid1">
@@ -523,7 +524,7 @@ $(document).ready(function(){
 				</div-->
 
 				<div id="sizeCalculator" class="grid2">
-					<h3>Holy cannoli! 65 sizes? Which one should I pick?</h3>
+					<h3>Holy cannoli! Which size will fit me?</h3>
 					<form>
 						<label>Underbust:</label>
 						<small class="sliderLeftLabel">22.8</small>
@@ -545,68 +546,131 @@ $(document).ready(function(){
 
 				<div class="grid2">
 					<div id="sizeTable">
-						<h3>Available Sizes</h3>
+						<h3>Size Chart</h3>
 						<small>Highlight a size to see exact measurements</small>
 					</div>
 				</div>
-			</div>
-		</section>
-
-		<section class="grid4" id="realphotos">
-			<header>
-				<h1>This is how these bras fit real breasts!</h1>
-			</header>
-			<div class="inner">
-				<figure class="grid1 thumbnail odd">
+				
+				<div class="grid4" id="realphotos">
+					<figure class="grid1-6 thumbnail odd">
 					<a href="http://balkonetka.pl/katalog/bra/comexim-geisha-8">
 						<img src="img/30e-review.jpg">
 					</a>
 					<figcaption>
-						<h2>Geisha Plunge Bra in 30E</h2>
+						<h2>30E</h2>
 						<p>
-							underbust: 67cm | 26.4in <br>
-							overbust: 91cm | 35.8in
+							underbust: 26.4in <br>
+							overbust: 35.8in
 						</p>
 					</figcaption>
 				</figure>
-				<figure class="grid1 thumbnail">
+				<figure class="grid1-6 thumbnail">
 					<a href="http://balkonetka.pl/katalog/bra/comexim-geisha-7">
 						<img src="img/30hh-review.jpg">
 					</a>
 					<figcaption>
-						<h2>Geisha Plunge Bra in 30HH</h2>
+						<h2>30HH</h2>
 						<p>
-							underbust: 69cm | 27.2in <br>
-							overbust: 94cm | 37in
+							underbust: 27.2in <br>
+							overbust: 37in
 						</p>
 					</figcaption>
 				</figure>
-				<figure class="grid1 thumbnail odd">
+				<figure class="grid1-6 thumbnail">
+					<a href="http://balkonetka.pl/katalog/bra/comexim-kelly">
+						<img src="img/34f-review.jpg">
+					</a>
+					<figcaption>
+						<h2>34FF</h2>
+						<p>
+							underbust: 28.7in <br>
+							overbust: 37.8in
+						</p>
+					</figcaption>
+				</figure>
+				<figure class="grid1-6 thumbnail odd">
 					<a href="http://balkonetka.pl/katalog/bra/comexim-jasmine">
 						<img src="img/32h-review.jpg">
 					</a>
 					<figcaption>
-						<h2>Jasmine Plunge Bra in 32H</h2>
+						<h2>32H</h2>
 						<p>
-							underbust: 72cm | 28.3in <br>
-							overbust: 97cm | 38.2in
+							underbust: 28.3in <br>
+							overbust: 38.2in
 						</p>
 					</figcaption>
 				</figure>
-				<figure class="grid1 thumbnail">
+				<figure class="grid1-6 thumbnail">
 					<a href="http://balkonetka.pl/katalog/bra/comexim-juliette-4">
 						<img src="img/34ff-review.jpg">
 					</a>
 					<figcaption>
-						<h2>Juliette Plunge Bra in 34FF</h2>
+						<h2>34FF</h2>
 						<p>
-							underbust: 77cm | 30.3in <br>
-							overbust: 99cm | 39in
+							underbust: 30.3in <br>
+							overbust: 39in
+						</p>
+					</figcaption>
+				</figure>
+				<figure class="grid1-6 thumbnail">
+					<a href="http://balkonetka.pl/katalog/bra/comexim-carmen-2">
+						<img src="img/34k-review.jpg">
+					</a>
+					<figcaption>
+						<h2>34K</h2>
+						<p>
+							underbust: 29.5in <br>
+							overbust: 42.5in
 						</p>
 					</figcaption>
 				</figure>
 			</div>
+			</div>
+
+			
 		</section>
+
+		<section>
+			<div class="onscroll">
+				<span id="scrollLeft">&#10094;</span>
+				<span id="scrollRight">&#10095;</span>  
+				<div id="galleryCarousel">
+					<figure id="first">						
+						<img src="img/free-time.png">
+						
+					</figure>
+					<figure>
+						<img src="img/summer-time.png?foo=bar">
+						
+					</figure>
+					<figure>
+						<img src="img/mint-sorbet.png">
+						
+					</figure>
+					<figure>
+						<img src="img/lychee-sorbet.png">
+						
+					</figure>
+					<figure>
+						<img src="img/juliette.png">
+						
+					</figure>
+					<figure>
+						<img src="img/kelly.png">
+						
+					</figure>
+					<figure>
+						<img src="img/jasmine.png">
+						
+					</figure>
+					<figure>
+						<img src="img/geisha.png">
+						
+					</figure>
+				</div>
+
+			</div>
+		</section>	
 
 		<section class="grid4" id="testimonials">
 			<header>
@@ -660,7 +724,7 @@ $(document).ready(function(){
 
 		<section class="grid4" id="preorder">
 			<header>
-				<h1>Time to make friends with your breasts<br>and give them a bra they deserve!</h1>
+				<h1>Order your bra now!</h1>
 				<button class="button-huge">Pre-order now!</button>
 				<h2>Only 10 days left to pre-order!</h2>
 			</header>
