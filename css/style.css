@@ -162,7 +162,8 @@ nav a {
 	display: inline-block;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.highlighted {
 	color: #FFAC40;
 }
 
@@ -171,6 +172,7 @@ nav .logo {
 	position: relative;
 	float: left;
 	margin: -5px 0 0 10px;
+	cursor: pointer;
 }
 .navMain{
 	width: 960px;

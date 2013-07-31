@@ -194,6 +194,10 @@ $(document).ready(function(){
      }, 2000)
 	});
 
+//Detect the break point where #braGallery should become fixed position, on scroll
+	var braGalleryBreakpoint = $('#braGallery').offset().top - $(window).height() + $('#braGallery').height();
+
+//Onscroll animations	
 	$(window).scroll(function(){
 		var scrolltop = $(window).scrollTop();
 		//Hide/show the scrollArrow on scroll
@@ -202,24 +206,18 @@ $(document).ready(function(){
 		}
 		else {
 			$scrollArrow.show();
-		}			
-
-	//Keep the #braGallery fixed after user scrolls below it//
-		var braGalleryTopOffset = $('.onscroll').offset().top;
-		if (scrolltop > braGalleryTopOffset){
-			console.log(braGalleryTopOffset);
-			$('.onscroll').css('position', 'fixed');
-		};
-
-		/*//Shrink the bras gallery
-		var breakpoint = $('#sizes h1').offset()['top']-300;
-		if (scrolltop >= breakpoint) {
-			$('.onscroll').show(1000);		
+		};			
+		
+		//Hide/show and fix position of #braGallery on scroll
+		if ( scrolltop >= braGalleryBreakpoint*2) //This times 2 is a really weird hack I can't understand
+		{
+			$('#braGallery').css({position: 'fixed', overflow: 'visible'});
 		}
 		else {
-			$('.onscroll').hide(1000);
-		};*/
+			$('#braGallery').css({position: 'static', overflow: 'hidden'});
+		};
 	});
+
 
 //Animate the .onscroll item galleryCarousel
 	//Set width of #galleryCarousel
@@ -448,7 +446,32 @@ $(document).ready(function(){
 	      }
 	    });
 	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
-	});	
+	});
+
+	
+	//Scroll down to elem when anchor clicked
+	function scrollToElem(anchor, elem){
+		anchor.click(function () {
+			event.preventDefault();
+			$('nav a').removeClass('highlighted');
+			$('html, body').animate(
+				{'scrollTop': elem.offset().top},
+				1000,
+				'easeInOutQuint',
+				function(){
+					$(anchor).addClass('highlighted');
+				}
+			);	
+		})		
+	};
+
+	//Animate top menu clicks
+	scrollToElem($('#home'),$('#container'));
+	scrollToElem($('#toSizes'),$('#sizes'));
+	scrollToElem($('#toRealphotos'), $('#realphotos'));
+	scrollToElem($('#toPreorder'), $('#preorder'));
+	scrollToElem($('#toTestimonials'), $('#testimonials'));
+	scrollToElem($('#toAbout'), $('#about'));
 });
     </script>
 
@@ -467,13 +490,13 @@ $(document).ready(function(){
 	<!--#Facebook-->
 
 	<nav id="topMenu">
-		<img src="img/css/logo.png" class="logo">
+		<img src="img/css/logo.png" class="logo" id="home">
 		<div class="navMain">
-			<a href="">Looking for a bra?</a>
-			<a href="">Which size?</a>
-			<a href="">How they fit?</a>
-			<a href="">What other people say?</a>
-			<a href="">Our story</a>
+			<a href="#sizes" id="toSizes">Find your size</a>
+			<a href="#realphotos" id="toRealphotos">Check real pictures</a>
+			<a href="#preorder" id="toPreorder">Order now</a>
+			<a href="#testimonials" id="toTestimonials">Read the reviews</a>
+			<a href="#about" id="toAbout">Our story</a>
 			<div class="navSocial">
 				<div class="fb-like" data-href="http://facebook.com/wellfitting" data-send="false" data-layout="button_count" data-show-faces="true" data-colorscheme="dark"></div>
 			</div>
@@ -677,8 +700,8 @@ $(document).ready(function(){
 			</div>
 		</section>
 
-		<section id="braGallery">
-			<div class="onscroll">
+		<section>
+			<div class="onscroll" id="braGallery">
 				<span id="scrollLeft">&#10094;</span>
 				<span id="scrollRight">&#10095;</span>  
 				<div id="galleryCarousel">
@@ -779,7 +802,7 @@ $(document).ready(function(){
 			</div>
 		</section>
 
-		<section class="grid4">
+		<section class="grid4" id="about">
 			<header>
 				<h1>Questions? Need advice?</h1>
 			</header>
