@@ -194,6 +194,10 @@ $(document).ready(function(){
      }, 2000)
 	});
 
+//Detect the break point where #braGallery should become fixed position, on scroll
+var braGalleryBreakpoint = $('#braGallery').offset().top - $(window).height() + $('#braGallery').height();
+
+
 	$(window).scroll(function(){
 		var scrolltop = $(window).scrollTop();
 		//Hide/show the scrollArrow on scroll
@@ -202,24 +206,18 @@ $(document).ready(function(){
 		}
 		else {
 			$scrollArrow.show();
-		}			
-
-	//Keep the #braGallery fixed after user scrolls below it//
-		var braGalleryTopOffset = $('.onscroll').offset().top;
-		if (scrolltop > braGalleryTopOffset){
-			console.log(braGalleryTopOffset);
-			$('.onscroll').css('position', 'fixed');
-		};
-
-		/*//Shrink the bras gallery
-		var breakpoint = $('#sizes h1').offset()['top']-300;
-		if (scrolltop >= breakpoint) {
-			$('.onscroll').show(1000);		
+		};			
+		
+		//Hide/show and fix position of #braGallery on scroll
+		if ( scrolltop >= braGalleryBreakpoint*2) //This times 2 is a really weird hack I can't understand
+		{
+			$('#braGallery').show().css({position: 'fixed', overflow: 'visible'});
 		}
 		else {
-			$('.onscroll').hide(1000);
-		};*/
+			$('#braGallery').css({position: 'static', overflow: 'hidden'});
+		};
 	});
+
 
 //Animate the .onscroll item galleryCarousel
 	//Set width of #galleryCarousel
@@ -677,8 +675,8 @@ $(document).ready(function(){
 			</div>
 		</section>
 
-		<section id="braGallery">
-			<div class="onscroll">
+		<section>
+			<div class="onscroll" id="braGallery">
 				<span id="scrollLeft">&#10094;</span>
 				<span id="scrollRight">&#10095;</span>  
 				<div id="galleryCarousel">

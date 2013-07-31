@@ -269,6 +269,7 @@ nav .logo {
 	position: static;
 	display: block;
 	float: left;
+	overflow: hidden;
 	background: #FCF9FA;
 	background-position: 0 -2px;
 	background-image:  url(../img/css/dot-pattern-alpha1.png);
