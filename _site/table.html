@@ -174,6 +174,49 @@ $(document).ready(function(){
 	$('#mainGallery img').load(adjustImgSize);
 	$(window).bind('resize', adjustImgSize);
 
+
+	
+	//Detect if element is visible on screen after scrolling
+	function isScrolledIntoView(elem){
+	    var docViewTop = $(window).scrollTop();
+	    var docViewBottom = docViewTop + $(window).height();
+
+	    var elemTop = $(elem).offset().top;
+	    var elemBottom = elemTop + $(elem).height();
+
+	    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+	};
+
+//Highlight nav anchor when respective element is scrolled into view
+	function highlightAnchoredTarget(anchor, target){
+		if (isScrolledIntoView(target)) {
+			anchor.addClass('highlighted', 0, 'swing');
+		};
+		
+	};
+
+//Scroll down to elem when anchor clicked
+	function scrollToTarget(anchor, target){
+		anchor.click(function () {
+			event.preventDefault();
+			anchor.removeClass('highlighted', 2000, 'swing');
+			$('html, body').animate(
+				{'scrollTop': target.offset().top},
+				1000,
+				'easeInOutQuint'
+			);	
+		})		
+	};
+
+//Animate top menu clicks
+	$('nav a').each(function(){
+		var anchor = $(this);
+		var href = $(this).attr('href');
+		var target = $(href);
+		scrollToTarget(anchor,target);
+	});
+
+
 //Animate the scroll down arrow 
 	var $scrollArrow = $('.scrollArrow');	
 	setInterval(function() {
@@ -191,7 +234,7 @@ $(document).ready(function(){
 	$scrollArrow.click(function(){
 		$('html, body').animate({
          scrollTop: $("#sizes").offset().top
-     }, 2000)
+     }, 1000, 'easeInOutQuint')
 	});
 
 //Detect the break point where #braGallery should become fixed position, on scroll
@@ -216,6 +259,18 @@ $(document).ready(function(){
 		else {
 			$('#braGallery').css({position: 'static', overflow: 'hidden'});
 		};
+
+		//Highlight nav menu anchor when respective section is scrolled into view
+		$('nav a').each(function(){
+			var anchor = $(this);
+			var href = $(this).attr('href');
+			var target = $(href);
+			highlightAnchoredTarget(anchor,target);
+			if (!isScrolledIntoView(target)) {
+				$(this).removeClass('highlighted');
+			};
+		});
+
 	});
 
 
@@ -447,31 +502,6 @@ $(document).ready(function(){
 	    });
 	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
 	});
-
-	
-	//Scroll down to elem when anchor clicked
-	function scrollToElem(anchor, elem){
-		anchor.click(function () {
-			event.preventDefault();
-			$('nav a').removeClass('highlighted');
-			$('html, body').animate(
-				{'scrollTop': elem.offset().top},
-				1000,
-				'easeInOutQuint',
-				function(){
-					$(anchor).addClass('highlighted');
-				}
-			);	
-		})		
-	};
-
-	//Animate top menu clicks
-	scrollToElem($('#home'),$('#container'));
-	scrollToElem($('#toSizes'),$('#sizes'));
-	scrollToElem($('#toRealphotos'), $('#realphotos'));
-	scrollToElem($('#toPreorder'), $('#preorder'));
-	scrollToElem($('#toTestimonials'), $('#testimonials'));
-	scrollToElem($('#toAbout'), $('#about'));
 });
     </script>
 
@@ -490,7 +520,7 @@ $(document).ready(function(){
 	<!--#Facebook-->
 
 	<nav id="topMenu">
-		<img src="img/css/logo.png" class="logo" id="home">
+		<a href="#container" id="home" class="logo"><img src="img/css/logo.png"></a>
 		<div class="navMain">
 			<a href="#sizes" id="toSizes">Find your size</a>
 			<a href="#realphotos" id="toRealphotos">Check real pictures</a>
@@ -749,6 +779,23 @@ $(document).ready(function(){
 			</header>
 			<div class="inner">
 				<div class="grid1">
+					<h3><a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html">Why Full Busted Women Are Buying Their Bras In Poland, and Why You Should Too!</a></h3>
+					<br>
+					<blockquote>
+						<a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank"><img src="../img/bloggers/lingerieaddict.jpg" class="face"></a>
+						<p>&ldquo;It turns out there is a magical land where bra manufacturers are making bras in all shapes, sizes, and colors of the rainbow. Oh, and they come in 28 backs and in cup sizes A through N. Welcome to Poland, the new frontier of bra development.&rdquo;</p>
+						<small>&mdash; <a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html">The Lingerie Addict, Seattle</a></small>
+					</blockquote>
+					<!--ul>
+						<li><a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank"><span>The Lingerie Addict</span><br>
+							Why Full Busted Women Are Buying Their Bras In Poland, and Why You Should Too!</a></li>
+						<li><a href="http://thefemininecurve.wordpress.com/2013/04/07/bra-review-a-rose-by-any-other-name-would-smell-as-sweet-the-comexim-juliet" target="_blank"><span>The Feminine Curve</span><br>
+						Bra Review: A rose by any other name would smell as sweet...</a></li>
+						<li><a href="http://bravolution-blog.blogspot.com/2013/05/comexim-review.html" target="_blank"><span>Bravolution</span><br>
+						I adore this bra, and so pleased that the 60L advice was pretty spot on!</a></li>
+					</ul-->
+				</div>
+				<div class="grid1">
 					<blockquote>
 						<a href="http://hourglassy.com/2013/04/off-the-rack-comexim-review/" target="_blank"><img src="../img/bloggers/hourglassy.jpg" class="face"></a>
 						<p>&ldquo;I never want to buy another brand again.&rdquo;</p>
@@ -786,18 +833,6 @@ $(document).ready(function(){
 						<p>&ldquo;Signature plunge shape. Rare fabrics. Warm and authentic customer service.&rdquo;</p>
 						<small>&mdash; <a href="http://www.missunderpinnings.com/2013/05/comexim.html" target="_blank">Miss Underpinnings, Massachusetts</a></small>
 					</blockquote>
-				</div>
-
-				<div class="grid1">
-					<h3>More:</h3>
-					<ul>
-						<li><a href="http://www.thelingerieaddict.com/2012/05/full-bust-bras-poland-ewa-michalak-kris-line.html" target="_blank"><span>The Lingerie Addict</span><br>
-							Why Full Busted Women Are Buying Their Bras In Poland, and Why You Should Too!</a></li>
-						<li><a href="http://thefemininecurve.wordpress.com/2013/04/07/bra-review-a-rose-by-any-other-name-would-smell-as-sweet-the-comexim-juliet" target="_blank"><span>The Feminine Curve</span><br>
-						Bra Review: A rose by any other name would smell as sweet...</a></li>
-						<li><a href="http://bravolution-blog.blogspot.com/2013/05/comexim-review.html" target="_blank"><span>Bravolution</span><br>
-						I adore this bra, and so pleased that the 60L advice was pretty spot on!</a></li>
-					</ul>
 				</div>
 			</div>
 		</section>
