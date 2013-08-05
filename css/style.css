@@ -19,6 +19,25 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 */
 
+/*Webfonts*/
+@font-face {
+	font-family: 'CassanetBold';
+	src: url('webfonts/cassannet_bold-webfont.eot'); /* IE9 Compat Modes */
+	src: url('webfonts/cassannet_bold-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('webfonts/cassannet_bold-webfont.woff') format('woff'), /* Modern Browsers */
+	     url('webfonts/cassannet_bold-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('webfonts/cassannet_bold-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+	font-family: 'Cassanet';
+	src: url('webfonts/cassannet-webfont.eot'); /* IE9 Compat Modes */
+	src: url('webfonts/cassannet-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('webfonts/cassannet-webfont.woff') format('woff'), /* Modern Browsers */
+	     url('webfonts/cassannet-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('webfonts/cassannet-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 body {
 	background: #FCF9FA;
 	color: #092324;
@@ -71,7 +90,7 @@ footer {
 }
 
 h1 {
-	
+	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-size: 300%;
 	margin: 0 0 1em 0;
 	letter-spacing: -1px;
@@ -80,6 +99,7 @@ h1 {
 }
 
 h2 {
+	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	color: rgba(9,35,36,.4);
 	font-size: 150%;
 	margin: 0 0 .5em 0;
@@ -96,7 +116,7 @@ small {
 
 blockquote {
 	color: rgba(9,35,36,.5);
-	font-family: Georgia;
+	
 
 }
 
@@ -152,8 +172,8 @@ nav {
 	float: left;
 	position: fixed;
 	z-index: 10000;
-	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 18px;
+	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
 nav a {
@@ -165,6 +185,7 @@ nav a {
 nav a:hover,
 nav a.highlighted {
 	color: #FFAC40;
+	text-decoration: none;
 }
 
 nav .logo {
@@ -582,34 +603,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 /*Testimonials*/	
 #testimonials blockquote {
 	font-style: italic;
-	margin: 0 0 30px 0;
+	line-height: 1.5;
+	margin: 0 0 50px 0;
 	height: 120px;
+	font-size: 85%;
+	text-align: center;
+	display: inline-table;
 }
 
 #testimonials blockquote small {
 	display: block;
 	float: right;
 	clear: both;
+	font-size: 85%;
+	font-style: normal;
 }
-#testimonials ul {
-	font-size: 14px;
-	line-height: 1.2;
-	list-style-position: outside;
-	list-style-type: square;
-}
-
-#testimonials ul li {
-	padding: 0;
-	margin: 10px 20px;
-}
-
-
 
 .face {
 	border-radius: 50%;
-	margin: 0 10px 0 0;
-	width: 65px;
-	float: left;
+	margin: 0 0px 20px 0;
+	width: 55px;
 	border: solid 2px #FCF9FA;
 }
 
