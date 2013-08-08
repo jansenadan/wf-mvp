@@ -166,14 +166,24 @@ var mySize = function(underbust, overbust) {
 
 
 $(document).ready(function(){	
-//Remove paddings from #mainGallery figure depending on image height
-	adjustImgSize = function(){
-		var galleryImgHeight = $('#mainGallery img').height();
-		$('#mainGallery figure').css('height',galleryImgHeight);
-	}
-	$('#mainGallery img').load(adjustImgSize);
-	$(window).bind('resize', adjustImgSize);
+	//Overlay & Modals
+	//Show Overlay on click
+	$('#shippingPolicy').click(function(){
+		event.preventDefault();
+		//Set #modal top propoerty to 10% from scroll position
+		$('#modal').css('top', function(){
+			return $(window).scrollTop() + 100;
+		});
+		//Set #overlay height to cover whole document
+		$('#overlay').css('height', function (){
+			return $(document).height();
+		});
+		$('#overlay').fadeIn();
+	});
 
+	$('#modal .close').click(function(){
+		$('#overlay').fadeOut();
+	});
 
 	
 	//Detect if element is visible on screen after scrolling
@@ -594,7 +604,7 @@ $(document).ready(function(){
 				<div class="grid2-6">
 					<h3>Shipping & Delivery Times</h3>
 					<p>Free shipping with your home country postal service all over the US, Canada and Europe.</p>
-					<p><a href="">full shipping policy</a></p>
+					<p><a href="" id="shippingPolicy">full shipping policy</a></p>
 				</div>
 				<div class="grid2-6">
 					<h3>Exchange & Returns</h3>
@@ -837,6 +847,19 @@ $(document).ready(function(){
 			&copy; Wellfitting.com 2013 | hello@wellfitting.com
 		</footer>
 	</div><!--#container-->
+	<div id="overlay">
+		<div id="modal">
+			<a class="close">close | x</a>
+			<h1>Shipping & Returns</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
 </body>
 
 </html>
