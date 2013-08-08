@@ -286,6 +286,7 @@ nav .logo img {
 	width: 60px;
 	margin-left: -30px;
 	cursor: pointer;
+	z-index: 2000;
 }
 
 .scrollArrow:hover {
@@ -297,7 +298,7 @@ nav .logo img {
 /*item gallery carousel to display items while user scrolls*/	
 .onscroll {
 	position: static;
-	display: block;
+	display: none;
 	float: left;
 	overflow: hidden;
 	background: #FCF9FA;
@@ -377,18 +378,6 @@ nav .logo img {
 /*----Sizes----*/	
 #sizes {
 		
-}
-
-#bubble {
-	width: 100px;
-	height: 100px;
-	background: url(../img/lady.png) no-repeat center center;
-	position: relative;
-	left: 0;
-	float: left;
-	margin: 0px 20px 0 0;
-	border-radius: 100%;
-	box-shadow: 0 0 1px #bbb;
 }
 
 #sizeTable {
@@ -604,6 +593,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 /*Testimonials*/	
+#testimonials {
+	background: #EBF2F2;
+}
+
 #testimonials blockquote {
 	font-style: italic;
 	line-height: 1.5;
@@ -722,7 +715,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 /*------about ---------*/
-
-#about .face {
-	width: 220px;
+.center {
+	text-align: center;
 }
+#ourStory p {
+	font-size: 75%;
+}
+#ourStory .face {
+	width: 70px;
+	
+	background:  rgba(9,35,36,.05);
+}
+
+/*#ourStory .julia {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+#ourStory .amelia{
+	float: right;
+	margin: 0 0px 0 10px;
+}*/
