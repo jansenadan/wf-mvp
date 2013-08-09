@@ -544,7 +544,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #realphotos .square {
 	height: 220px;
-	background: #FC328A;
+	background: #FCF9FA;
 	margin-bottom: 20px;
 	overflow: hidden;
 	-webkit-filter: gray(.5);
@@ -583,28 +583,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #realphotos .square:hover .caption {
 	display: inline-block;
-}
-
-#realphotos .thumbnail{
-	background: #EBF2F2;
-	color: #092324;
-	background: #EBF2F2;
-	box-shadow: 0 0 5px #bbb;		
-}
-
-#realphotos .thumbnail img {
-	width: 100%;
-}
-
-#realphotos figcaption {
-	font-size: 75%;
-	padding: 10px;
-	line-height: 1.2;
-}
-
-#realphotos figcaption p {
-	font-size: 12px;
-	font-variant: small-caps;
 }
 
 /*Testimonials*/	
