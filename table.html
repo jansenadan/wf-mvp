@@ -163,7 +163,8 @@ var mySize = function(underbust, overbust) {
 	return noSize
 };
 
-
+//Define keys for keypress events
+var KEYCODE_ESC = 27;
 
 $(document).ready(function(){	
 	//Overlay & Modals
@@ -181,8 +182,12 @@ $(document).ready(function(){
 		$('#overlay').fadeIn();
 	});
 
-	$('#modal .close').click(function(){
+	$('#closeModal').click(function(){
 		$('#overlay').fadeOut();
+	});
+
+	$(document).keyup(function(e) {
+  		if (e.keyCode == KEYCODE_ESC) { $('#closeModal').click(); } 
 	});
 
 	
@@ -547,7 +552,7 @@ $(document).ready(function(){
 		<section class="grid4" id="firstFold">
 			<div class="inner">
 				<div class="grid4-6 typo"><h1 class="nodisplay">Can't Find a Wellfitting Bra?</h1></div>
-				<div class="scrollArrow">&#10095;</div>		
+				<!-- <div class="scrollArrow">&#10095;</div>		 -->
 			</div>			
 			
 		</section>
@@ -596,7 +601,7 @@ $(document).ready(function(){
 				<button class="button-huge">
 					 Buy Now &#65515; 
 					<br>
-					<small>Satisfaction Guaranteed</small>
+					<small>100% Satisfaction Guaranteed</small>
 				</button>
 				
 			</header>
@@ -748,7 +753,8 @@ $(document).ready(function(){
 
 		<section class="grid4" id="testimonials">
 			<header>
-				<h1>Wonderful Reviews All Over the World!</h1>
+				<h2>Bras that Get Tons of Wonderful Reviews!</h2>
+				<h1>Happy Customers All Over the World</h1>
 			</header>
 			<div class="inner">
 				<div class="grid1">
@@ -849,7 +855,7 @@ $(document).ready(function(){
 	</div><!--#container-->
 	<div id="overlay">
 		<div id="modal">
-			<a class="close">close | x</a>
+			<a id="closeModal">close | x</a>
 			<h1>Shipping & Returns</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
