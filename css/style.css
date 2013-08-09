@@ -538,8 +538,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*Realphotos*/
 #realphotos {
-	padding: 4em 0;
+	background: #092324;
+	padding: 20px 0 0 0 !important;
 }
+
+#realphotos .square {
+	height: 220px;
+	background: #FC328A;
+	margin-bottom: 20px;
+	overflow: hidden;
+	-webkit-filter: gray(.5);
+}
+
+#realphotos .square h2 {
+	color: #FCF9FA;
+	margin: 30px;
+}
+
+#realphotos .square .caption {
+	width: 220px;
+	height: 220px;
+	background: rgba(252,50,138,.6);
+	position: relative;
+	top: -224px;
+	color: #FCF9FA;
+	display: none;
+}
+
+#realphotos .square .caption h2 {
+	margin: 120px 20px 0;
+	color: #FCF9FA;
+	font-size: 200%;
+}
+
+.caption p {
+	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	margin: 0px 20px;
+	font-size: 100%;
+}
+
+#realphotos .square:hover img {
+	-webkit-filter: grayscale(0%) brightness(140%);
+}
+
+#realphotos .square:hover .caption {
+	display: inline-block;
+}
+
 #realphotos .thumbnail{
 	background: #EBF2F2;
 	color: #092324;
@@ -564,7 +609,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*Testimonials*/	
 #testimonials {
-	background: #EBF2F2;
 }
 
 #testimonials blockquote {
@@ -701,6 +745,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 /*------about ---------*/
+#about {
+	background: #EBF2F2;
+}
 .center {
 	text-align: center;
 }
