@@ -214,7 +214,6 @@ nav .logo img {
 /*Main gallery and main header*/	
 #firstFold{
 	float: left;
-	background: red;
 	background-image:  url(../img/css/img1.jpg);
 	background-position: top right;
 	-webkit-background-size: cover;
@@ -611,13 +610,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	margin: 0 0 0 0;
 }
 
-#preorder header {
-	
+#preorder header {	
+	width: 100% !important;
+	background: #00B1B7;
 	text-align: center !important;	
+	margin: 0 0 3em 0 !important;
 }
+
 #preorder h1 {
 	margin-bottom: 0;
 	font-size: 100px;
+	color: #FCF9FA;
+	text-shadow: 1px 1px 0 rgba(9,35,36,.4);
+}
+
+#preorder h2 {
+	color: rgba(9,35,36,.8); 
 }
 
 #preorder h3 {
@@ -725,7 +733,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	border-radius: 10px;
 }
 
-#modal .close {
+#closeModal {
 	font-family: Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-size: 75%;
 	display: inline-block;
@@ -739,7 +747,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	cursor: pointer;
 }
 
-#modal .close:hover {
+#closeModal:hover {
 	background: #FC9AC5;
 	color: #fff !important;
 }
