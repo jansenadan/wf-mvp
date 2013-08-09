@@ -649,14 +649,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 .button-huge {
 	font-weight: bold;
-	font-size: 160%;
-	font-family: inherit;
+	font-size: 30px;
+	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	margin: 1em 0 2em 0;
+	padding: 10px;
 	border-radius: 10px;
 	border: solid 1px #CA0058;
-	box-shadow: 0px 0px 2px #fff;
+	box-shadow: 0px 0px 5px rgba(9,35,36,.4);
 	cursor: pointer;
-	padding: .2em 2em .35em;
 	color: #FFF3F8;
 	text-shadow: 0px 0px 1px #560025;
 	background: rgb(252,82,156); /* Old browsers */
@@ -683,8 +683,14 @@ background: linear-gradient(to bottom,  rgba(252,50,138,1) 0%,rgba(255,0,111,1) 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', endColorstr='#ff006f',GradientType=0 ); /* IE6-8 */
 }
 
+.button-huge div {
+	padding: .2em 1em 0.2em;
+	border: dashed 2px rgba(202,0,88,.5);
+	border-radius: 10px;
+}
+
 .button-huge small {
-	color: #FFE1EE;
+	color: #FCA6CC;
 	margin: 4px 0 0 0;
 	font-size: 50%;
 	display: block;
