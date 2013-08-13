@@ -61,6 +61,7 @@ a:hover {
 	margin: 0 auto;
 	width: 960px;
 	padding: 0em;
+	clear: both;
 }
 
 
@@ -211,7 +212,7 @@ nav .logo img {
 	float: right;
 }
 
-/*Main gallery and main header*/	
+/*First Fold*/	
 #firstFold{
 	float: left;
 	background-image:  url(../img/css/img1.jpg);
@@ -535,6 +536,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 
+/*MainGallery*/
+#mainGallery{
+	background: #EBF2F2;
+	padding: 20px 0 0 0 !important;
+}
+
+#mainGallery header{
+	text-align: center !important;
+	padding: 0 !important;
+}
+
+
+.leftHalf{
+	text-align: right;	
+}
+
+.rightHalf {
+	text-align: left;
+}
+
+#findYourSize {
+	display: inline-block;
+	background-image: url(../img/css/sprite.png);
+	background-repeat: no-repeat;
+	width: 223px;
+	height: 213px;
+	position: relative;
+	top: -60px;
+
+}
+
 
 /*Realphotos*/
 #realphotos {
@@ -542,7 +574,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	padding: 20px 0 0 0 !important;
 }
 
-#realphotos .square {
+.square {
 	height: 220px;
 	background: #FCF9FA;
 	margin-bottom: 20px;
@@ -550,12 +582,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	-webkit-filter: gray(.5);
 }
 
-#realphotos .square h2 {
+.square h2 {
 	color: #FCF9FA;
 	margin: 30px;
 }
 
-#realphotos .square .caption {
+.square .caption {
 	width: 220px;
 	height: 220px;
 	background: rgba(252,50,138,.6);
@@ -565,7 +597,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	display: none;
 }
 
-#realphotos .square .caption h2 {
+.square .caption h2 {
 	margin: 120px 20px 0;
 	color: #FCF9FA;
 	font-size: 200%;
