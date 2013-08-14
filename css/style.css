@@ -240,6 +240,7 @@ nav .logo img {
 	background-size: cover;		
 	height: 500px;
 	margin: 3em 0 0 0;
+	float: right;
 }
 
 
@@ -543,7 +544,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 #mainGallery header{
-	text-align: center !important;
+	
 	padding: 0 !important;
 }
 
