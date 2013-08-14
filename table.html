@@ -242,6 +242,9 @@ $(document).ready(function(){
 	});
 
 
+//Scroll to Sizes on #FindYourSize click
+	scrollToTarget($('#findYourSize'),$('#sizes'));
+
 //Animate the scroll down arrow 
 	var $scrollArrow = $('.scrollArrow');	
 	setInterval(function() {
@@ -567,41 +570,44 @@ $(document).ready(function(){
 
 		<section class="grid4" id="mainGallery">
 			<header>
-				<h1>Big Bust? Small Bust?</h1>	
-				<img src="/img/css/button1.png">
-				<h1>We Carry 65 Sizes!</h1>
+				<div class="middleWrap"><h1>Big Bust?</h1></div>
+				<div class="middle"><a href="#sizes" id="findYourSize"><img src="/img/css/button1.png"></a></div>
+				<div class="middleWrap"><h1>Small Bust?</h1></div>
+				
+				
+				
 
 			</header>
 			<div class="inner">
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/lychee-sorbet.png">
 				</div>
 				
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/mint-sorbet.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/free-time.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/summer-time.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/kelly.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/jasmine.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/juliette.png">
 				</div>
 
-				<div class="grid1 square">
+				<div class="grid1 circle">
 					<img src="img/bras/geisha.png">
 				</div>
 			</div>
