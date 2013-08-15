@@ -59,7 +59,7 @@ a:hover {
 	padding: 0 0 4em 0;
 }
 
-#container > section .inner {
+#container .inner {
 	margin: 0 auto;
 	width: 960px;
 	padding: 0em 0 0 20px;
@@ -68,7 +68,7 @@ a:hover {
 
 
 #container section header{
-	text-align: left;
+	text-align: center;
 	margin: 0 auto ;
 	position: relative;
 	width: 960px;
@@ -76,8 +76,7 @@ a:hover {
 }
 
 footer {
-	padding: 20px 0 220px 0;
-	text-align: center;
+	padding: 20px 0;
 	border-top: solid 1px rgba(9,35,36,.1);
 	color: rgba(9,35,36,.5);
 	float: left;
@@ -816,6 +815,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 .right {
 	text-align: right;
+}
+
+#comments {
+	width: 580px !important;
+	background: #FCF9FA;
+	padding: 20px;
+	border-radius: 10px;
 }
 #ourStory p {
 	
