@@ -45,7 +45,9 @@ text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+	background: #EEFF00;
+	color: #092324;
+	text-decoration: none;
 }
 
 #container {
@@ -187,6 +189,7 @@ nav a {
 
 nav a:hover,
 nav a.highlighted {
+	background: inherit;
 	color: #eeff00;
 	text-decoration: none;
 }
@@ -572,6 +575,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	width: 220px;
 }
 
+#findYourSize:hover {
+	-webkit-filter: brightness(90%) contrast(150%);
+	background: none;
+}
+
 #mainGallery header h1 {
 	margin: 0 !important;
 }
@@ -596,29 +604,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	background: #FCF9FA;
 	margin-bottom: 20px;
 	overflow: hidden;
-	-webkit-filter: gray(.5);
 }
 
-
-
 .square h2 {
-	color: #FCF9FA;
 	margin: 30px;
 }
 
 .square .caption {
 	width: 220px;
 	height: 220px;
-	background: rgba(252,50,138,.6);
+	background: rgba(238, 255, 0,.6);
 	position: relative;
 	top: -224px;
-	color: #FCF9FA;
 	display: none;
 }
 
 .square .caption h2 {
 	margin: 120px 20px 0;
-	color: #FCF9FA;
+	color: #092324;
 	font-size: 200%;
 }
 
@@ -629,7 +632,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 #realphotos .square:hover img {
-	-webkit-filter: grayscale(0%) brightness(140%);
+	-webkit-filter: brightness(160%);
+	background: #eeff00;
 }
 
 #realphotos .square:hover .caption {
@@ -657,26 +661,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	font-style: normal;
 }
 
-.face {
+.face img {
 	border-radius: 50%;
 	margin: 0 0px 10px 0;
 	width: 70px;
 	border: solid 2px #FCF9FA;
 }
 
-#testimonials .face:hover{
+.face:hover {
+	background: none;
+}
+
+#testimonials .face:hover img{
 	box-shadow: 0 0 5px rgba(9,35,36,.3);
 }
 
-#testimonials li span {
-	text-transform: uppercase;
-	font-size: 85%;
-	font-weight: bold;
-}
 
-#testimonials li span:after{
-	content: " ￫";	/*&#65515;*/
-}
+
 /*Preorder*/
 #preorder {
 	background: #EBF2F2;
@@ -773,6 +774,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	font-weight: normal;
 }
 
+.icon {
+	display: block;
+	height: 75px;
+	width: 75px;
+	background: url(../img/css/sprite.png) no-repeat;
+	margin: 0 0px 20px 75px;
+}
+
+.iconHeader {
+	background: url(../img/css/sprite.png) no-repeat;
+	height: 70px;
+	padding: 5px 0 0 95px;
+	margin-bottom: 20px;
+}
+
+.shipping {
+	background-position: 0px -150px;
+}
+
+.returns {
+	background-position: 0px 0;
+}
+
+.manufacturer {
+	background-position: 0px -75px;
+}
 /*------about ---------*/
 #about {
 	background: #EBF2F2;
@@ -807,7 +834,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	width: 50%;
 	position: absolute;
 	left: 50%;
-	padding: 1em;
+	padding: 20px;
 	margin-left: -25%;
 	z-index:  100001;
 	background: #FCF9FA;
