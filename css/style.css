@@ -838,6 +838,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	background:  rgba(9,35,36,.05);
 }
 
+/*-----footer--------*/
+footer .socialIcons a {
+	display: block;
+	float: left;
+	width: 75px;
+	height: 75px;
+	background-image: url(../img/css/sprite.png);
+	background-repeat: no-repeat;
+}
+
+.socialIcons .fb {
+	background-position: 0 -225px;
+}
+
+.socialIcons .twitter {
+	background-position: 0 -375px;
+}
+.socialIcons .pinterest {
+	background-position: 0 -450px;
+
+}
+.socialIcons .instagram {
+	background-position: 0 -300px;
+}
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
 	position: absolute;
