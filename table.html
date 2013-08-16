@@ -194,9 +194,9 @@ $(document).ready(function(){
 	};
 
 	//Launch modals on anchor clicks
-	launchModal('#shippingPolicy', '#shippingPolicyText');
-	launchModal('#exchangeReturns', '#exchangeReturnsText');
-	launchModal('#aboutManufacturer', '#aboutManufacturerText');
+	launchModal('.shippingPolicy', '#shippingPolicyText');
+	launchModal('.exchangeReturns', '#exchangeReturnsText');
+	launchModal('.aboutManufacturer', '#aboutManufacturerText');
 
 
 	
@@ -554,7 +554,7 @@ $(document).ready(function(){
 					<span class="icon shipping"></span>
 					<h2>Shipping & Delivery Times</h2>
 					<p>Free shipping with your home country postal service all over the US, Canada and Europe.</p>
-					<p><a href="" id="shippingPolicy">full shipping policy</a></p>
+					<p><a href="" class="shippingPolicy">full shipping policy</a></p>
 
 					<div id="shippingPolicyText" class="nodisplay">
 						<h1 class="iconHeader shipping">Shipping Policy</h1>
@@ -565,7 +565,7 @@ $(document).ready(function(){
 					<span class="icon returns"></span>
 					<h2>Exchange & Returns</h2>
 					<p>If your bra doesn't fit you or you just don't like it, you can simply return it within 60 days, or exchange for a different size.</p>
-					<p><a href="" id="exchangeReturns">full returns & exchange policy</a></p>
+					<p><a href="" class="exchangeReturns">full returns & exchange policy</a></p>
 
 					<div id="exchangeReturnsText" class="nodisplay">
 						<h1 class="iconHeader returns">Exchange & Returns</h1>
@@ -576,7 +576,7 @@ $(document).ready(function(){
 					<span class="icon manufacturer"></span>
 					<h2>Meet the Designer!</h2>
 					<p>Your bra will be handcrafted specially for you, in a size that will fit you best, and shipped directly to you from the top-notch manufacturer in Poland. That's why it will reach you within 4 weeks from the moment you place your order.</p>
-					<p><a href="" id="aboutManufacturer">about the manufacturer</a></p>
+					<p><a href="" class="aboutManufacturer">about the manufacturer</a></p>
 
 					<div id="aboutManufacturerText" class="nodisplay">
 						<h1 class="iconHeader manufacturer">About the Manufacturer</h1>
@@ -758,22 +758,24 @@ $(document).ready(function(){
 				<div class="grid2-6">
 					<h3>Terms of Service</h3>
 					<ul>
-						<li><a href="">Shipping Policy</a></li>
-						<li><a href="">Returns & Exchange</a></li>
-						<li><a href="">About the Manufacturer</a></li>
+						<li><a href="#" class="shippingPolicy">Shipping Policy</a></li>
+						<li><a href="#" class="exchangeReturns">Returns & Exchange</a></li>
 					</ul>
 				</div>
 				<div class="grid2-6">
 					<h3>About</h3>
-					<a href="mailto:hello@wellfitting.com">Contact</a>
+					<ul>
+						<li><a href="#" class="aboutManufacturer">About the Manufacturer</a></li>
+						<li><a href="mailto:hello@wellfitting.com">Contact Us!</a></li>
+					</ul>
 				</div>
 				<div class="grid2-6 socialIcons">
-					<a href="http://www.facebook.com/wellfitting" class="fb" target="_blank"><span class="nodisplay"></span></a>
-					<a href="https://twitter.com/wellfitting" class="twitter" target="_blank"><span class="nodisplay"></span></a>
-					<a href="http://instagram.com/wellfitting" class="instagram" target="_blank"><span class="nodisplay"></span></a>
-					<a href="http://pinterest.com/wellfitting/" class="pinterest" target="_blank"><span class="nodisplay"></span></a>
+					<a href="http://www.facebook.com/wellfitting" class="fb" target="_blank" title="Facebook"><span class="nodisplay">Wellfitting on Facebook</span></a>
+					<a href="https://twitter.com/wellfitting" class="twitter" target="_blank" title="Twitter"><span class="nodisplay">Wellfitting on Twitter</span></a>
+					<a href="http://pinterest.com/wellfitting/" class="pinterest" target="_blank" title="Pinterest"><span class="nodisplay">Wellfitting on Pinterest</span></a>
+					<a href="http://instagram.com/wellfitting" class="instagram" target="_blank" title="Instagram"><span class="nodisplay">Wellfitting on Instagram</span></a>	
 				</div>
-				<small>&copy; Wellfitting Inc. 2013</small>
+				<div class="grid4 center copyright"><small>&copy; Wellfitting Inc. 2013</small></div>
 			</div>
 			
 		</footer>
@@ -786,6 +788,8 @@ $(document).ready(function(){
 			<div class="inner"></div>
 		</div>
 	</div>
+
+	
 </body>
 
 </html>

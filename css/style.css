@@ -75,13 +75,7 @@ a:hover {
 	padding: 3em 0 0em 0;
 }
 
-footer {
-	padding: 20px 0;
-	border-top: solid 1px rgba(9,35,36,.1);
-	color: rgba(9,35,36,.5);
-	float: left;
-	width: 100%;
-}
+
 
 h1 {
 	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -839,6 +833,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 /*-----footer--------*/
+footer {
+	padding: 40px 0;
+	border-top: solid 1px rgba(9,35,36,.1);
+	color: rgba(9,35,36,.5);
+	float: left;
+	width: 100%;
+	font-size: 85%;
+}
+
+footer li{
+	list-style-type: none;
+	font-size: 100%;
+	margin: 5px 0;
+}
 footer .socialIcons a {
 	display: block;
 	float: left;
@@ -861,6 +869,11 @@ footer .socialIcons a {
 }
 .socialIcons .instagram {
 	background-position: 0 -300px;
+}
+
+footer .copyright{
+	margin-top: 20px;
+	font-size: 135%;
 }
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
