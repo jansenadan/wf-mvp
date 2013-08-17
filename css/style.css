@@ -164,10 +164,10 @@ nav {
 	padding: 5px 0;
 	display: block;
 	width: 100%;
-	border-bottom: solid 1px rgba(9,35,36,.4);
+	border-bottom: solid 1px rgba(9,35,36,.1);
 	float: left;
 	z-index: 10000;
-	font-size: 14px;
+	font-size: 85%;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
@@ -201,7 +201,7 @@ nav .logo {
 }
 
 nav .logo img {
-	height: 30px;
+	height: 35px;
 }
 .navMain{
 	width: 960px;
@@ -496,7 +496,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 /*Realphotos*/
 #realphotos {
 	background: #092324;
-	padding: 20px 0 0 0 !important;
+	padding: 20px 0 40px 0 !important;
 }
 
 #realphotos header h1 {
@@ -621,7 +621,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 #preorder p > a{
-	font-weight: bold;
 	
 	font-variant: small-caps;
 }
@@ -711,7 +710,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 /*------about ---------*/
 #about {
-	background: #fc328a;
+	background: #ca0058;
 }
 .center {
 	text-align: center;
@@ -723,12 +722,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #comments {
 	width: 580px !important;
-	background: #EBF2F2;
+	background: #fcf9fa;
 	padding: 20px;
 	border-radius: 10px;
 }
 #ourStory {
-	background: #EBF2F2;
+	background: #fcf9fa;
 	margin: px;
 	border-radius: 10px;
 }
@@ -739,7 +738,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	margin-left: 20px;
 }
 #about h1 {
-	color: #EBF2F2;
+	color:  #fcf9fa;
 }
 #ourStory .face {
 	width: 70px;
