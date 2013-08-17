@@ -217,7 +217,7 @@ nav .logo img {
 #firstFold{
 	float: left;
 	background-image:  url(../img/css/img1.jpg);
-	background-position: top right;
+	background-position: top left;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
