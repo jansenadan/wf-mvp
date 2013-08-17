@@ -81,9 +81,7 @@ h1 {
 	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-size: 300%;
 	margin: 0 0 1em 0;
-	letter-spacing: -1px;
-	text-shadow: 1px 1px 0 #fff;
-
+	letter-spacing: 0px;
 }
 
 h2 {
@@ -245,109 +243,6 @@ nav .logo img {
 }
 
 
-
-.scrollArrow{
-	position: fixed;
-	font-size: 400%;
-	font-weight: normal;
-	-webkit-transform:rotate(90deg);
-	-moz-transform:rotate(90deg);
-	color: #FC328A;
-	text-shadow: 0px 0px 5px rgba(255,255,255,.9);
-	bottom: 15px;
-	left: 50%;
-	width: 60px;
-	margin-left: -30px;
-	cursor: pointer;
-	z-index: 2000;
-}
-
-.scrollArrow:hover {
-	font-size: 400%;
-	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
-}
-
-
-/*item gallery carousel to display items while user scrolls*/	
-.onscroll {
-	position: static;
-	display: none;
-	float: left;
-	overflow: hidden;
-	background: #FCF9FA;
-	background-position: 0 -2px;
-	background-image:  url(../img/css/dot-pattern-alpha1.png);
-	-webkit-background-size: .25%;
-	-moz-background-size: .25%;
-	-o-background-size: .25%;
-	background-size: .25%;		
-	/*change height*/
-	height: 200px;	
-	width: 100%;
-	z-index: 1500;	
-	border: solid 1px rgba(9,35,36,.1);	
-	bottom: 0;
-}
-
-.onscroll #galleryCarousel {	
-	position: absolute;
-	left: 0;
-	margin: 0 40px;
-}
-.onscroll figure{
-	display: block;
-	width: 200px;
-	float: left;
-	cursor: pointer;
-	-webkit-filter: contrast(100%);  
-}
-
-.onscroll figure img {
-	width: 100%;
-}
-
-.onscroll figure.highlighted{
-	-webkit-filter: contrast(110%);  
-	margin: -40px 0;
-}
-
-.onscroll #scrollLeft,
-.onscroll #scrollRight {
-	display: block;
-	font-size: 300%;
-	position: absolute;
-	height: 80px;
-	padding: 60px 10px;
-	z-index: 1501;
-	color: #FC328A ;
-	font-weight: normal;
-	background: rgba(255,255,255,.0);
-}
-
-.onscroll #scrollLeft {
-	float: left;
-}
-.onscroll #scrollRight {
-	float: right;
-	right: 0;
-}
-
-.onscroll #scrollLeft.active,
-.onscroll #scrollRight.active {
-	color: #FC328A;
-	cursor: pointer;
-}
-
-.onscroll #scrollLeft.active:hover,
-.onscroll #scrollRight.active:hover{
-	background: rgba(255,255,255,.9)
-}
-
-.onscroll #scrollLeft.inactive,
-.onscroll #scrollRight.inactive	 {
-	color: #EBF2F2;
-	cursor: default;
-}
 /*----Sizes----*/	
 #sizes {
 		
@@ -529,14 +424,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	margin: 15px 0;
 }
 
-#sizes blockquote {
-	color: rgba(9,35,36,.5);		
-	text-align: center;
-	padding: 0 20px;
-	font-size: 120%;
-	border-right: solid 1px rgba(9,35,36,.1);
-}
-
 
 /*MainGallery*/
 #mainGallery{
@@ -602,6 +489,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 #realphotos {
 	background: #092324;
 	padding: 20px 0 0 0 !important;
+}
+
+#realphotos header h1 {
+	color: #FCF9FA;
+}
+
+#realphotos header h2 {
+	color: rgba(252, 249, 250, .6);
 }
 
 .square {
