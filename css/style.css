@@ -35,7 +35,7 @@ body {
 	color: #092324;
 	line-height: 1.3;
 	font-size: 12pt;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
 }
 
@@ -43,7 +43,6 @@ a {
 color: #FC328A;
 text-decoration: none;
 }
-
 a:hover {
 	background: #EEFF00;
 	color: #092324;
@@ -78,21 +77,21 @@ a:hover {
 
 
 h1 {
-	font-family: "Cassanet", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-size: 300%;
 	margin: 0 0 1em 0;
 	letter-spacing: 0px;
 }
 
 h2 {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family:"Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	color: rgba(9,35,36,.4);
-	font-size: 100%;
-	margin: 0 0 .5em 0;
+	font-size: 115%;
+	margin: .7em 0 .7em 0;
 }
 
 p {
-	font-size: 85%;
+	font-size: 100%;
 	line-height: 1.5;
 	margin: 0 0 .5em 0;
 }
@@ -161,13 +160,14 @@ blockquote {
 
 /*--Nav---*/
 nav {
-	background: #ebf2f2;
-	padding: 10px 0;
+	background: #fcf9fa;
+	padding: 5px 0;
 	display: block;
 	width: 100%;
+	border-bottom: solid 1px rgba(9,35,36,.4);
 	float: left;
 	z-index: 10000;
-	font-size: 18px;
+	font-size: 14px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
@@ -176,15 +176,19 @@ nav {
 }
 
 nav a {
-	margin: 5px 20px 0 0;
-	font-weight: bold;
+	margin: 5px 0px 0 0;
+	color:#fc328a;
 	display: inline-block;
+	text-align: center;
+	
+	font-variant: small-caps;
+
 }
 
 nav a:hover,
 nav a.highlighted {
-	background: inherit;
-	color: #eeff00;
+	background: #EEFF00;
+	color: #092324;
 	text-decoration: none;
 }
 
@@ -192,7 +196,7 @@ nav .logo {
 	height: 30px;
 	position: relative;
 	float: left;
-	margin: -2px 0 0 10px;
+	margin: -2px 0 0 30px;
 	cursor: pointer;
 }
 
@@ -209,6 +213,7 @@ nav .logo img {
 	float: right;
 	position: relative;
 	top: 6px;
+	margin-right: 30PX;
 }
 
 /*First Fold*/	
@@ -427,7 +432,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*MainGallery*/
 #mainGallery{
-	background: #EBF2F2;
+	background: #fcf9fa;
 	padding: 50px 0 0 0 !important;
 }
 
@@ -451,11 +456,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	padding: 0 0 10px 0;	
 }
 
+
 .braThumb small {
 	font-style: normal;
-	font-size: 80%;	
+	font-size: 70%;	
 }
-
+.braThumb h3 p {
+	font-size: 80%;
+}
 .middle {
 	width: 220px;
 	float: left;
@@ -581,7 +589,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*Preorder*/
 #preorder {
-	background: #EBF2F2;
+	background: #fcf9fa;
 	margin: 0 0 0 0;
 }
 
@@ -596,7 +604,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	margin-bottom: 0;
 	font-size: 100px;
 	color: #FCF9FA;
-	text-shadow: 1px 1px 0 rgba(9,35,36,.4);
+	font-family: "Cassanet", "Lato", "Helvetica", sans-serif;
 }
 
 #preorder h2 {
@@ -608,7 +616,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 #preorder p {
-	font-size: 85%;
+	font-size: 100%;
 	line-height: 1.5;
 }
 
@@ -680,7 +688,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	height: 75px;
 	width: 75px;
 	background: url(../img/css/sprite.png) no-repeat;
-	margin: 0 0px 20px 113px;
+	margin: 0 0px 40px 113px;
 }
 
 .iconHeader {
@@ -703,7 +711,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 /*------about ---------*/
 #about {
-	background: #EBF2F2;
+	background: #fc328a;
 }
 .center {
 	text-align: center;
@@ -715,16 +723,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #comments {
 	width: 580px !important;
-	background: #FCF9FA;
+	background: #EBF2F2;
 	padding: 20px;
 	border-radius: 10px;
 }
+#ourStory {
+	background: #EBF2F2;
+	margin: px;
+	border-radius: 10px;
+}
 #ourStory p {
-	
+	padding: 0 20px 0 20px;
+}
+#ourStory h2 {
+	margin-left: 20px;
+}
+#about h1 {
+	color: #EBF2F2;
 }
 #ourStory .face {
 	width: 70px;
 	background:  rgba(9,35,36,.05);
+}
+#ourStory img {
+	margin: 20px;
 }
 
 /*-----footer--------*/
