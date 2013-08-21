@@ -580,7 +580,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 }
 
 #testimonials .face:hover img{
-	box-shadow: 0 0 5px rgba(9,35,36,.3);
+	-webkit-filter: contrast(150%);
+}
 }
 
 
