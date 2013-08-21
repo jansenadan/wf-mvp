@@ -506,6 +506,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	background: rgba(252, 249, 250, 1);
 	margin-bottom: 20px;
 	overflow: hidden;
+	border-radius: 5%;
 }
 
 .square h2 {
@@ -515,26 +516,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 .square .caption {
 	width: 220px;
 	height: 220px;
-	background: rgba(252, 249, 250, 0.6);
 	position: relative;
-	top: -224px;
+	top: -260px;
 	display: none;
+	text-align: center;
 }
 
 .square .caption h2 {
 	margin: 120px 20px 0;
-	color: #092324;
+	color: #fcf9fa;
+	background: #092324;
+	padding-left: 5px;
 }
 
 .caption p {
 	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	margin: 0px 20px;
 	font-size: 100%;
-	font-weight: bold;
+	color: #fcf9fa;
+	background: #092324;
+	padding-left: 5px;
 }
-
-#realphotos .square:hover img {
-	background: rgba(252, 249, 250, .6);
+#realphotos .square:hover img{
+	    -webkit-filter: contrast(150%);
 }
 
 #realphotos .square:hover .caption {
@@ -780,7 +784,7 @@ footer .socialIcons a {
 	background-position: 0 -299px;
 }
 .socialIcons .instagram:hover {
-	background-position: -76px -299px;
+	background-position: -76qpx -299px;
 }
 
 footer .copyright{
