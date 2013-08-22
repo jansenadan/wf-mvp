@@ -179,7 +179,7 @@ nav {
 
 nav a {
 	margin: 3px 0px 0 0;
-	color:#fc328a;
+	color: #FC328A;
 	display: inline-block;
 	text-align: center;
 	}
@@ -595,7 +595,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #preorder header {	
 	width: 100% !important;
-	background: #00B1B7;
+	background: #30C4C9;
 	text-align: center !important;	
 	margin: 0 0 3em 0 !important;
 }
