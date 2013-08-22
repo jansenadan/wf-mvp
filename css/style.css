@@ -489,7 +489,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*Realphotos*/
 #realphotos {
-	background: #092324;
+	background: rgba(9,35,36,.4);
 	padding: 20px 0 40px 0 !important;
 }
 
@@ -607,9 +607,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	font-family: "Cassanet", "Lato", "Helvetica", sans-serif;
 }
 
+#preorder header h2 {
+	color: rgba(252, 249, 250, .6);
+}
+
 #preorder h3 {
 	margin: 0 0 1em 0;
 }
+
 
 #preorder p {
 	font-size: 100%;
