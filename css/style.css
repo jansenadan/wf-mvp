@@ -211,7 +211,7 @@ nav .logo img {
 /*First Fold*/	
 #firstFold{
 	float: left;
-	background-image:  url(../img/css/img1.jpg);
+	background-image:  url(../img/css/fold34.jpg);
 	background-position: top left;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -785,7 +785,7 @@ footer .socialIcons a {
 	background-position: 0 -299px;
 }
 .socialIcons .instagram:hover {
-	background-position: -76qpx -299px;
+	background-position: -76px -299px;
 }
 
 footer .copyright{
