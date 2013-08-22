@@ -507,23 +507,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	border-radius: 5%;
 }
 
-.square h2 {
-	margin: 30px;
-}
-
 .square .caption {
 	width: 220px;
 	height: 220px;
 	position: relative;
-	top: -260px;
+	top: -224px;
 	display: none;
 	text-align: center;
+	background: rgba(9,35,36,.6);
 }
 
 .square .caption h2 {
-	margin: 120px 20px 0;
+	margin-top: 50%;	
 	color: #fcf9fa;
-	background: #092324;
 	padding-left: 5px;
 }
 
@@ -532,7 +528,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	margin: 0px 20px;
 	font-size: 100%;
 	color: #fcf9fa;
-	background: #092324;
 	padding-left: 5px;
 }
 #realphotos .square:hover img{
