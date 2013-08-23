@@ -523,24 +523,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 	top: -224px;
 	display: none;
 	text-align: center;
-	background: rgba(9,35,36,.6);
+	background: #30c4c9;
 }
 
-.square .caption h2 {
-	margin-top: 50%;	
+.square .caption h2 {	
 	color: #fcf9fa;
-	padding-left: 5px;
+	font-size: 500%;
+	font-family: "Cassanet", "Helvetica", sans-serif;
+	margin-top: 110px;
+	margin-bottom: 40px;
+	line-height: 1%;	
 }
 
 .caption p {
 	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	margin: 0px 20px;
 	font-size: 100%;
+	font-variant: small-caps;;
+	line-height: 1.5em;		
 	color: #fcf9fa;
-	padding-left: 5px;
-}
-#realphotos .square:hover img{
-	    -webkit-filter: contrast(150%);
 }
 
 #realphotos .square:hover .caption {
