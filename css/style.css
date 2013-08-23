@@ -240,8 +240,16 @@ nav .logo img {
 
 
 /*----Sizes----*/	
-#sizes {
-		
+#illustration {
+	background-image: url(../img/girl/sprite.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background: #092324;
+	border-radius: 50%;
+	width: 242px;
+	height: 242px;
+	display: block;
+	z-index: 1000;
 }
 
 #sizeTable {
@@ -288,8 +296,9 @@ nav .logo img {
 }
 
 #sizeTable td:hover {
-	background: #EBF2F2;
+	background: #092324 !important;
 	font-weight: bold;
+	color: #fcf9fa;
 }
 
 #sizeTable td:hover .tooltip {
@@ -299,8 +308,9 @@ nav .logo img {
 }
 
 #sizeTable td.highlighted {
-	background: #EEFF00 !important;
+	background: #092324 !important;
 	font-weight: bold;
+	color: #fcf9fa;
 }
 
 #sizeTable td.highlighted:hover .tooltip,
@@ -340,7 +350,7 @@ nav .logo img {
 	margin-left: 260px;	
 }
 
-.ui-slider-handle{
+.ui-slider-handle {
 	z-index: 1000 !important;
 	background: rgba(255,172,64,.3) !important; 
 	border: solid 1px #999 !important;
@@ -352,7 +362,7 @@ nav .logo img {
 	top: 3px;
 	width: 280px;
 	margin: 0px 15px 0 0;
-	background: #EBF2F2; 
+	background: rgba(9,35,36,.1); 
 }
 
 #sizeCalculator .sliderLabel{
@@ -445,15 +455,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 .braThumb figcaption{
 	text-align: center;
-	padding: 0 0 10px 0;	
+	padding: 10px 0 10px 0;	
 }
 
 
 .braThumb small {
 	font-style: normal;
-	font-size: 70%;	
 }
-.braThumb h3 p {
+.braThumb h3 {
 	font-size: 80%;
 }
 .middle {
@@ -487,7 +496,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 /*Realphotos*/
 #realphotos {
-	background: rgba(9,35,36,.4);
+	background: rgba(9,35,36, 0.8);
 	padding: 20px 0 40px 0 !important;
 }
 
