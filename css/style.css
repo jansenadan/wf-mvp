@@ -65,6 +65,9 @@ a:hover {
 	clear: both;
 }
 
+.inner > section {
+	float: left;
+}
 
 #container section header{
 	text-align: center;
@@ -243,16 +246,28 @@ nav .logo img {
 
 
 /*----Sizes----*/	
-#illustration {
+.illustration {
 	background-image: url(../img/girl/sprite.png);
 	background-repeat: no-repeat;
-	background-position: 0 0;
-	background: #092324;
+	background-color: #092324;
 	border-radius: 50%;
 	width: 242px;
 	height: 242px;
 	display: block;
 	z-index: 1000;
+}
+
+
+.illustration1 {
+	background-position: 0 0;
+}
+
+.illustration2 {
+	background-position: -242px 0;
+}
+
+.illustration3 {
+	background-position: -484px 0;
 }
 
 #sizeTable {
@@ -322,11 +337,8 @@ nav .logo img {
 	color: rgba(9,35,36,1);
 }
 
-#sizeCalculator form{
-	margin: 30px 0;
-}
 
-#sizeCalculator label {
+.sizeCalculator label {
 	display: inline-block;
 	width: 80px;
 	margin: 10px 10px 20px 0;
@@ -336,8 +348,8 @@ nav .logo img {
 	text-transform: uppercase;
 }
 
-#sizeCalculator .sliderLeftLabel,
-#sizeCalculator .sliderRightLabel {
+.sizeCalculator .sliderLeftLabel,
+.sizeCalculator .sliderRightLabel {
 	font-size: 9px;
 	text-transform: uppercase; 
 	font-weight: bold;
@@ -346,20 +358,20 @@ nav .logo img {
 	z-index: 999;
 }
 
-#sizeCalculator .sliderLeftLabel {
+.sizeCalculator .sliderLeftLabel {
 	margin-left: 4px;
 }
-#sizeCalculator .sliderRightLabel {
+.sizeCalculator .sliderRightLabel {
 	margin-left: 260px;	
 }
 
 .ui-slider-handle {
 	z-index: 1000 !important;
-	background: rgba(255,172,64,.3) !important; 
+	background: rgba(238,255,0,1) !important; 
 	border: solid 1px #999 !important;
 }
 
-#sizeCalculator .slider {
+.sizeCalculator .slider {
 	display: inline-block;
 	position: relative;
 	top: 3px;
@@ -368,7 +380,7 @@ nav .logo img {
 	background: rgba(9,35,36,.1); 
 }
 
-#sizeCalculator .sliderLabel{
+.sizeCalculator .sliderLabel{
 	display: inline-block;
 	width: 50px;
 	text-transform: uppercase;
@@ -379,11 +391,11 @@ nav .logo img {
 	
 }
 
-#sizeCalculator .sliderLabel span{
+.sizeCalculator .sliderLabel span{
 	text-transform: none;
 }
 
-#sizeCalculator .button {
+.sizeCalculator .button {
 	font-size: 100%;
 	border-radius: 4px;
 	cursor: pointer;
@@ -408,7 +420,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc529c', end
 
 }
 
-#sizeCalculator .button:hover{
+.sizeCalculator .button:hover{
 	background: rgb(252,50,138); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjMzI4YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iI2ZmMDA2ZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
@@ -424,13 +436,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc328a', end
 
 #sizeSuggestion {
 	display: none;
-	position: absolute;
-	background: #EBF2F2;
-	width: 430px;
-	padding: 10px;
-	font-size: 85%;
-	font-weight: bold;
-	margin: 15px 0;
 }
 
 
