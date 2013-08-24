@@ -259,6 +259,11 @@ nav .logo img {
 	width: 50%;
 	float: left;
 }	
+
+.innerWrapper {
+	height: 250px;
+}
+
 .illustration {
 	background-image: url(../img/girl/sprite.png);
 	background-repeat: no-repeat;
@@ -276,9 +281,7 @@ nav .logo img {
 	background-position: 0 -227px;
 }
 
-.illustration3 {
-	background-position: -484px 0;
-}
+
 
 #sizeTable {
 	display: block;
@@ -406,25 +409,16 @@ nav .logo img {
 }
 
 #calculateSize {
-	font-size: 100%;
-	border-radius: 4px;
-	cursor: pointer;
-	font-family: inherit;
-	font-weight: normal;
-	border: solid 1px #CA0058;
-	padding: .2em 1.2em .35em 1.2em;
-	color: #FFE1EE;
-	text-shadow: 0px 0px 1px #560025;
-	background: rgb(252,82,156); 
+
 }
 
 #calculateSize:hover{
-	background: rgb(252,50,138); /* Old browsers */
+
 }
 
 .calculateSizeSection{
 	width: 100%;
-	
+	background: #30C4C9;
 	text-align: center;
 }
 #sizeSuggestion {
