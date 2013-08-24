@@ -255,6 +255,10 @@ nav .logo img {
 
 
 /*----Sizes----*/
+
+#sizes {
+	padding-bottom: 0 !important;
+}
 .half {
 	width: 50%;
 	float: left;
@@ -286,9 +290,7 @@ nav .logo img {
 #sizeTable {
 	display: block;
 	padding: 20px 0;
-	text-align: center;
-	background: #FCF9FA;
-	border-right: solid 1px rgba(9,35,36,.1);
+	text-align: left !important;
 }
 
 #sizeTable table{
@@ -302,9 +304,8 @@ nav .logo img {
 	cursor: pointer;
 	text-align: center;
 	width: 28px; 
-	padding: 4px 0;
-	border: solid 1px rgba(48,196,201,.2);
-	margin: 2px 2px 0 0;
+	padding: 4px 1px;
+	margin: 4px 4px 0 0;
 	background: #fff;
 }
 
@@ -319,7 +320,7 @@ nav .logo img {
 	width: 70px;
 	font-weight: bold;
 	font-size: 12px;
-	background: #fff;
+	background: #fcf9fa;
 	box-shadow:  0 0 5px rgba(9,35,36,.2);
 	font-variant: small-caps;
 }
@@ -380,7 +381,7 @@ nav .logo img {
 
 .ui-slider-handle {
 	z-index: 1000 !important;
-	background: rgba(238,255,0,1) !important; 
+	background: #30C4C9 !important; 
 	border: solid 1px #999 !important;
 }
 
@@ -390,7 +391,8 @@ nav .logo img {
 	top: 3px;
 	width: 280px;
 	margin: 0px 15px 0 0;
-	background: rgba(9,35,36,.1); 
+	background: #FCF9FA; 
+	border: solid 1px #30C4C9 !important;
 }
 
 .sizeCalculator .sliderLabel{
@@ -418,11 +420,12 @@ nav .logo img {
 
 .calculateSizeSection{
 	width: 100%;
-	background: #30C4C9;
+	background: #EEFF00;
 	text-align: center;
 }
 #sizeSuggestion {
 	display: none;
+	clear: both;
 }
 
 
