@@ -176,6 +176,8 @@ button {
 .wrapper{
 	clear: both;
 	float: left;
+	height: 220px;
+	padding: 20px 0 20px 0;
 }
 
 /*--Nav---*/
@@ -201,6 +203,7 @@ nav a {
 	color: #092324;
 	display: inline-block;
 	text-align: center;
+	padding-bottom: 3px;
 	}
 
 nav .logo {
@@ -264,21 +267,37 @@ nav .logo img {
 #sizes {
 	padding-bottom: 0 !important;
 }
+.wrapper h2 {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.numberButton {
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	background-color: #EEFF00;	
+	margin: -35px 0 0 -35px;
+	position: absolute;
+	color: #092324;
+	font-family: "Cassanet", "HelveticaNeue-Light", Helvetica,sans-serif;
+	font-size: 100%;
+}
 
 .illustration {
-	background-image: url(../img/girl/sprite.png);
 	background-repeat: no-repeat;
-	width: 206px;
-	height: 224px;
+	width: 220px;
+	height: 220px;
 	display: block;
+	border-radius: 10px;
 }
 
 .illustration1 {
-	background-position: 0 0;
+	background-image: url(../img/css/underbust.jpg);
 }
 
 .illustration2 {
-	background-position: 0 -227px;
+	background-image: url(../img/css/overbust.jpg);
 }
 
 #sizeTable {
@@ -289,7 +308,7 @@ nav .logo img {
 
 #sizeTable table{
 	margin: 10px 0 0 0;
-	font-size: 11px;
+	font-size: 14px;
 	text-align: left;
 }
 
@@ -297,7 +316,7 @@ nav .logo img {
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
-	width: 28px; 
+	width: 40px; 
 	padding: 4px 1px;
 	margin: 4px 4px 0 0;
 	background: #fff;
@@ -348,45 +367,44 @@ nav .logo img {
 }
 .sizeCalculator label {
 	display: inline-block;
-	width: 80px;
 	margin: 10px 10px 20px 0;
 	font-size: 11px;
 	font-weight: bold;
 	text-align: left;
-	text-transform: uppercase;
+	text-transform: uppercase;	
+	width: 240px;
 }
 
 .sizeCalculator .sliderLeftLabel,
 .sizeCalculator .sliderRightLabel {
-	font-size: 9px;
 	text-transform: uppercase; 
 	font-weight: bold;
 	position: absolute;
-	margin-top: 10px;
-	z-index: 999;
+	margin-top: 8px;
+	z-index: 10000;
+	color:  rgba(252, 249, 250, .6);
 }
 
 .sizeCalculator .sliderLeftLabel {
 	margin-left: 4px;
 }
 .sizeCalculator .sliderRightLabel {
-	margin-left: 260px;	
+	margin-left: 330px;	
 }
 
 .ui-slider-handle {
 	z-index: 1000 !important;
-	background: #30C4C9 !important; 
-	border: solid 1px #999 !important;
+	background: #EEFF00 !important; 
 }
 
 .sizeCalculator .slider {
 	display: inline-block;
 	position: relative;
-	top: 3px;
-	width: 280px;
+	top: 4px;
+	width: 360px;
 	margin: 0px 15px 0 0;
-	background: #FCF9FA; 
-	border: solid 1px #30C4C9 !important;
+	background: #092324; 
+	height: 16px;
 }
 
 .sizeCalculator .sliderLabel{
@@ -395,7 +413,7 @@ nav .logo img {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
-	background: #EEFF00;
+	background: rgba(9,35,36,.2);
 	text-align: center;
 	
 }
@@ -405,7 +423,7 @@ nav .logo img {
 }
 
 #calculateSize {
-
+	float: right;
 }
 
 #calculateSize:hover{
