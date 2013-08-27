@@ -173,6 +173,11 @@ button {
 	float: left;
 }
 
+.wrapper{
+	clear: both;
+	float: left;
+}
+
 /*--Nav---*/
 nav {
 	background: #fcf9fa;
@@ -259,14 +264,6 @@ nav .logo img {
 #sizes {
 	padding-bottom: 0 !important;
 }
-.half {
-	width: 50%;
-	float: left;
-}	
-
-.innerWrapper {
-	height: 250px;
-}
 
 .illustration {
 	background-image: url(../img/girl/sprite.png);
@@ -276,7 +273,6 @@ nav .logo img {
 	display: block;
 }
 
-
 .illustration1 {
 	background-position: 0 0;
 }
@@ -284,8 +280,6 @@ nav .logo img {
 .illustration2 {
 	background-position: 0 -227px;
 }
-
-
 
 #sizeTable {
 	display: block;

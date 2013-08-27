@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   	<link href='http://fonts.googleapis.com/css?family=Clicker+Script|EB+Garamond' rel='stylesheet' type='text/css'>
-  	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>  	
     <script type="text/javascript">
 var bands = [
 		    	{
@@ -388,8 +388,6 @@ $(document).ready(function(){
 	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
 	});
 });
-
-
     </script>
 
 </head>
@@ -510,35 +508,51 @@ $(document).ready(function(){
 				<h1>Find your Size in 2 Quick Steps!</h1>
 			</header>
 			<div class="inner">
-				<div class="grid2">
-					<div class="innerWrapper">
-						<div class="illustration illustration1 half">
+				<div class="wrapper">
+					<div class="grid2-6">
+						<div class="illustration illustration1">
 							<h2>Underbust</h2>
 						</div>
-						<div class="half">
-							<p>90% of bra support is in the band, which lays under your bust.</p>
-							<ul>
-								<li>Pull a measuring tape tight</li>
-								<li>Just under your bust</li>
-								<li>Keep it level around your ribcage</li>
-								<li><strong>Do not round</strong> to the next whole number &mdash; get an accurate reading.</li>
-							</ul>
-						</div>
+					</div>
+					<div class="grid4-6">
+						<p>90% of bra support is in the band, which lays under your bust.</p>
+						<ul>
+							<li>Pull a measuring tape tight</li>
+							<li>Just under your bust</li>
+							<li>Keep it level around your ribcage</li>
+							<li><strong>Do not round</strong> to the next whole number &mdash; get an accurate reading.</li>
+						</ul>
+						<form class="sizeCalculator">
+							<label>Your Underbust:</label>
+							<span id="underbustLabel" class="sliderLabel"></span>
+							<small class="sliderLeftLabel">22.8</small>
+							<small class="sliderRightLabel">36.2</small>
+							<div id="underbust" class="slider"></div>
+						</form>
 					</div>
 				</div>
-				<div class="grid2">
-					<div class="innerWrapper">
-						<div class="illustration illustration1 half">
+				<div class="wrapper">
+					<div class="grid2-6">
+						<div class="illustration illustration1">
 							<h2>Overbust</h2>
 						</div>
-						<div class="half">
-							<p>With your current bra on, measure over your bust.</p>
-							<ul>
-								<li>Stand straight and take a good, deep breath</li>
-								<li>Pull the tape loosely over the <strong>fullest</strong> part of your bust</li>
-								<li>Make sure the tape is level around your body.</li>
-							</ul>
-						</div>
+					</div>
+
+					<div class="grid4-6">
+						<p>With your current bra on, measure over your bust.</p>
+						<ul>
+							<li>Stand straight and take a good, deep breath</li>
+							<li>Pull the tape loosely over the <strong>fullest</strong> part of your bust</li>
+							<li>Make sure the tape is level around your body.</li>
+						</ul>
+						<form class="sizeCalculator">
+							<label>Your Overbust:</label>
+							<span id="overbustLabel" class="sliderLabel"></span>
+							<small class="sliderLeftLabel">29.1</small>
+							<small class="sliderRightLabel">46.5</small>
+							<div id="overbust" class="slider"></div>
+							<button id="calculateSize" class="button-huge" >Ready &#65515;</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -551,23 +565,8 @@ $(document).ready(function(){
 							<small>Highlight a size to see exact measurements</small>
 						</div>
 					</div>
-					<div id="sizeCalculator" class="grid2">
-						<form class="sizeCalculator">
-							<label>Your Underbust:</label>
-							<span id="underbustLabel" class="sliderLabel"></span>
-							<small class="sliderLeftLabel">22.8</small>
-							<small class="sliderRightLabel">36.2</small>
-							<div id="underbust" class="slider"></div>
-							<label>Your Overbust:</label>
-							<span id="overbustLabel" class="sliderLabel"></span>
-							<small class="sliderLeftLabel">29.1</small>
-							<small class="sliderRightLabel">46.5</small>
-							<div id="overbust" class="slider"></div>
-							<button id="calculateSize" class="button-huge" >Ready &#65515;</button>
-						</form>
-						
-					</div>
 				</div>
+
 				<h1><div id="sizeSuggestion"></div></h1>
 			</div>
 			
