@@ -334,7 +334,9 @@ nav .logo:hover{
 	font-size: 14px;
 	text-align: left;
 }
-
+#size i {
+	padding-bottom: 10px;
+}
 #sizeTable td {
 	display: inline-block;
 	cursor: pointer;
@@ -342,7 +344,7 @@ nav .logo:hover{
 	width: 40px; 
 	padding: 4px 1px;
 	margin: 4px 4px 0 0;
-	background: #fff;
+	background: #fcf9fa;;
 }
 
 .tooltip {
@@ -353,12 +355,12 @@ nav .logo:hover{
 	text-align: left;    	
 	z-index: 1000;
 	padding: 5px;
-	width: 70px;
+	width: 90px;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px;
 	background: #fcf9fa;
-	box-shadow:  0 0 5px rgba(9,35,36,.2);
 	font-variant: small-caps;
+	padding: 10px;
 }
 
 #sizeTable td:hover {
