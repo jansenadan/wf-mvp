@@ -1,3 +1,8 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +16,8 @@
   	<link href='http://fonts.googleapis.com/css?family=Clicker+Script|EB+Garamond' rel='stylesheet' type='text/css'>
   	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>  	
     <script type="text/javascript">
+
+
 var bands = [
 		    	{
 		    		value: 28, 
@@ -200,11 +207,22 @@ $(document).ready(function(){
 	};
 
 	//Launch modals on anchor clicks
-	launchModal('.greenVelvetMore', "#greenVelvetText");
-	launchModal('.shippingPolicy', '#shippingPolicyText');
-	launchModal('.exchangeReturns', '#exchangeReturnsText');
-	launchModal('.aboutManufacturer', '#aboutManufacturerText');
-
+	$.each( {
+		'.lycheeSorbetMore': '#lycheeSorbetText',
+		'.summerTimeMore': '#summerTimeText',
+		'.freeTimeMore': '#freeTimeText',
+		'.julietteMore': '#julietteText',
+		'.mintSorbetMore': '#mintSorbetText',
+		'.geishaMore': '#geishaText',
+		'.greenVelvetMore': '#greenVelvetText',
+		'.kellyMore': '#kellyText',
+		'.shippingPolicy': '#shippingPolicyText',
+		'.exchangeReturns': '#exchangeReturnsText',
+		'.aboutManufacturer': '#aboutManufacturerText'
+	}, function( anchor, content ) {
+  		launchModal(anchor, content);
+	});
+	
 
 	
 	//Detect if element is visible on screen after scrolling
@@ -332,14 +350,14 @@ $(document).ready(function(){
 			var message = "Your band is " +suggestion.band + ", but we don't carry your cup:(" 
 			$('#sizeSuggestion').html('' + message + '');
 			$("#sizeSuggestion").show();
+			$('.sizeSuggestionWrapper').css("background", "#EEFF00");
 			return false;
 		}
 		else {
 			var message = "Try size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + "!";
-			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
-			$('#sizeSuggestion').html('' + message + '<br><small id="sizeSuggestionAside"></small>');
-			$('#sizeSuggestionAside').html('' + aside + '').show();
+			$('#sizeSuggestion').html('' + message);
 			$("#sizeSuggestion").fadeIn(500);
+			$('.sizeSuggestionWrapper').css("background", "#EEFF00");
 			//Highlight recommended size in a table
 			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
 		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
@@ -361,6 +379,8 @@ $(document).ready(function(){
 	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
 	      },
 	      change: function( event, ui ) {
+	      	//remove lime color from sizeSuggestionWrapper
+	      	$('.sizeSuggestionWrapper').css("background", "none");
 	      	//hide #sizeSuggestion
 			$("#sizeSuggestion").fadeOut(100);
 	      	//remove highlights from table cells, if any
@@ -380,6 +400,8 @@ $(document).ready(function(){
 	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
 	      },
 	      change: function( event, ui ) {
+	      	//remove lime color from sizeSuggestionWrapper
+	      	$('.sizeSuggestionWrapper').css("background", "none");
 	      	//hide #sizeSuggestion
 			$("#sizeSuggestion").fadeOut(100);
 	      	//remove highlights from table cells, if any
@@ -435,94 +457,31 @@ $(document).ready(function(){
 				<h1>Fabulous Fit in Over 65 Sizes!</h1>
 			</header>
 			<div class="inner">
+				{% for bra in site.posts %}
 				<div class="grid1 braThumb">
-					<img src="img/bras/lychee-sorbet.png">
+					<img src="{{bra.main-thumb}}" class="{{bra.camelCase}}More">
 					<figcaption>
-						<h3>Lychee Sorbet</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
+						<h3>{{bra.title}}</h3>
+						<small>${{bra.price}} | <a href="#" class="{{bra.camelCase}}More">view &#65515;</a></small>
 					</figcaption>
-				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/summer-time.png">
-					<figcaption>
-						<h3>Summer Time</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/free-time.png">
-					<figcaption>
-						<h3>Free Time</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/juliette.png">
-					<figcaption>
-						<h3>Juliette</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/mint-sorbet.png">
-					<figcaption>
-						<h3>Mint Sorbet</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-				
-				<div class="grid1 braThumb">
-					<img src="img/bras/geisha.png">
-					<figcaption>
-						<h3>Geisha</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/green-velvet.png" class="greenVelvetMore">
-					<figcaption>
-						<h3>Green Velvet</h3>
-						<small>$40 | <a href="#" class="greenVelvetMore">view &#65515;</a></small>
-					</figcaption>
-					<div id="greenVelvetText" class="nodisplay">
+					<div id="{{bra.camelCase}}Text" class="nodisplay">
 						<figure class="grid4-6 singleItemFigure">
-							<img src="img/bras/green-velvet-big.jpg">
+							<img src="{{bra.big-thumb}}">
 						</figure>
 						<div class="singleItemDescription grid2-6">
 							<div class="wrapper">
-								<h2>Green Velvet | $65</h2>
+								<h2> {{bra.title}} | ${{bra.price}}</h2>
 								<a href="//pinterest.com/pin/create/button/?url=http%3A%2F%2Fwellfitting.com&media=http%3A%2F%2Fwellfitting.com%2Fimg%2Fbras%2Fthis.jpg&description=Bra" data-pin-do="buttonPin" data-pin-config="none"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
-								<p>Fans of green lingerie will love this unique deep green plunge bra! Floral velvet flocking continues all the way around the band, and the cups are lightly lined with a soft green padding.
-								<ul>
-									<li>Floral velvet embroidery over ultra light tulle netting</li>
-									<li>Velvet ribbon between cups</li>
-									<li>Inner cotton lining</li>
-									<li>Fully adjustable straps</li>
-									<li>3-hook fastening</li>
-									<li>Matching thongs</li>
-								</ul>
+								{{bra.content}}
 							</div>
 							<div class="singleItemThumbs">
-								<img src="img/bras/green-velvet-thumb1.jpg" class="grid1-6">
-								<img src="img/bras/green-velvet-thumb2.jpg" class="grid1-6 noMarginRight">
+								<img src="{{bra.small-thumb-1}}" class="grid1-6">
+								<img src="{{bra.small-thumb-2}}" class="grid1-6 noMarginRight">
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="grid1 braThumb">
-					<img src="img/bras/kelly.png">
-					<figcaption>
-						<h3>Kelly</h3>
-						<small>$40 | <a href="#">view &#65515;</a></small>
-					</figcaption>
-				</div>
-
+				{% endfor %}
 			</div>
 		</section>
 		

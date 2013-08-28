@@ -1,0 +1,10 @@
+---
+title: Free Time
+main-thumb: "img/bras/free-time.png"
+big-thumb: "img/bras/free-time-big.jpg"
+small-thumb-1: "img/bras/free-time-thumb1.jpg"
+small-thumb-2: "img/bras/free-time-thumb2.jpg"
+price: 65
+
+camelCase: freeTime
+---
