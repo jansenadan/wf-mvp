@@ -1,0 +1,10 @@
+---
+title: Juliette 
+main-thumb: "img/bras/juliette.png"
+big-thumb: "img/bras/juliette-big.jpg"
+small-thumb-1: "img/bras/juliette-thumb1.jpg"
+small-thumb-2: "img/bras/juliette-thumb2.jpg"
+price: 65
+
+camelCase: juliette
+---

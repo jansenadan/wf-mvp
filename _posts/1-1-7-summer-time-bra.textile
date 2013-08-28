@@ -1,0 +1,10 @@
+---
+title: Summer Time
+main-thumb: "img/bras/summer-time.png"
+big-thumb: "img/bras/summer-time-big.jpg"
+small-thumb-1: "img/bras/summer-time-thumb1.jpg"
+small-thumb-2: "img/bras/summer-time-thumb2.jpg"
+price: 65
+
+camelCase: summerTime
+---

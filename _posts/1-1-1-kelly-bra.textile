@@ -1,0 +1,10 @@
+---
+title: Kelly
+main-thumb: "img/bras/kelly.png"
+big-thumb: "img/bras/kelly-big.jpg"
+small-thumb-1: "img/bras/kelly-thumb1.jpg"
+small-thumb-2: "img/bras/kelly-thumb2.jpg"
+price: 65
+
+camelCase: kelly
+---
