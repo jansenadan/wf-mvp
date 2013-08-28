@@ -427,7 +427,7 @@ nav .logo img {
 }
 
 #calculateSize {
-	float: right;
+	margin: 0;
 }
 
 #calculateSize:hover{
@@ -436,9 +436,15 @@ nav .logo img {
 
 .calculateSizeSection{
 	width: 100%;
-	background: #EEFF00;
 	text-align: center;
 }
+
+.sizeSuggestionWrapper {
+	float: left;
+	width: 100%;
+	background: #EEFF00;
+}
+
 #sizeSuggestion {
 	display: none;
 	clear: both;
@@ -494,6 +500,7 @@ nav .logo img {
 
 .singleItemDescription .wrapper {
 	height: 480px;	
+	padding: 0;
 }
 
 .singleItemThumbs img {
