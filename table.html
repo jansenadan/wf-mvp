@@ -350,14 +350,14 @@ $(document).ready(function(){
 			var message = "Your band is " +suggestion.band + ", but we don't carry your cup:(" 
 			$('#sizeSuggestion').html('' + message + '');
 			$("#sizeSuggestion").show();
+			$('.sizeSuggestionWrapper').css("background", "#EEFF00");
 			return false;
 		}
 		else {
 			var message = "Try size " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + "!";
-			var aside = "No way I'm a " + suggestion.band.toString() + suggestion.cup.toString().toUpperCase() + '! <a href="#" id="sizeSuggestionPopup">Did you just say that?</a>'
-			$('#sizeSuggestion').html('' + message + '<br><small id="sizeSuggestionAside"></small>');
-			$('#sizeSuggestionAside').html('' + aside + '').show();
+			$('#sizeSuggestion').html('' + message);
 			$("#sizeSuggestion").fadeIn(500);
+			$('.sizeSuggestionWrapper').css("background", "#EEFF00");
 			//Highlight recommended size in a table
 			var highlighted = suggestion.band.toString()+suggestion.cup.toString();
 		    $('td[data-size="' + highlighted + '"]').addClass('highlighted');
@@ -379,6 +379,8 @@ $(document).ready(function(){
 	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
 	      },
 	      change: function( event, ui ) {
+	      	//remove lime color from sizeSuggestionWrapper
+	      	$('.sizeSuggestionWrapper').css("background", "none");
 	      	//hide #sizeSuggestion
 			$("#sizeSuggestion").fadeOut(100);
 	      	//remove highlights from table cells, if any
@@ -398,6 +400,8 @@ $(document).ready(function(){
 	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
 	      },
 	      change: function( event, ui ) {
+	      	//remove lime color from sizeSuggestionWrapper
+	      	$('.sizeSuggestionWrapper').css("background", "none");
 	      	//hide #sizeSuggestion
 			$("#sizeSuggestion").fadeOut(100);
 	      	//remove highlights from table cells, if any
