@@ -9,6 +9,9 @@ price: 65
 camelCase: summerTime
 ---
 
-lorem ipsum
+This lovely design
 
-* matching shorts
+* Lightly padded plunge bra
+* Fully adjustable straps
+* 3-hook fastening
+* mMtching shorts
