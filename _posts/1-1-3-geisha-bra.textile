@@ -8,3 +8,14 @@ price: 65
 
 camelCase: geisha
 ---
+
+<p>
+If you are looking for something elegant and feminine, this laced plunge bra should be a perfect answer. Subtle black- brown mesh with warm brown floral motives continues all the way around the band, on top of a cream base. The lace is very delicate and doesn't show through the clothing.
+</p>
+
+<ul>
+	<li>Lighly padded plunge bra</li>
+	<li>Fully adjustable black straps</li>
+	<li>3-hook fastening</li>
+	<li>Matching briefs</li>
+</ul>

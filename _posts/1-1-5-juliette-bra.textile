@@ -8,3 +8,9 @@ price: 65
 
 camelCase: juliette
 ---
+
+<ul>
+	<li>Fully adjustable straps</li>
+	<li>3-hook fastening</li>
+	<li>Matching briefs</li>
+</ul>	
