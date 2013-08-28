@@ -8,3 +8,7 @@ price: 65
 
 camelCase: summerTime
 ---
+
+lorem ipsum
+
+* matching shorts

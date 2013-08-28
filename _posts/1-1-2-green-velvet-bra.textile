@@ -9,12 +9,12 @@ price: 65
 camelCase: greenVelvet
 ---
 
-<p>Fans of green lingerie will love this unique deep green plunge bra! Floral velvet flocking continues all the way around the band, and the cups are lightly lined with a soft green padding.</p>
-<ul>
-	<li>Floral velvet embroidery over ultra light tulle netting</li>
-	<li>Velvet ribbon between cups</li>
-	<li>Inner cotton lining</li>
-	<li>Fully adjustable straps</li>
-	<li>3-hook fastening</li>
-	<li>Matching thongs</li>
-</ul>
+Fans of green lingerie will love this unique deep ivy green plunge bra! Floral velvet flocking continues all the way around the band, and the cups are lightly lined with a soft green padding.
+
+* Ivy Green velvet flocking over ultra light tulle netting
+* Lightly padded plunge bra
+* Velvet ribbon between cups
+* Inner cotton lining
+* Fully adjustable straps
+* 3-hook fastening
+* Matching thongs

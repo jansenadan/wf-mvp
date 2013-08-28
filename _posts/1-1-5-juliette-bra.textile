@@ -8,9 +8,11 @@ price: 65
 
 camelCase: juliette
 ---
+This ultra-feminine plunge bra has received great reviews for being both uplifting and supportive. Geometric Teal Grey lace over a Dusty Plum base farbric continues all the way around the band. The lace doesn't show under a thin top.
 
-<ul>
-	<li>Fully adjustable straps</li>
-	<li>3-hook fastening</li>
-	<li>Matching briefs</li>
-</ul>	
+* Teal Grey lace over Dusty Plum base fabric
+* Lightly padded plunge bra
+* Inner cotton lining
+* Fully adjustable straps
+* 3-hook fastening
+* Matching briefs
