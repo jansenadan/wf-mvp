@@ -504,17 +504,20 @@ $(document).ready(function(){
 						<p>90% of bra support is in the band, which lays under your bust.</p>
 						<ul>
 							<li>Pull a measuring tape tight</li>
-							<li>Just under your bust</li>
-							<li>Keep it level around your ribcage</li>
-							<li><strong>Do not round</strong> to the next whole number &mdash; get an accurate reading.</li>
+							<li>Just under your bust, level around your ribcage</li>
+							<li><strong>Do not round</strong> to the next whole number, get an accurate reading.</li>
 						</ul>
 						<form class="sizeCalculator">
-							<label>Slide to introduce your underbust:</label>
-							<span id="underbustLabel" class="sliderLabel"></span>
+							<label>Your underbust:</label>
+							<div class="grid2">
 							<small class="sliderLeftLabel">22.8</small>
 							<small class="sliderRightLabel">36.2</small>
+
 							<div id="underbust" class="slider"></div>
+						</div>
+							<span id="underbustLabel" class="sliderLabel grid1"></span>
 						</form>
+
 					</div>
 				</div>
 				<div class="wrapper">
@@ -535,11 +538,14 @@ $(document).ready(function(){
 							<li>Make sure the tape is level around your body.</li>
 						</ul>
 						<form class="sizeCalculator">
-							<label>Slide to introduce your overbust:</label>
-							<span id="overbustLabel" class="sliderLabel"></span>
+							
+							<label>Your overbust:</label>
+							<div class="grid2">
 							<small class="sliderLeftLabel">29.1</small>
 							<small class="sliderRightLabel">46.5</small>
 							<div id="overbust" class="slider"></div>
+						</div>
+							<span id="overbustLabel" class="sliderLabel grid1"></span>
 						</form>
 					</div>
 				</div>
@@ -559,12 +565,13 @@ $(document).ready(function(){
 			<div id="calculateSizeSection" class="grid4">
 				<div class="inner">
 					
-					<div id="chartLabel" class="grid1">
-					</div>
+					
 					<div class="grid3">
 						<div id="sizeTable">
 							<i>Highlight a size to see exact measurements</i>
 						</div>
+					</div>
+					<div id="chartLabel" class="grid1">
 					</div>
 				</div>
 			</div>
