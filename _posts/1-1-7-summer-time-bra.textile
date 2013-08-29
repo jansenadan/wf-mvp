@@ -5,6 +5,7 @@ big-thumb: "img/bras/summer-time-big.jpg"
 small-thumb-1: "img/bras/summer-time-thumb1.jpg"
 small-thumb-2: "img/bras/summer-time-thumb2.jpg"
 price: 65
+tagline: "Vibrant raspberry red plunge bra, up to N cup! #wellfitting #bra"
 
 camelCase: summerTime
 ---
@@ -14,7 +15,7 @@ With vibrant raspberry red and redcurrant pink hues, this lovely bra will sure s
 Vintage inspired floral print over a light mesh adds a little bit of girly touch to the overall bold and peppy design.
 
 * Fine floral pattern in raspberry reds
-* Red trimming
+* Red trimming and straps
 * Satin red bow on top of the gore
 * Lightly padded plunge bra
 * Fully adjustable straps

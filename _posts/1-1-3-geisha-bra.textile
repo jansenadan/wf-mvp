@@ -5,6 +5,7 @@ big-thumb: "img/bras/geisha-big.jpg"
 small-thumb-1: "img/bras/geisha-thumb1.jpg"
 small-thumb-2: "img/bras/geisha-thumb2.jpg"
 price: 65
+tagline: "Super chic plunge bra, up to N cup! #wellfitting #bra"
 
 camelCase: geisha
 ---

@@ -5,6 +5,7 @@ big-thumb: "img/bras/juliette-big.jpg"
 small-thumb-1: "img/bras/juliette-thumb1.jpg"
 small-thumb-2: "img/bras/juliette-thumb2.jpg"
 price: 65
+tagline: "Ultra feminine plunge bra, up to N cup! #wellfitting #bra"
 
 camelCase: juliette
 ---

@@ -471,7 +471,8 @@ $(document).ready(function(){
 						<div class="singleItemDescription grid2-6">
 							<div class="wrapper">
 								<h2> {{bra.title}} | ${{bra.price}}</h2>
-								<a href="//pinterest.com/pin/create/button/?url=http%3A%2F%2Fwellfitting.com&media=http%3A%2F%2Fwellfitting.com%2Fimg%2Fbras%2Fthis.jpg&description=Bra" data-pin-do="buttonPin" data-pin-config="none"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+								<a href="//pinterest.com/pin/create/button/?url={{site.url | cgi_escape}}&media={{site.url | cgi_escape}}%2{{bra.main-thumb | cgi_escape }}&description={{bra.tagline | cgi_escape}}" data-pin-do="buttonPin" data-pin-config="above"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+
 								{{bra.content}}
 							</div>
 							<div class="singleItemThumbs">
@@ -594,7 +595,7 @@ $(document).ready(function(){
 				<div class="grid2-6">
 					<span class="icon shipping"></span>
 					<h2>Shipping & Delivery Times</h2>
-					<p>We ship directly from the manufacturer with your home country postal service, all over the US, Canada and Europe.</p>
+					<p>We offer shipping to the US and Canada through registered mail with your home country postal service. Your bra will be handcrafted for you by the ma, ship directly from the manufacturer with your home country postal service, all over the US, Canada and Europe.</p>
 					<p><a href="" class="shippingPolicy">full shipping policy</a></p>
 
 					<div id="shippingPolicyText" class="nodisplay">
@@ -834,7 +835,8 @@ $(document).ready(function(){
 		</div>
 	</div>
 
-	
+<!--Pinterest-->
+	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 
 </html>
