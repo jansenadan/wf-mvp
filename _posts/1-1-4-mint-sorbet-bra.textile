@@ -5,6 +5,7 @@ big-thumb: "img/bras/mint-sorbet-big.jpg"
 small-thumb-1: "img/bras/mint-sorbet-thumb1.jpg"
 small-thumb-2: "img/bras/mint-sorbet-thumb2.jpg"
 price: 65
+tagline: "Fresh mint-sorbet-green bra, up to N cup! #wellfitting #bra"
 
 camelCase: mintSorbet
 ---

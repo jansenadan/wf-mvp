@@ -5,6 +5,7 @@ big-thumb: "img/bras/free-time-big.jpg"
 small-thumb-1: "img/bras/free-time-thumb1.jpg"
 small-thumb-2: "img/bras/free-time-thumb2.jpg"
 price: 65
+tagline: "Preppy plunge bra in navy tartan, up to N cup! #wellfitting #bra"
 
 camelCase: freeTime
 ---
