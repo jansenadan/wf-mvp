@@ -471,7 +471,7 @@ $(document).ready(function(){
 						<div class="singleItemDescription grid2-6">
 							<div class="wrapper">
 								<h2> {{bra.title}} | ${{bra.price}}</h2>
-								
+								<a href="//pinterest.com/pin/create/button/?url={{site.url | cgi_escape}}&media={{site.url | cgi_escape}}%2{{bra.main-thumb | cgi_escape }}&description={{bra.tagline | cgi_escape}}" data-pin-do="buttonPin" data-pin-config="above"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
 								{{bra.content}}
 							</div>
 							<div class="singleItemThumbs">
