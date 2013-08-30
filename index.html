@@ -144,7 +144,7 @@ var bands = [
 var mySize = function(underbust, overbust) {
 	for (var i = 0; i < bands.length; i++) {
 		var band = bands[i]    		
-		if (underbust >= band.start && underbust < band.stop) {	
+		if (underbust > band.start && underbust <= band.stop) {	
 			for (var j = 0; j < band.cups.length; j++){
 				var cup = band.cups[j]
 				if (j+1  === band.cups.length){
@@ -153,7 +153,7 @@ var mySize = function(underbust, overbust) {
 				else {
 					var cupMax = band.cups[j+1].start
 				};	
-				if (overbust > cup.start && overbust <= cupMax){
+				if (overbust > cup.start - '0.1' && overbust < cupMax){
 					return {band: band.value, cup: cup.value}
 				}
 				else {
@@ -343,6 +343,7 @@ $(document).ready(function(){
 			var message = "Sorry, seems like we don't carry your size yet:(";
 			$('#sizeSuggestion').html('' + message + '');
 			$("#sizeSuggestion").show();
+			$('.sizeSuggestionWrapper').css("background", "#7EFFE0");
 			return false;
 		}; 
 		if (sizeSuggestion().cup === null) {
