@@ -14,7 +14,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	pink light: #FC9AC5;
 	pink gray: #E6D1DA;
 
-	lime: #EEFF00;
+	lime: #7EFFE0;
     
 
 */
@@ -293,7 +293,7 @@ nav .logo:hover{
 	width: 70px;
 	height: 70px;
 	border-radius: 35px;
-	background-color: #EEFF00;	
+	background-color: #7EFFE0;	
 	margin: -35px 0 0 -35px;
 	position: absolute;
 	color: #092324;
@@ -382,11 +382,11 @@ nav .logo:hover{
 }
 
 #sizeTable td.highlighted:hover .tooltip {
-	border: solid 1px #EEFF00;
+	border: solid 1px #7EFFE0;
 	color: rgba(9,35,36,1);
 }
 #sizeTable td.highlighted .tooltip {
-	border: solid 1px #EEFF00;
+	border: solid 1px #7EFFE0;
 	background-color: #30c4c9;
 }
 td.highlighted .tooltip hr {
@@ -424,7 +424,7 @@ td.highlighted .tooltip hr {
 
 .ui-slider-handle {
 	z-index: 1000 !important;
-	background: #EEFF00 !important; 
+	background: #7EFFE0 !important; 
 }
 
 .sizeCalculator .slider {
@@ -442,7 +442,7 @@ td.highlighted .tooltip hr {
 	text-transform: uppercase;
 	font-size: 150%;
 	font-weight: bold;
-	background: #EEFF00;
+	background: #7EFFE0;
 	text-align: center;
 	margin-right: -20px;
 	
@@ -466,7 +466,7 @@ td.highlighted .tooltip hr {
 #calculateSizeSection {
 	width: 100%;
 	text-align: center;
-	background: #EEFF00;
+	background: #7EFFE0;
 	padding-bottom: 30px;
 }
 
@@ -481,7 +481,7 @@ td.highlighted .tooltip hr {
 	clear: both;
 	font-family: "Cassanet", "Lato", "HelveticaNeue-Light", "Helvetica", sans-serif;
 	font-size: 100%;
-	background: #EEFF00;
+	background: #7EFFE0;
 	text-align: center;
 }
 
@@ -528,9 +528,6 @@ td.highlighted .tooltip hr {
 	width: 100%;
 	box-shadow: 0 0 1px rgba(9,35,36,.3);
 
-}
-.singleItemFigure img:hover {
-	cursor: pointer;
 }
 .singleItemDescription {
 	height: 620px;
