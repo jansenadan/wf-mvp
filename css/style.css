@@ -527,8 +527,11 @@ td.highlighted .tooltip hr {
 .singleItemFigure img{
 	width: 100%;
 	box-shadow: 0 0 1px rgba(9,35,36,.3);
-}
 
+}
+.singleItemFigure img:hover {
+	cursor: pointer;
+}
 .singleItemDescription {
 	height: 620px;
 }
