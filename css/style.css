@@ -533,6 +533,11 @@ td.highlighted .tooltip hr {
 	height: 620px;
 }
 
+.singleItemDescription p,
+.singleItemDescription ul {
+	font-size: 85%;
+}
+
 .singleItemDescription .wrapper {
 	height: 480px;	
 	padding: 0;
