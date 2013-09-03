@@ -783,6 +783,34 @@ td.highlighted .tooltip hr {
 	margin: 20px;
 }
 
+/*---#mailingList---*/
+#mailingList {
+	background: #30C4C9;
+	text-align: center;
+}
+
+#mailingList .button-huge {
+	margin: 10px 0 0 0;
+}
+.mc-field-group {
+	display: inline-block;
+}
+
+.mc-field-group input[type=text], 
+.mc-field-group input[type=email]{
+	border: none;
+	font-size: 150%;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	width: 250px;
+	background-color: #FCF9FA;
+	text-align: center;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+#mc_embed_signup {}
 /*-----footer--------*/
 footer {
 	padding: 40px 0;
