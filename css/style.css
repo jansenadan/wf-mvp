@@ -864,6 +864,13 @@ footer .copyright{
 	margin-top: 20px;
 	font-size: 135%;
 }
+#manufacturerPic {
+	background-image: url(/img/css/manufacturer.jpg);
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	height: 300px;
+	margin: 10px 0;
+}
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
 	position: absolute;
@@ -898,7 +905,7 @@ footer .copyright{
 	float: right;
 	font-variant: small-caps;
 	cursor: pointer;
-	margin: -10px 0 0 905px;
+	margin: -15px 0 0 900px;
 	width: 60px;
 }
 
