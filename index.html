@@ -16,14 +16,13 @@
   	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>  	
     <script type="text/javascript">
 
-
 var bands = [
 		    	{
 		    		value: 28, 
-		    		start: 22.8, 
+		    		start: 22.5, 
 		    		stop: 24.8,
 		    		cups: [
-		    			{value: 'b', start: 29.1},
+		    			{value: 'b', start: 29},
 			    		{value: 'c', start: 29.9},
 			    		{value: 'd', start: 30.7},
 		    			{value: 'e', start: 31.5},
@@ -126,7 +125,7 @@ var bands = [
 		    	{
 		    		value: 40,
 		    		start: 34.6,
-		    		stop: 36.2,
+		    		stop: 36.5,
 		    		cups: [
 		    			{value: 'b', start: 40.9},
 		    			{value: 'c', start: 41.7},
@@ -365,18 +364,31 @@ $(document).ready(function(){
 			return false;
 		};
 	  });
-	
+
+//Function to convert decimal values [0, .25, .5, .75] to fractions 
+//Take a number, round it to .25, convert it to fraction
+function fractionalize(num){
+	num = (Math.round(num * 4) / 4).toFixed(2).toString().split(".");
+	var whole = num[0];
+	var fraction = num[1];
+	if (fraction == 00) {fraction = "";};
+	if (fraction == 25) {fraction = "¼"};
+	if (fraction == 50) {fraction = "½"};
+	if (fraction == 75) {fraction = "¾"};
+	return whole + fraction;
+};	
+
 //Create sliders for measurements input
 //Requires jQuery UI
 	$(function() {
 		//underbust
 	    $( "#underbust" ).slider({
-	      value:28,
+	      value: 28,
 	      min: bands[0].start,
 	      max: bands[bands.length-1].stop,
-	      step: .1,
+	      step: .25,
 	      slide: function( event, ui ) {
-	        $( "#underbustLabel" ).html( ui.value + '<span>in</span>');
+	        $( "#underbustLabel" ).html( fractionalize(ui.value) + '<span> in</span>');
 	      },
 	      change: function( event, ui ) {
 	      	//remove lime color from sizeSuggestionWrapper
@@ -389,15 +401,15 @@ $(document).ready(function(){
 			$('#sizeTable .tooltip').fadeOut(100);
 	      }
 	    });
-	    $( "#underbustLabel" ).html($( "#underbust" ).slider( "value" ) + '<span>in</span>' );
+	    $( "#underbustLabel" ).html($( "#underbust" ).slider( "value" ) + '<span> in</span>' );
 	    //overbust
 	    $( "#overbust" ).slider({
-	      value:35,
+	      value: 35,
 	      min: bands[0].cups[0].start,
 	      max: bands[bands.length -1].cups[bands.length -1].stop,
-	      step: .1,
+	      step: .25,
 	      slide: function( event, ui ) {
-	        $( "#overbustLabel" ).html( ui.value + '<span>in</span>');
+	        $( "#overbustLabel" ).html( fractionalize(ui.value) + '<span> in</span>');
 	      },
 	      change: function( event, ui ) {
 	      	//remove lime color from sizeSuggestionWrapper
@@ -410,7 +422,7 @@ $(document).ready(function(){
 			$('#sizeTable .tooltip').fadeOut(100);
 	      }
 	    });
-	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span>in</span>' );
+	    $( "#overbustLabel" ).html($( "#overbust" ).slider( "value" ) + '<span> in</span>' );
 	});
 });
     </script>
@@ -504,14 +516,14 @@ $(document).ready(function(){
 						<p>90% of bra support is in the band, which lays under your bust.</p>
 						<ul>
 							<li>Pull a measuring tape tight</li>
-							<li>Just under your bust, level around your ribcage</li>
+							<li>Level <strong>around your ribcage</strong>, just under your bust</li>
 							<li><strong>Do not round</strong> to the next whole number, get an accurate reading.</li>
 						</ul>
 						<form class="sizeCalculator">
 							<label>Your underbust:</label>
 							<div class="grid2">
-							<small class="sliderLeftLabel">22.8</small>
-							<small class="sliderRightLabel">36.2</small>
+							<small class="sliderLeftLabel">22½</small>
+							<small class="sliderRightLabel">36½</small>
 
 							<div id="underbust" class="slider"></div>
 						</div>
@@ -534,14 +546,15 @@ $(document).ready(function(){
 						<p>With your current bra on, measure over your bust.</p>
 						<ul>
 							<li>Stand straight and take a good, deep breath</li>
-							<li>Pull the tape loosely over the <strong>fullest</strong> part of your bust</li>
+							<li>Pull the tape loosely around your ribcage</li>
+							<li>Over the <strong>fullest</strong> part of your bust</li>
 							<li>Make sure the tape is level around your body.</li>
 						</ul>
 						<form class="sizeCalculator">
 							
 							<label>Your overbust:</label>
 							<div class="grid2">
-							<small class="sliderLeftLabel">29.1</small>
+							<small class="sliderLeftLabel">29</small>
 							<small class="sliderRightLabel">46.5</small>
 							<div id="overbust" class="slider"></div>
 						</div>
@@ -662,7 +675,7 @@ $(document).ready(function(){
 
 					<div id="aboutManufacturerText" class="nodisplay">
 						<h1 class="iconHeader manufacturer">About the Manufacturer</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p></p>
 					</div>
 				</div>
 			</div>
