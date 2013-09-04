@@ -785,12 +785,12 @@ td.highlighted .tooltip hr {
 
 /*---#mailingList---*/
 #mailingList {
-	background: #30C4C9;
+	background: #7EFFE0;
 	text-align: center;
 }
 
 #mailingList .button-huge {
-	margin: 10px 0 0 0;
+	margin: 10px 0 10px 0;
 }
 .mc-field-group {
 	display: inline-block;
@@ -808,6 +808,7 @@ td.highlighted .tooltip hr {
 	text-align: center;
 	border-radius: 10px;
 	margin-right: 10px;
+	margin-top: 20px;
 }
 
 #mc_embed_signup {}
