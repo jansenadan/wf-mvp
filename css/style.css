@@ -90,7 +90,7 @@ h2 {
 	font-family:"Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	color: rgba(9,35,36,.4);
 	font-size: 150%;
-	margin: .5em 0 .5em 0;
+	margin: 1em 0 1em 0;
 }
 
 p {
@@ -708,7 +708,7 @@ td.highlighted .tooltip hr {
 	cursor: pointer;
 	color: #FFF3F8;
 	background: #fc328a;
-	margin: 50px	;
+	margin: 50px;
 
 }
 
@@ -926,4 +926,21 @@ footer .copyright{
 	text-decoration: underline;
 	background: none;
 	color: inherit;
+}
+
+/*---- Thankyou for signing up -----*/
+
+#thankYou {
+	background-color: #7EFFE0;
+	text-align: center;
+	min-height: 450px;
+}
+
+#thankYou h1 {
+	font-family: "Cassanet", "Lato", "Helvetica", "Arial", sans-serif;
+	font-size: 100px;	
+	color: #092324;
+}
+.alignCenter {
+	margin-top: 100px;
 }
