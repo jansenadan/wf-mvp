@@ -504,7 +504,10 @@ td.highlighted .tooltip hr {
 	background: #FCF9FA;
 	margin-bottom: 20px;
 	box-shadow: 0 0 1px rgba(9,35,36,.3) inset;
-	cursor: url(../img/cursor-plus.png), pointer;
+}
+
+.braThumb img {
+	cursor: url(../img/css/cursor-plus.png), pointer;
 }
 
 .braThumb:hover img {
