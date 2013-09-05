@@ -473,7 +473,7 @@ td.highlighted .tooltip hr {
 .sizeSuggestionWrapper {
 	float: left;
 	width: 100%;
-	
+	margin-top: 20px;
 }
 
 #sizeSuggestion {
@@ -504,7 +504,10 @@ td.highlighted .tooltip hr {
 	background: #FCF9FA;
 	margin-bottom: 20px;
 	box-shadow: 0 0 1px rgba(9,35,36,.3) inset;
-	cursor: pointer;
+}
+
+.braThumb img {
+	cursor: url(../img/css/cursor-plus.png), pointer;
 }
 
 .braThumb:hover img {
@@ -893,6 +896,7 @@ footer .copyright{
 	z-index: 100000;
 	margin: 0 !important;
 	display: none;
+	cursor:url(../img/css/cursor-minus.png),auto;
 }
 
 #modal {
