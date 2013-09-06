@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   	<link href='http://fonts.googleapis.com/css?family=Clicker+Script|EB+Garamond' rel='stylesheet' type='text/css'>
-  	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>  	
+  	<link href='http://fonts.googleapis.com/css?family=Lato:300,700,300italic' rel='stylesheet' type='text/css'>  
     <script type="text/javascript">
     //Bands and cups, measurements in centimeters
 var bands = [
@@ -519,7 +519,7 @@ $(document).ready(function(){
 					<img href="#" src="{{bra.main-thumb}}" class="{{bra.camelCase}}More">
 					<figcaption>
 						<h3>{{bra.title}}</h3>
-						<small>${{bra.price}} | <a href="#" class="{{bra.camelCase}}More">view &#65515;</a></small>
+						<small>${{bra.bra-price}} | <a href="#" class="{{bra.camelCase}}More">view &#65515;</a></small>
 					</figcaption>
 					<div id="{{bra.camelCase}}Text" class="nodisplay">
 						<figure class="grid4-6 singleItemFigure">
@@ -527,9 +527,10 @@ $(document).ready(function(){
 						</figure>
 						<div class="singleItemDescription grid2-6">
 							<div class="wrapper">
-								<h2> {{bra.title}} | ${{bra.price}}</h2>
+								<h2> {{bra.title}} | ${{bra.bra-price}}</h2>
+								<h3>Matching bottoms: ${{bra.bottoms-price}}</h3>
 								<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
-								
+
 								{{bra.content}}
 							</div>
 							<div class="singleItemThumbs">
