@@ -806,10 +806,11 @@ td.highlighted .tooltip hr {
 }
 
 #mailingList .button-huge {
-	margin: 10px 0 10px 0;
+	margin: 20px 0 20px 0;
 }
 .mc-field-group {
-	display: inline-block;
+	display: block;
+	margin-left: 10px;
 }
 
 .mc-field-group input[type=text], 
@@ -933,18 +934,31 @@ footer .copyright{
 }
 
 /*---- Thankyou for signing up -----*/
-
 #thankYou {
-	background-color: #7EFFE0;
 	text-align: center;
-	min-height: 450px;
+}
+#thankYou header{
+	background-color: #7EFFE0;
+	padding: 40px 0;
+	z-index: 1000;
+	width: 100%;
+	margin-top: -5px;
 }
 
-#thankYou h1 {
-	font-family: "Cassanet", "Lato", "Helvetica", "Arial", sans-serif;
-	font-size: 100px;	
-	color: #092324;
+#instagramGallery {
+	z-index: 900;
 }
-.alignCenter {
-	margin-top: 100px;
+
+#thankYou .inner {
+	width: 960px;
+	margin: auto;
 }
+#thankYou footer {
+	padding: 10px 0;
+	background-color: #7EFFE0;
+	position: absolute;
+}
+#thankYou h2 {
+	margin-bottom: 50px;
+}
+
