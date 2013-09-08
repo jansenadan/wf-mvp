@@ -763,6 +763,39 @@ td.highlighted .tooltip hr {
 .manufacturer {
 	background-position: 0px -75px;
 }
+
+/*Order form popup*/
+#orderForm {
+	display: none;
+}
+
+ #orderIframe{
+ 	box-shadow: 0 0 1px rgba(9,35,36,.5);
+ }
+
+.orderGallery {
+	display: block;
+	float: left;
+	margin: 0 0 60px 0;
+}
+
+.orderGallery li {
+	display: block;
+	float: left;
+	width:25%;
+	font-size: 75%;
+}
+
+.orderGallery li img {
+	width: 100%;
+}
+
+.orderGallery .caption{
+	background: rgba(255,255,255,.7);
+position: relative;
+margin: -50px 0 0 0;
+height: 50px;
+}
 /*------about ---------*/
 #about {
 	border-bottom: solid 1px rgba(9,35,36,.1);
@@ -903,6 +936,7 @@ footer .copyright{
 #modal {
 	width: 960px;
 	position: absolute;
+	/*Remove Later*/
 	display: none;
 	left: 50%;
 	padding: 20px;
