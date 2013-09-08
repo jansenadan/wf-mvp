@@ -876,7 +876,7 @@ footer li{
 	font-size: 100%;
 	margin: 5px 0;
 }
-footer .socialIcons a {
+.socialIcons a {
 	display: block;
 	float: left;
 	width: 75px;
@@ -976,23 +976,20 @@ footer .copyright{
 	padding: 40px 0;
 	z-index: 1000;
 	width: 100%;
-	margin-top: -5px;
 }
 
-#instagramGallery {
+#socialGallery {
 	z-index: 900;
+	position: fixed; 
 }
 
 #thankYou .inner {
 	width: 960px;
 	margin: auto;
 }
-#thankYou footer {
-	padding: 10px 0;
-	background-color: #7EFFE0;
-	position: absolute;
-}
 #thankYou h2 {
 	margin-bottom: 50px;
 }
-
+#thankYoufooter {
+	padding-top: 20px;
+}
