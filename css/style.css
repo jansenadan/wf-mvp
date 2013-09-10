@@ -559,6 +559,21 @@ td.highlighted .tooltip hr {
 	box-shadow: 0 0 1px rgba(9,35,36,.3);
 }
 
+.singleItemDescription .addToCart {
+	width: 100%;
+	font-size: 85%;
+	margin: 20px 0;
+}
+
+.addToCart td {
+	padding: 10px 6px 10px 0;	
+	border-top: solid 1px #30c4c9;
+}
+
+.addToCart select {
+	vertical-align: top;
+	margin-top: 0px;
+}
 
 /*Realphotos*/
 #realphotos {
@@ -580,6 +595,7 @@ td.highlighted .tooltip hr {
 	margin-bottom: 20px;
 	overflow: hidden;
 	border-radius: 5%;
+	cursor:pointer;
 }
 
 .square .caption {
