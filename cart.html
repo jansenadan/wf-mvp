@@ -1,0 +1,89 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>    
+	<script src="js/simpleCart.js" type="text/javascript"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+//Shopping cart functions
+
+//Initialize simpleCart.js
+simpleCart({
+		cartColumns: [
+			{ attr: "name", label: "Name"},
+			{ attr: "size", label: "Size"},
+			{ view: "currency", attr: "price", label: "Price"},
+			{ view: "decrement", label: false},
+			{ attr: "quantity", label: "Qty"},
+			{ view: "increment", label: false},
+			{ view: "currency", attr: "total", label: "SubTotal" },
+			{ view: "remove", text: "Remove", label: true}
+		],
+		cartStyle: "table", 
+		checkout: {
+			type: "SendForm" , 
+			url: "http://babbage.local/checkout" ,
+			// http method for form, "POST" or "GET", default is "POST"
+			method: "POST", 
+			extra_data: {}
+		}
+	});
+});
+simpleCart.bind('beforeCheckout', function(data) {
+	$.extend(data, {
+		    	firstName: $('#firstName').val(),
+		    	lastName: $('#lastName').val(),
+		    	email: $('#email').val(),
+		    	address: $('#address').val(),
+		    	city: $('#city').val(),
+		    	zip: $('#zip').val(),
+		    	state: $('#state').val(),
+		    	country: $('#country').val()
+		    })
+});
+
+	</script>
+</head>
+
+<body>
+	<div id="shoppingCart">
+		<h1>Ordered items</h1>
+			<div class="simpleCart_items"></div>
+			Cart Total: <span class="simpleCart_total"></span>
+		<h1>Client info</h1>
+		<form>
+			<label>First Name</label>
+			<input type="text" name="firstName" id="#firstName">
+
+			<label>Last Name</label>
+			<input type="text" name="lastName" id="lastName">
+
+			<label>Email</label>
+			<input type="email" name="email" id="email">
+
+			<label>Street Address</label>
+			<input type="text" name="address" id="address">
+
+			<label>City</label>
+			<input type="text" name="city" id="city">
+
+			<label>ZIP</label>
+			<input type="text" name="zip" id="zip">
+
+			<label>State/Province</label>
+			<input type="text" name="state" id="state">
+
+			<label>Country</label>
+			<input type="text" name="country" id="country">
+		</form>
+			
+		<a href="javascript:;" class="simpleCart_checkout">Checkout</a>
+		</div>
+</body>
+
+</html>

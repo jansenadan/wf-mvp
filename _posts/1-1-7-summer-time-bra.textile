@@ -6,6 +6,7 @@ small-thumb-1: "img/bras/summer-time-thumb1.jpg"
 small-thumb-2: "img/bras/summer-time-thumb2.jpg"
 bra-price: 59
 bottoms-price: 29
+bottoms-type: Shorts
 tagline: "Vibrant raspberry red plunge bra, up to N cup! #wellfitting #bra"
 
 camelCase: summerTime

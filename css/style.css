@@ -921,6 +921,17 @@ footer .copyright{
 	height: 300px;
 	margin: 10px 0;
 }
+
+/*---Shopping Cart-------*/
+#shoppingCart {
+	background: #000;
+	color: #fff;
+	padding: 10px;
+	display: absolute;
+	top: 200px;
+	position: fixed;
+
+}
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
 	position: absolute;

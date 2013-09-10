@@ -6,6 +6,7 @@ small-thumb-1: "img/bras/mint-sorbet-thumb1.jpg"
 small-thumb-2: "img/bras/mint-sorbet-thumb2.jpg"
 bra-price: 49
 bottoms-price: 24
+bottoms-type: Shorts
 tagline: "Fresh mint-sorbet-green bra, up to N cup! #wellfitting #bra"
 
 camelCase: mintSorbet

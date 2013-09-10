@@ -6,6 +6,7 @@ small-thumb-1: "img/bras/juliette-thumb1.jpg"
 small-thumb-2: "img/bras/juliette-thumb2.jpg"
 bra-price: 69
 bottoms-price: 34
+bottoms-type: Briefs
 tagline: "Ultra feminine plunge bra, up to N cup! #wellfitting #bra"
 
 camelCase: juliette

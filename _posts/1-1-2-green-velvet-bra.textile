@@ -6,6 +6,7 @@ small-thumb-1: "img/bras/green-velvet-thumb1.jpg"
 small-thumb-2: "img/bras/green-velvet-thumb2.jpg"
 bra-price: 69
 bottoms-price: 34
+bottoms-type: Thongs
 tagline: "Fabulous deep ivy-green bra, up to N cup! #wellfitting #bra"
 
 camelCase: greenVelvet
