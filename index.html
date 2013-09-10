@@ -584,24 +584,23 @@ simpleCart({
 						</figure>
 						<div class="singleItemDescription grid2-6">
 							<div class="wrapper">
-								<div class="simpleCart_shelfItem bra">
-									<h2> 
-										<span class="item_name">{{bra.title}}</span> | 
-										<span class="item_price">${{bra.bra-price}}</span>
-									</h2>
-									<select class="item_size"></select>
-									<a class="item_add" href="javascript:;"> Add to Cart </a>
-									<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
-									{{bra.content}}
-								</div>
-								<div class="simpleCart_shelfItem bottoms">
-									<h2> 
-										<span class="item_name">{{bra.title}} {{bra.bottoms-type}}</span> | 
-										<span class="item_price">${{bra.bottoms-price}}</span>
-									</h2>
-									<select class="item_size"></select>
-									<a class="item_add" href="javascript:;"> Add to Cart </a>
-								</div>
+								<h2>{{bra.title}}</h2>
+								<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+								{{bra.content}}								
+								<table class="addToCart">
+									<tr class="simpleCart_shelfItem bra">
+										<td class="item_name">{{bra.title}} Bra</td>
+										<td class="item_price">${{bra.bra-price}}</td>
+										<td><select class="item_size"></select></td>
+										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
+									</tr>
+									<tr class="simpleCart_shelfItem bottoms">
+										<td class="item_name">{{bra.title}} {{bra.bottoms-type}}</td>
+										<td class="item_price">${{bra.bottoms-price}}</td>
+										<td><select class="item_size"></select></td>
+										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
+									</tr>
+								</table>
 							</div>
 							<div class="singleItemThumbs">
 								<img src="{{bra.small-thumb-1}}" class="grid1-6">
