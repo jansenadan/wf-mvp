@@ -1004,3 +1004,18 @@ footer .copyright{
 #thankYoufooter {
 	padding-top: 20px;
 }
+/*-- Shopping Cart Full--*/
+
+#shoppingCartFull {
+	text-align: center;
+	background-color: #FCF9FA;
+	color: #092324;	
+}
+#shoppingCartFull .inner {
+	width: 960px;
+	margin: auto;
+}
+
+#clientInfo {
+	background-color: #30C4C9;
+}
