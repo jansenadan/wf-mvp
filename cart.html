@@ -23,14 +23,16 @@ $(document).ready(function(){
 //Initialize simpleCart.js
 simpleCart({
 		cartColumns: [
+			{ attr: "thumb", label: "Thumb"},
 			{ attr: "name", label: "Name"},
 			{ attr: "size", label: "Size"},
-			{ view: "currency", attr: "price", label: "Price"},
+			{ view: "currency", attr: "price", label: "Price/Item"},
 			{ view: "decrement", label: false},
 			{ attr: "quantity", label: "Qty"},
 			{ view: "increment", label: false},
-			{ view: "currency", attr: "total", label: "SubTotal" },
-			{ view: "remove", text: "Remove", label: true}
+			{ view: "remove", text: "remove", label: true},
+			{ view: "currency", attr: "total", label: "SubTotal" }
+			
 		],
 		cartStyle: "table", 
 		checkout: {
@@ -63,18 +65,20 @@ simpleCart.bind('beforeCheckout', function(data) {
 	<div id="container">
 	<section id="shoppingCartFull">
 			<div class="inner">
-				<h1>Your Cart</h1>
+				
+				<h1>Your<img src="/img/css/logo.png" width="260px"> Bag:</h1>
 				<div class="simpleCart_items"></div>
-				Cart Total: <span class="simpleCart_total"></span>
+				<h3 class="total">Total: <span class="simpleCart_total"></span></h3>
+				<a href="index.html#mainGallery" class="button-huge">Continue Shopping</a>
 			</div>
 	</section>
 	
 	<section id="clientInfo" class="grid4">
-		<header><h1>Tell Us Where to Deliver!</h1></header>
+		<header><h1>Tell us where to deliver!</h1></header>
 		<div class="inner">
 			
 				<div id="clientName" class="grid2-6">
-						<h2>Contact info:</h2>
+						<h2>Contact Info:</h2>
 						<form>
 						<div class="entry">
 							<input type="text" name="firstName" id="#firstName" placeholder="First Name">
@@ -106,6 +110,10 @@ simpleCart.bind('beforeCheckout', function(data) {
 								<input type="text" name="country" id="country" placeholder="Country">
 							</div>
 						</form>
+				</div>
+				<div id ="paymentMethod" class="grid2-6">
+					<h2>Payment Methods</h2>
+					<p>We accept payments with PayPal. Click Checkout button below to continue for payments. If you don't have a PayPal account, prepare the credit card to quickly set up the payments.</p>
 				</div>
 				<div class="grid4">
 					<a href="javascript:;" class="simpleCart_checkout button-huge">Checkout</a>
