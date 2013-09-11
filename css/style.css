@@ -1124,7 +1124,7 @@ footer .copyright{
 	display: block;
 	float: left;
 }
-.entry input, select {
+#clientInfo .entry input, #clientInfo .entry select {
 	border-radius: 10px;
 	border: 0 !important;
 	font-size: 150%;
