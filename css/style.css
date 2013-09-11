@@ -945,8 +945,7 @@ footer .copyright{
 
 /*---Shopping Cart-------*/
 #shoppingCart {
-	background: #FC328A;
-	color: #fff;
+	background: #FCF9FA;
 	float: right;
 	width: 220px;
 	padding: 10px;
@@ -955,9 +954,23 @@ footer .copyright{
 	position: absolute;
 	right: 0px;
 	margin-top: 41px;
+	border: solid 1px rgba(9,35,36,.1);
 }
 
-#shoppingCart {}
+#shoppingCart table{
+	width: 100%;
+}
+
+#shoppingCart th {
+	display: none;
+}
+#shoppingCart td{
+	text-align: left;
+}
+
+#shoppingCart .item-quantity:after{
+	content: "x";
+}
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
 	position: absolute;

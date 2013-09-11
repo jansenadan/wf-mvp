@@ -489,7 +489,7 @@ $(document).ready(function(){
 	//Shopping cart functions
 	//Add size selection dropdowns to bra:
 	for (var i = 0; i <braSizes.length; i++) {
-		var size = braSizes[i];
+		var size = braSizes[i].toUpperCase();
 		$('.bra .item_size').append('<option value="'+size+'">'+size+'</option>');
 	};
 
@@ -506,11 +506,11 @@ $(document).ready(function(){
 //Initialize simpleCart.js
 simpleCart({
 	 cartColumns: [
+	 	{ attr: "quantity", label: "Qty"},
         { attr: "name", label: "Name"},
         { attr: "size", label: "Size"},
         /*{ view: "currency", attr: "price", label: "Price"},
         { view: "decrement", label: false},
-        { attr: "quantity", label: "Qty"},
         { view: "increment", label: false},
         { view: "currency", attr: "total", label: "SubTotal" },
         { view: "remove", text: "Remove", label: true}*/
@@ -559,15 +559,14 @@ simpleCart({
 					<a class="grid1-6" href="#about" id="toAbout">need advice?</a>
 				</div>
 				<div class="navSocial">
-					<a href="#" class="viewCart">Cart</a>
 					<div class="fb-like" data-href="http://facebook.com/wellfitting" data-send="false" data-layout="button_count" data-show-faces="true" data-colorscheme="light"></div>
 				</div>
 			</nav>
 			<div id="shoppingCart">
+				<h3>Your Bag (<span class="simpleCart_quantity"></span> items)</h3>
 				<div class="simpleCart_items"></div>
-				Cart Total: <span class="simpleCart_total"></span>
 				<br>
-				<a href="/cart.html">View cart</a>
+				<a href="/cart.html">Checkout</a>
 			</div>		
 		</div>
 
