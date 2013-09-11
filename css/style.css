@@ -1065,6 +1065,7 @@ footer .copyright{
 	padding: 10px 10px;
 	text-align: right;
 	margin-bottom: 40px;
+	border-top: 1px solid #FCF9FA;
 }
 .simpleCart_items table {
 	margin-top: 40px;
@@ -1073,7 +1074,7 @@ footer .copyright{
 .simpleCart_items td, th {
 	padding: 10px;
 	font-size: 100%;
-	border-bottom: 1px solid #30C4C9;
+	border-top: 1px solid #30C4C9;
 	vertical-align: center;
 }
 .simpleCart_items th, .total {
@@ -1147,4 +1148,9 @@ footer .copyright{
 #clientInfo .button-huge:hover {
 	background-color: #092324;
 }
-
+/*--- placeholder ---*/
+---webkit-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
+---moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 19+ */
+--moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 18- */
+-ms-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
+.placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* for the polyfill */
