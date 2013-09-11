@@ -291,7 +291,6 @@ $(document).ready(function(){
 		'.shippingPolicy': '#shippingPolicyText',
 		'.exchangeReturns': '#exchangeReturnsText',
 		'.aboutManufacturer': '#aboutManufacturerText',
-		'.orderNow': '#orderForm'
 	}, function( anchor, content ) {
   		launchModal(anchor, content);
 	});
@@ -338,6 +337,8 @@ $(document).ready(function(){
 		scrollToTarget(anchor,target);
 	});
 
+//Scroll to element on click
+	scrollToTarget($('.shopNow'), $('#mainGallery'));
 
 //Sticky navigation function 
 	var stickyNavTop = $('nav').offset().top;  
@@ -629,19 +630,21 @@ $(document).ready(function(){
 								{{bra.content}}								
 								<table class="addToCart">
 									<tr class="simpleCart_shelfItem bra">
+										<td class="nodisplay item_thumb">{{bra.small-thumb-1}}</td>
 										<td class="item_name">{{bra.title}} Bra</td>
 										<td class="item_price">${{bra.bra-price}}</td>
 										<td><select class="item_size"></select></td>
 										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
 									</tr>
 									<tr class="simpleCart_shelfItem bottoms">
+										<td class="nodisplay item_thumb">{{bra.small-thumb-2}}</td>
 										<td class="item_name">{{bra.title}} {{bra.bottoms-type}}</td>
 										<td class="item_price">${{bra.bottoms-price}}</td>
 										<td><select class="item_size"></select></td>
 										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
 									</tr>
 								</table>
-								<a href="index.html#sizes">Find out your Wellfitting size now!</a>
+								<a href="#" class="findOutSize">Find out your Wellfitting size now!</a>
 							</div>
 							<div class="singleItemThumbs">
 								<img src="{{bra.small-thumb-1}}" class="grid1-6">
@@ -752,11 +755,18 @@ $(document).ready(function(){
 			<header>
 				<h2>Accepting orders only until September 30 2013!</h2>
 				<h1>Order Your Bras Today!</h1>
+<<<<<<< HEAD
+				<button class="button-huge shopNow">
+=======
 				<button class="button-huge orderNow">
+>>>>>>> 56e6d2b514b8663097b93f458948e88f537b313e
 					<div>Shop Now
 						<br>
 						<small>&hearts; 100% Satisfaction Guaranteed &hearts;</small>
 					</div>
+<<<<<<< HEAD
+				</button>				
+=======
 				</button> 
 				<div id="orderForm">
 					<h1>Order your Wellfitting Bras Today!</h1>
@@ -782,6 +792,7 @@ $(document).ready(function(){
 						<iframe id="orderIframe" name="iframe1" src="https://docs.google.com/forms/d/1sJCBs4w3WTIDbmZbbHEj3vXVYvpxtfwOeuhW9Dsnq0Y/viewform?embedded=true" width="460" height="1075" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 					</div>
 				</div>
+>>>>>>> 56e6d2b514b8663097b93f458948e88f537b313e
 			</header>
 			<div class="inner">
 				<div class="grid2-6">
