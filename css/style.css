@@ -906,10 +906,10 @@ footer li{
 }
 
 .socialIcons .fb {
-	background-position: 0 -224px;
+	background-position: 0 -225px;
 }
 .socialIcons .fb:hover {
-	background-position: -75px -224px;
+	background-position: -75px -225px;
 }
 .socialIcons .twitter {
 	background-position: 0 -374px;
@@ -1028,4 +1028,44 @@ footer .copyright{
 }
 #thankYoufooter {
 	padding-top: 20px;
+}
+/*-- Shopping Cart Full--*/
+
+#shoppingCartFull {
+	text-align: center;
+	background-color: #FCF9FA;
+	color: #092324;	
+}
+
+
+#clientInfo {
+	background-color: #FC328A;
+	color: #FCF9FA;
+	text-align: center;
+}
+#clientInfo h2 {
+	color: rgba(252, 249, 250, .6);
+}
+#clientName {
+	text-align: left;
+}
+#shippingAddress {
+	text-align: left;
+}
+.entry {
+	padding: 10px 0;
+	display: block;
+	float: left;
+}
+.entry input {
+	border-radius: 10px;
+	border: 0 !important;
+	font-size: 150%;
+	background-color: #FCF9FA;	
+	padding: 10px;
+
+}
+form {
+	display: block;
+	float: left;
 }
