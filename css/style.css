@@ -1057,6 +1057,11 @@ footer .copyright{
 	top: 0.7em;
 	padding: 0 10px;
 }
+
+#shoppingCartFull .item-thumb img{
+	height: 75px;
+}
+
 #shoppingCartFull .total {
 	display: block;
 	color: #FCF9FA;
@@ -1064,7 +1069,7 @@ footer .copyright{
 	width: 100%;
 	padding: 10px 10px;
 	text-align: right;
-	margin-bottom: 40px;
+	margin-bottom: 50px;
 	border-top: 1px solid #FCF9FA;
 }
 .simpleCart_items table {
@@ -1074,7 +1079,7 @@ footer .copyright{
 .simpleCart_items td, th {
 	padding: 10px;
 	font-size: 100%;
-	border-top: 1px solid #30C4C9;
+	border-bottom: 1px solid #30C4C9;
 	vertical-align: center;
 }
 .simpleCart_items th, .total {
@@ -1086,10 +1091,6 @@ footer .copyright{
 }
 .simpleCart_items td {
 	height: 60px;
-}
-
-#shoppingCartFull .item-thumb img{
-	height: 75px;
 }
 
 .item-name {
@@ -1131,13 +1132,13 @@ footer .copyright{
 	display: block;
 	float: left;
 }
-.entry input {
+.entry input, select {
 	border-radius: 10px;
 	border: 0 !important;
 	font-size: 150%;
-	background-color: #FCF9FA;	
+	background-color: #FCF9FA !important;	
 	padding: 10px;
-
+	width: 100%;
 }
 #clientInfo form {
 	display: block;
