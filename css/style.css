@@ -462,6 +462,7 @@ td.highlighted .tooltip hr {
 }
 #calculateSize.button-huge {
 	background: #30c4c9;
+	display: block;
 }
 #calculateSize.button-huge:hover {
 	background: #092324;
@@ -1078,7 +1079,12 @@ footer .copyright{
 	padding: 10px;
 
 }
-form {
+#clientInfo form {
 	display: block;
 	float: left;
+}
+#clientInfo .button-huge {
+	background-color: #30C4C9;
+	display: block;
+	margin-top: 8em;
 }
