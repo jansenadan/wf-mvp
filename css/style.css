@@ -1087,6 +1087,11 @@ footer .copyright{
 .simpleCart_items td {
 	height: 60px;
 }
+
+#shoppingCartFull .item-thumb img{
+	height: 75px;
+}
+
 .item-name {
 	text-align: left;
 	width: 300px;

@@ -291,7 +291,6 @@ $(document).ready(function(){
 		'.shippingPolicy': '#shippingPolicyText',
 		'.exchangeReturns': '#exchangeReturnsText',
 		'.aboutManufacturer': '#aboutManufacturerText',
-		'.orderNow': '#orderForm'
 	}, function( anchor, content ) {
   		launchModal(anchor, content);
 	});
@@ -338,6 +337,8 @@ $(document).ready(function(){
 		scrollToTarget(anchor,target);
 	});
 
+//Scroll to element on click
+	scrollToTarget($('.shopNow'), $('#mainGallery'));
 
 //Sticky navigation function 
 	var stickyNavTop = $('nav').offset().top;  
@@ -629,19 +630,21 @@ $(document).ready(function(){
 								{{bra.content}}								
 								<table class="addToCart">
 									<tr class="simpleCart_shelfItem bra">
+										<td class="nodisplay item_thumb">{{bra.small-thumb-1}}</td>
 										<td class="item_name">{{bra.title}} Bra</td>
 										<td class="item_price">${{bra.bra-price}}</td>
 										<td><select class="item_size"></select></td>
 										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
 									</tr>
 									<tr class="simpleCart_shelfItem bottoms">
+										<td class="nodisplay item_thumb">{{bra.small-thumb-2}}</td>
 										<td class="item_name">{{bra.title}} {{bra.bottoms-type}}</td>
 										<td class="item_price">${{bra.bottoms-price}}</td>
 										<td><select class="item_size"></select></td>
 										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
 									</tr>
 								</table>
-								<a href="index.html#sizes">Find out your Wellfitting size now!</a>
+								<a href="#" class="findOutSize">Find out your Wellfitting size now!</a>
 							</div>
 							<div class="singleItemThumbs">
 								<img src="{{bra.small-thumb-1}}" class="grid1-6">
@@ -752,36 +755,12 @@ $(document).ready(function(){
 			<header>
 				<h2>Accepting orders only until September 30 2013!</h2>
 				<h1>Order Your Bras Today!</h1>
-				<!-- <button class="button-huge orderNow">
-					<div>Buy Now
+				<button class="button-huge shopNow">
+					<div>Shop Now
 						<br>
 						<small>&hearts; 100% Satisfaction Guaranteed &hearts;</small>
 					</div>
-				</button> -->
-				<div id="orderForm">
-					<h1>Order your Wellfitting Bras Today!</h1>
-					<div class="grid2">
-						<h2>Let us know which bras you would like to order:</h2>
-						<ul class="orderGallery">
-							{% for bra in site.posts %}
-							<li>
-								<img src="{{bra.main-thumb}}" class="miniThumb">
-								<div class="caption">
-									<h3>{{bra.title}}</h3>
-									Bra: ${{bra.bra-price}}<br>
-									Bottoms: ${{bra.bottoms-price}}
-								</div>
-							</li>
-							{% endfor %}
-						</ul>
-						
-						<img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a>
-
-					</div> 
-					<div class="grid2">
-						<iframe id="orderIframe" name="iframe1" src="https://docs.google.com/forms/d/1sJCBs4w3WTIDbmZbbHEj3vXVYvpxtfwOeuhW9Dsnq0Y/viewform?embedded=true" width="460" height="1075" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					</div>
-				</div>
+				</button>				
 			</header>
 			<div class="inner">
 				<div class="grid2-6">
