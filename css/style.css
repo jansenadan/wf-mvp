@@ -954,7 +954,8 @@ footer .copyright{
 	position: absolute;
 	right: 0px;
 	margin-top: 41px;
-	border: solid 1px rgba(9,35,36,.1);
+	border-left: solid 1px rgba(9,35,36,.1);
+	border-bottom: solid 1px rgba(9,35,36,.1);
 }
 
 #shoppingCart table{
