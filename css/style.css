@@ -1052,7 +1052,7 @@ footer .copyright{
 	background-color: #FCF9FA;
 	color: #092324;	
 }
-#shoppingCartFull img {
+#shoppingCartFull img{
 	position: relative;
 	top: 0.7em;
 	padding: 0 10px;
@@ -1060,6 +1060,7 @@ footer .copyright{
 
 #shoppingCartFull .item-thumb img{
 	height: 75px;
+	top: auto;
 }
 
 #shoppingCartFull .total {
@@ -1067,20 +1068,19 @@ footer .copyright{
 	color: #FCF9FA;
 	background-color: #30C4C9;
 	width: 100%;
-	padding: 10px 10px;
+	padding: 10px;
 	text-align: right;
-	margin-bottom: 50px;
 	border-top: 1px solid #FCF9FA;
 }
 .simpleCart_items table {
-	margin-top: 40px;
+
 	margin-right: -20px;
 }
-.simpleCart_items td, th {
+.simpleCart_items td,.simpleCart_items th {
 	padding: 10px;
 	font-size: 100%;
 	border-bottom: 1px solid #30C4C9;
-	vertical-align: center;
+	vertical-align: middle;
 }
 .simpleCart_items th, .total {
 	color: #FCF9FA;
@@ -1088,9 +1088,6 @@ footer .copyright{
 	font-size: 100%;
 	font-variant: small-caps;
 	font-weight: normal;
-}
-.simpleCart_items td {
-	height: 60px;
 }
 
 .item-name {
@@ -1112,7 +1109,12 @@ footer .copyright{
 .item-total {
 	text-align: right;
 }
-
+.continueShopping {
+	display: block;
+	text-align: right;
+	font-variant: small-caps;
+	padding: 20px;
+}
 #clientInfo {
 	background-color: #FC328A;
 	color: #FCF9FA;
