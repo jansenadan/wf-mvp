@@ -24,7 +24,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 @font-face {
 	font-family: 'Cassanet';
 	src: url('webfonts/cassannet-webfont.eot'); /* IE9 Compat Modes */
-	src: url('webfonts/cassannet-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	src: url('webfonts/cassannet-web	font.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
 	     url('webfonts/cassannet-webfont.woff') format('woff'), /* Modern Browsers */
 	     url('webfonts/cassannet-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
 	     url('webfonts/cassannet-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
@@ -889,13 +889,14 @@ footer {
 	color: rgba(9,35,36,.5);
 	float: left;
 	width: 100%;
-	font-size: 85%;
+	font-size: 100%;
 }
 
 footer li{
 	list-style-type: none;
 	font-size: 100%;
 	margin: 5px 0;
+	font-variant: small-caps;
 }
 .socialIcons a {
 	display: block;
@@ -1051,7 +1052,60 @@ footer .copyright{
 	background-color: #FCF9FA;
 	color: #092324;	
 }
-
+#shoppingCartFull img {
+	position: relative;
+	top: 0.7em;
+	padding: 0 10px;
+}
+#shoppingCartFull .total {
+	display: block;
+	color: #FCF9FA;
+	background-color: #30C4C9;
+	width: 100%;
+	padding: 10px 10px;
+	text-align: right;
+	margin-bottom: 40px;
+	border-top: 1px solid #FCF9FA;
+}
+.simpleCart_items table {
+	margin-top: 40px;
+	margin-right: -20px;
+}
+.simpleCart_items td, th {
+	padding: 10px;
+	font-size: 100%;
+	border-top: 1px solid #30C4C9;
+	vertical-align: center;
+}
+.simpleCart_items th, .total {
+	color: #FCF9FA;
+	background-color: #30C4C9;
+	font-size: 100%;
+	font-variant: small-caps;
+	font-weight: normal;
+}
+.simpleCart_items td {
+	height: 60px;
+}
+.item-name {
+	text-align: left;
+	width: 300px;
+}
+.item-size, .item-price, .item-total, .item-thumb, .item-remove {
+	width: 120px;
+}
+.item-remove {
+	font-variant: small-caps;
+	text-align: right;
+}
+.item-decrement, .item-increment {
+	width: 10px;
+	font-size: 200%;
+	font-family: "Cassanet", "Lato", "Helvetica","Arial", sans-serif;
+}
+.item-total {
+	text-align: right;
+}
 
 #clientInfo {
 	background-color: #FC328A;
@@ -1083,9 +1137,20 @@ footer .copyright{
 #clientInfo form {
 	display: block;
 	float: left;
+	margin-bottom: 50px;
+}
+#paymentMethod {
+	text-align: left;
 }
 #clientInfo .button-huge {
 	background-color: #30C4C9;
-	display: block;
-	margin-top: 8em;
 }
+#clientInfo .button-huge:hover {
+	background-color: #092324;
+}
+/*--- placeholder ---*/
+---webkit-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
+---moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 19+ */
+--moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 18- */
+-ms-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
+.placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* for the polyfill */

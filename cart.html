@@ -23,14 +23,16 @@ $(document).ready(function(){
 //Initialize simpleCart.js
 simpleCart({
 		cartColumns: [
+			{ attr: "thumb", label: "Thumb"},
 			{ attr: "name", label: "Name"},
 			{ attr: "size", label: "Size"},
-			{ view: "currency", attr: "price", label: "Price"},
+			{ view: "currency", attr: "price", label: "Price/Item"},
 			{ view: "decrement", label: false},
 			{ attr: "quantity", label: "Qty"},
 			{ view: "increment", label: false},
-			{ view: "currency", attr: "total", label: "SubTotal" },
-			{ view: "remove", text: "Remove", label: true}
+			{ view: "remove", text: "remove", label: true},
+			{ view: "currency", attr: "total", label: "SubTotal" }
+			
 		],
 		cartStyle: "table", 
 		checkout: {
@@ -56,6 +58,36 @@ simpleCart.bind('beforeCheckout', function(data) {
 });
 
 	</script>
+
+	
+<script type="text/javascript">	
+// A jQuery based placeholder polyfill
+$(document).ready(function(){
+  function add() {
+    if($(this).val() === ''){
+      $(this).val($(this).attr('placeholder')).addClass('placeholder');
+    }
+  }
+
+  function remove() {
+    if($(this).val() === $(this).attr('placeholder')){
+      $(this).val('').removeClass('placeholder');
+    }
+  }
+
+  // Create a dummy element for feature detection
+  if (!('placeholder' in $('<input>')[0])) {
+
+    // Select the elements that have a placeholder attribute
+    $('input[placeholder], textarea[placeholder]').blur(add).focus(remove).each(add);
+
+    // Remove the placeholder text before the form is submitted
+    $('form').submit(function(){
+      $(this).find('input[placeholder], textarea[placeholder]').each(remove);
+    });
+  }
+});
+</script>
 </head>
 
 <body>
@@ -63,18 +95,20 @@ simpleCart.bind('beforeCheckout', function(data) {
 	<div id="container">
 	<section id="shoppingCartFull">
 			<div class="inner">
-				<h1>Your Cart</h1>
+				
+				<h1>Your<img src="/img/css/logo.png" width="260px"> Bag:</h1>
 				<div class="simpleCart_items"></div>
-				Cart Total: <span class="simpleCart_total"></span>
+				<h3 class="total">Total: <span class="simpleCart_total"></span></h3>
+				<a href="index.html#mainGallery" class="button-huge">Continue Shopping...</a>
 			</div>
 	</section>
 	
 	<section id="clientInfo" class="grid4">
-		<header><h1>Tell Us Where to Deliver!</h1></header>
+		<header><h1>... or Tell Us Where to Deliver!</h1></header>
 		<div class="inner">
 			
 				<div id="clientName" class="grid2-6">
-						<h2>Contact info:</h2>
+						<h2>Contact Info:</h2>
 						<form>
 						<div class="entry">
 							<input type="text" name="firstName" id="#firstName" placeholder="First Name">
@@ -107,7 +141,11 @@ simpleCart.bind('beforeCheckout', function(data) {
 							</div>
 						</form>
 				</div>
-				<div class="grid2-6">
+				<div id ="paymentMethod" class="grid2-6">
+					<h2>Payment Methods</h2>
+					<p>We accept payments with PayPal. Click Checkout button below to continue for payments. If you don't have a PayPal account, prepare the credit card to quickly set up the payments.</p>
+				</div>
+				<div class="grid4">
 					<a href="javascript:;" class="simpleCart_checkout button-huge">Checkout</a>
 				</div>
 		</div>
