@@ -1069,9 +1069,11 @@ footer .copyright{
 #clientInfo form {
 	display: block;
 	float: left;
+	margin-bottom: 50px;
 }
 #clientInfo .button-huge {
 	background-color: #30C4C9;
-	display: block;
-	margin-top: 8em;
+}
+#clientInfo .button-huge:hover {
+	background-color: #092324;
 }
