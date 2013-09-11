@@ -59,46 +59,93 @@ simpleCart.bind('beforeCheckout', function(data) {
 </head>
 
 <body>
+
+	<div id="container">
 	<section id="shoppingCartFull">
-		<div class="inner">
-			<h1>Ordered items</h1>
+			<div class="inner">
+				<h1>Your Cart</h1>
 				<div class="simpleCart_items"></div>
 				Cart Total: <span class="simpleCart_total"></span>
-			<div id="clientInfo">
-				<h1>Client info</h1>
-				<form>
-					<div id="clientName" class="grid2-6">
-						<label>First Name</label>
-						<input type="text" name="firstName" id="#firstName">
-
-						<label>Last Name</label>
-						<input type="text" name="lastName" id="lastName">
-
-						<label>Email</label>
-						<input type="email" name="email" id="email">
-					</div>
-					<div id="shippingAddress" class="grid2-6">
-						<label>Street Address</label>
-						<input type="text" name="address" id="address">
-
-						<label>City</label>
-						<input type="text" name="city" id="city">
-
-						<label>ZIP</label>
-						<input type="text" name="zip" id="zip">
-
-						<label>State/Province</label>
-						<input type="text" name="state" id="state">
-
-						<label>Country</label>
-						<input type="text" name="country" id="country">
-					</div>
-				</form>
-				
-				<a href="javascript:;" class="simpleCart_checkout">Checkout</a>
 			</div>
+	</section>
+	
+	<section id="clientInfo" class="grid4">
+		<header><h1>Tell Us Where to Deliver!</h1></header>
+		<div class="inner">
+			
+				<div id="clientName" class="grid2-6">
+						<h2>Contact info:</h2>
+						<form>
+						<div class="entry">
+							<input type="text" name="firstName" id="#firstName" placeholder="First Name">
+						</div>
+						<div class="entry">
+							<input type="text" name="lastName" id="lastName" placeholder="Last Name">
+						</div>
+						<div class="entry">
+							<input type="email" name="email" id="email" placeholder="Your email">
+						</div>
+						</form>
+					</div>
+				<div id="shippingAddress" class="grid4-6">
+					<h2>Shipping Address:</h2>
+						<form class="grid2-6">
+							<div class="entry">
+								<input type="text" name="address" id="address" placeholder="Street Address">
+							</div>
+							<div class="entry">
+								<input type="text" name="city" id="city" placeholder="City">
+							</div>
+							<div class="entry">	
+								<input type="text" name="zip" id="zip" placeholder="ZIP Code">
+							</div>
+
+						</form>
+
+						<form class="grid2-6" style="background-color: red;">
+							<div class="entry">
+								<input type="text" name="state" id="state" placeholder="State/Province">
+							</div>
+							<div class="entry">
+								<input type="text" name="country" id="country" placeholder="Country">
+							</div>
+							
+							
+						</form>
+					</div>
+					<div class="grid4">
+					<a href="javascript:;" class="simpleCart_checkout button-huge">Checkout</a>
+					</div>
 		</div>
 	</section>
+
+		<footer class="">
+			<div class="inner">
+				<div class="grid2-6">
+					<h3>Terms of Service</h3>
+					<ul>
+						<li><a href="#" class="shippingPolicy">Shipping Policy</a></li>
+						<li><a href="#" class="exchangeReturns">Returns & Exchange</a></li>
+					</ul>
+				</div>
+				<div class="grid2-6">
+					<h3>About</h3>
+					<ul>
+						<li><a href="#" class="aboutManufacturer">About the Manufacturer</a></li>
+						<li><a href="mailto:hello@wellfitting.com">Contact Us!</a></li>
+					</ul>
+				</div>
+				<div class="grid2-6 socialIcons">
+					<a href="http://www.facebook.com/wellfitting" class="fb" target="_blank" title="Facebook"><span class="nodisplay">Wellfitting on Facebook</span></a>
+					<a href="https://twitter.com/wellfitting" class="twitter" target="_blank" title="Twitter"><span class="nodisplay">Wellfitting on Twitter</span></a>
+					<a href="http://pinterest.com/wellfitting/" class="pinterest" target="_blank" title="Pinterest"><span class="nodisplay">Wellfitting on Pinterest</span></a>
+					<a href="http://instagram.com/wellfitting" class="instagram" target="_blank" title="Instagram"><span class="nodisplay">Wellfitting on Instagram</span></a>	
+				</div>
+				<div class="grid4 center copyright"><small>&copy; Wellfitting Inc. 2013</small></div>
+			</div>
+		</footer>
+		
+	<!-- #container --> </div>	
 </body>
 
 </html>
