@@ -265,6 +265,14 @@ $(document).ready(function(){
 				return $(document).height();
 			});
 			$('#overlay').fadeIn();
+			//set findOutSize link to hide modal and scroll to #sizes
+			var findOutSize = $('#modal .findOutSize');
+			$(findOutSize).click(function(){
+				event.preventDefault;
+				$('#overlay').fadeOut();
+				$('#modal').fadeOut();
+				scrollToTarget($(this), $('#sizes'));
+			});
 		});
 		$('#closeModal').click(function(){
 			$('#overlay').fadeOut();
@@ -337,7 +345,7 @@ $(document).ready(function(){
 		scrollToTarget(anchor,target);
 	});
 
-//Scroll to element on click
+//Scroll to #mainGallery when ShopNow button clicked
 	scrollToTarget($('.shopNow'), $('#mainGallery'));
 
 //Sticky navigation function 
@@ -644,7 +652,7 @@ $(document).ready(function(){
 										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
 									</tr>
 								</table>
-								<a href="#" class="findOutSize">Find out your Wellfitting size now!</a>
+								<a href="#sizes" class="findOutSize">Find out your Wellfitting size now!</a>
 							</div>
 							<div class="singleItemThumbs">
 								<img src="{{bra.small-thumb-1}}" class="grid1-6">
@@ -756,9 +764,8 @@ $(document).ready(function(){
 				<h2>Accepting orders only until September 30 2013!</h2>
 				<h1>Order Your Bras Today!</h1>
 
+
 				<button class="button-huge shopNow">
-
-
 					<div>Shop Now
 						<br>
 						<small>&hearts; 100% Satisfaction Guaranteed &hearts;</small>
@@ -766,8 +773,6 @@ $(document).ready(function(){
 
 				</button>				
 
-	
-			</header>
 			<div class="inner">
 				<div class="grid2-6">
 					<span class="icon shipping"></span>
