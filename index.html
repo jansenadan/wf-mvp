@@ -346,9 +346,9 @@ $(document).ready(function(){
 		var scrollTop = $(window).scrollTop();  
 		       
 		if (scrollTop > stickyNavTop) {   
-		    $('nav').addClass('sticky');  
+		    $('#topMenu').addClass('sticky');  
 		} else { 
-			$('nav').removeClass('sticky')};  
+			$('#topMenu').removeClass('sticky')};  
 		};
 
 //Bind events to window scroll
@@ -508,12 +508,12 @@ simpleCart({
 	 cartColumns: [
         { attr: "name", label: "Name"},
         { attr: "size", label: "Size"},
-        { view: "currency", attr: "price", label: "Price"},
+        /*{ view: "currency", attr: "price", label: "Price"},
         { view: "decrement", label: false},
         { attr: "quantity", label: "Qty"},
         { view: "increment", label: false},
         { view: "currency", attr: "total", label: "SubTotal" },
-        { view: "remove", text: "Remove", label: true}
+        { view: "remove", text: "Remove", label: true}*/
     ],
     cartStyle: "table", 
     checkout: {
@@ -547,21 +547,32 @@ simpleCart({
 			</div>			
 		</section>
 
-		<nav id="topMenu">
-			<a href="#container" id="home" class="logo"></a>
-			<div class="navMain">
-				<a class="grid1-6" href="#mainGallery" id="toMainGallery">our bras</a>
-				<a class="grid1-6" href="#sizes" id="toSizes">find your size</a>
-				<a class="grid1-6" href="#preorder" id="toPreorder">order now!</a>
-				<a class="grid1-6" href="#realphotos" id="toRealphotos">real pictures</a>
-				<a class="grid1-6" href="#testimonials" id="toTestimonials">true reviews</a>
-				<a class="grid1-6" href="#about" id="toAbout">need advice?</a>
-			</div>
-				<div class="navSocial">
-					<div class="fb-like" data-href="http://facebook.com/wellfitting" data-send="false" data-layout="button_count" data-show-faces="true" data-colorscheme="light">
+		<div id="topMenu">
+			<nav>
+				<a href="#container" id="home" class="logo"></a>
+				<div class="navMain">
+					<a class="grid1-6" href="#mainGallery" id="toMainGallery">our bras</a>
+					<a class="grid1-6" href="#sizes" id="toSizes">find your size</a>
+					<a class="grid1-6" href="#preorder" id="toPreorder">order now!</a>
+					<a class="grid1-6" href="#realphotos" id="toRealphotos">real pictures</a>
+					<a class="grid1-6" href="#testimonials" id="toTestimonials">true reviews</a>
+					<a class="grid1-6" href="#about" id="toAbout">need advice?</a>
 				</div>
-			</div>	
-		</nav>
+				<div class="navSocial">
+					<a href="#" class="viewCart">Cart</a>
+					<div class="fb-like" data-href="http://facebook.com/wellfitting" data-send="false" data-layout="button_count" data-show-faces="true" data-colorscheme="light"></div>
+				</div>
+			</nav>
+			<div id="shoppingCart">
+				<div class="simpleCart_items"></div>
+				Cart Total: <span class="simpleCart_total"></span>
+				<br>
+				<a href="/cart.html">View cart</a>
+			</div>		
+		</div>
+
+
+
 		<section class="grid4" id="mainGallery">
 			<header>
 				<h2>Bigger bust and slimmer chest?</h2>
@@ -1047,12 +1058,6 @@ simpleCart({
 				<div class="grid4 center copyright"><small>&copy; Wellfitting Inc. 2013</small></div>
 			</div>
 		</footer>
-		<div id="shoppingCart">
-			<div class="simpleCart_items"></div>
-			Cart Total: <span class="simpleCart_total"></span>
-			<br>
-			<a href="/cart.html">View cart</a>
-		</div>
 	</div><!--#container-->
 
 	<!--OVERLAY-->
