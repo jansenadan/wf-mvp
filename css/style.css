@@ -570,6 +570,8 @@ td.highlighted .tooltip hr {
 	margin: 20px 0;
 }
 
+
+
 .addToCart td {
 	padding: 10px 6px 10px 0;	
 	border-top: solid 1px #30c4c9;
@@ -578,6 +580,22 @@ td.highlighted .tooltip hr {
 .addToCart select {
 	vertical-align: top;
 	margin-top: 0px;
+}
+
+.addedSuccess{
+	display: none;
+	position: fixed;
+	background: #092324;
+	color: #FCF9FA;
+	width: 100px;
+	height: 100px;
+	padding: 80px 50px 20px;
+	left: 50%;
+	top: 50%;
+	margin: -100px 0 0 -100px;
+	border-radius: 50%;
+	z-index: 100002;
+	text-align: center;
 }
 
 /*Realphotos*/
@@ -966,6 +984,7 @@ footer .copyright{
 	width: 40px;
 	display: inline-block;
 }
+
 
 #shoppingCart #cartDetails a {
 	font-variant: small-caps;

@@ -518,6 +518,7 @@ $(document).ready(function(){
 	    },
 	    afterAdd: function(item){
 	    	setCartHeader();
+	    	showSuccess(item);
 	    },
 	    load: function(){
 	    	setCartHeader();
@@ -556,6 +557,13 @@ $(document).ready(function(){
 	for (var i = 0; i <bottomsSizes.length; i++) {
 		var size = bottomsSizes[i];
 		$('.bottoms .item_size').append('<option value="'+size+'">'+size+'</option>');
+	};
+
+	//Show success message when item added to cart
+	function showSuccess(item){
+		$('.itemAddedName').text(item.get("name"));
+		$('.addedSuccess').show("bounce", 600).delay(600).effect("puff", 400);
+
 	};
 });
 
@@ -670,14 +678,14 @@ $(document).ready(function(){
 										<td class="item_name">{{bra.title}} Bra</td>
 										<td class="item_price">${{bra.bra-price}}</td>
 										<td><select class="item_size"></select></td>
-										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
+										<td><a class="item_add" href="javascript:;">Add to Bag</a></td>
 									</tr>
 									<tr class="simpleCart_shelfItem bottoms">
 										<td class="nodisplay item_thumb">{{bra.small-thumb-2}}</td>
 										<td class="item_name">{{bra.title}} {{bra.bottoms-type}}</td>
 										<td class="item_price">${{bra.bottoms-price}}</td>
 										<td><select class="item_size"></select></td>
-										<td><a class="item_add" href="javascript:;"> Add to Cart </a></td>
+										<td><a class="item_add" href="javascript:;">Add to Bag</a></td>
 									</tr>
 								</table>
 								<a href="#sizes" class="findOutSize">Find out your Wellfitting size now!</a>
@@ -1116,6 +1124,9 @@ $(document).ready(function(){
 		<!--remove later-->
 		<!---->
 		</div>
+	</div>
+	<div class="addedSuccess">
+		<span class="itemAddedName"></span> added to bag!
 	</div>
 
 <!--Pinterest-->
