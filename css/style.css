@@ -585,8 +585,7 @@ td.highlighted .tooltip hr {
 .addedSuccess{
 	display: none;
 	position: fixed;
-	background: #092324;
-	color: #FCF9FA;
+	background: #7EFFE0;
 	width: 100px;
 	height: 100px;
 	padding: 80px 50px 20px;
