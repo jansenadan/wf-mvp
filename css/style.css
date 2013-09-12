@@ -1129,7 +1129,7 @@ footer .copyright{
 .item-name {
 	text-align: left;
 }
-.item-size, .item-price, .item-total, .item-thumb, .item-remove {
+.item-size, .item-price, .item-total, .item-thumb, {
 	width: 120px;
 }
 .item-remove {
