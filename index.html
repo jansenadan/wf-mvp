@@ -496,7 +496,57 @@ $(document).ready(function(){
 	});
 
 	//Shopping cart functions
-	//Add size selection dropdowns to bra:
+
+	//Initialize simpleCart.js
+	simpleCart({
+		 cartColumns: [
+		 	{ attr: "quantity", label: "Qty"},
+	        { attr: "name", label: "Name"},
+	        { attr: "size", label: "Size"},
+	        /*{ view: "currency", attr: "price", label: "Price"},
+	        { view: "decrement", label: false},
+	        { view: "increment", label: false},
+	        { view: "currency", attr: "total", label: "SubTotal" },
+	        { view: "remove", text: "Remove", label: true}*/
+	    ],
+	    cartStyle: "table", 
+	    checkout: {
+	    	type: "SendForm" , 
+	        url: "http://babbage.local/checkout" ,
+	        // http method for form, "POST" or "GET", default is "POST"
+	        method: "POST" , 
+	    },
+	    afterAdd: function(item){
+	    	setCartHeader();
+	    },
+	    load: function(){
+	    	setCartHeader();
+	    },
+	});
+
+	//Set cartHeader message if empty or if items in the cart
+	function setCartHeader() {
+		var cartQty = simpleCart.quantity();
+		console.log(cartQty);
+		if (cartQty == 0) {
+			var message = "Your bag is empty, start shopping now!"
+		}
+		else {
+			var message = cartQty + " items in your bag"
+		};
+		$('.cartHeader').text(message);
+	};
+
+	//slideDown cart on mouseover
+	$('#cartDetails').mouseenter(function(){
+		$('.cartPreview').slideDown(1000, 'easeInOutQuint');
+	});
+
+	$('#shoppingCart').mouseleave	(function(){
+		$('.cartPreview').delay(400).slideUp(1000, 'easeInOutQuint');
+	});
+
+	//Add size selection dropdowns to a bra item view:
 	for (var i = 0; i <braSizes.length; i++) {
 		var size = braSizes[i].toUpperCase();
 		$('.bra .item_size').append('<option value="'+size+'">'+size+'</option>');
@@ -507,30 +557,6 @@ $(document).ready(function(){
 		var size = bottomsSizes[i];
 		$('.bottoms .item_size').append('<option value="'+size+'">'+size+'</option>');
 	};
-});
-
-
-
-
-//Initialize simpleCart.js
-simpleCart({
-	 cartColumns: [
-	 	{ attr: "quantity", label: "Qty"},
-        { attr: "name", label: "Name"},
-        { attr: "size", label: "Size"},
-        /*{ view: "currency", attr: "price", label: "Price"},
-        { view: "decrement", label: false},
-        { view: "increment", label: false},
-        { view: "currency", attr: "total", label: "SubTotal" },
-        { view: "remove", text: "Remove", label: true}*/
-    ],
-    cartStyle: "table", 
-    checkout: {
-    	type: "SendForm" , 
-        url: "http://babbage.local/checkout" ,
-        // http method for form, "POST" or "GET", default is "POST"
-        method: "POST" , 
-    }
 });
 
     </script>
@@ -602,10 +628,13 @@ $(document).ready(function(){
 				</div>
 			</nav>
 			<div id="shoppingCart">
-				<h3>Your Bag (<span class="simpleCart_quantity"></span> items)</h3>
-				<div class="simpleCart_items"></div>
-				<br>
-				<a href="/cart.html">Checkout</a>
+				<h3 id="cartDetails"><span class="cartHeader"></span> | <a>checkout&raquo;</a></h3>
+				<div class="cartPreview">
+					<div class="simpleCart_items"></div>			
+					<div class="cartControls">
+						<a href="/cart.html">Checkout</a>
+					</div>
+				</div>
 			</div>		
 		</div>
 
