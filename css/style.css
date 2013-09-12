@@ -1076,7 +1076,6 @@ footer .copyright{
 	width: 100%;
 	padding: 10px;
 	text-align: right;
-	border-top: 1px solid #FCF9FA;
 }
 .simpleCart_items table {
 
@@ -1094,7 +1093,9 @@ footer .copyright{
 	font-size: 100%;
 	font-variant: small-caps;
 	font-weight: normal;
+	border-bottom: 1px solid #FCF9FA;
 }
+
 
 .item-name {
 	text-align: left;
