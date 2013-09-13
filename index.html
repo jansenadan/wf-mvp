@@ -217,7 +217,7 @@ var mySize = function(underbust, overbust) {
 	overbust = inToCm(overbust);
 	for (var i = 0; i < bands.length; i++) {
 		var band = bands[i]    		
-		if (underbust > band.start && underbust <= band.stop) {	
+		if (underbust >= band.start && underbust <= band.stop) {	
 			for (var j = 0; j < band.cups.length; j++){
 				var cup = band.cups[j]
 				if (j+1  === band.cups.length){
@@ -226,7 +226,7 @@ var mySize = function(underbust, overbust) {
 				else {
 					var cupMax = band.cups[j+1].start
 				};	
-				if (overbust > cup.start - '0.1' && overbust < cupMax){
+				if (overbust > cup.start && overbust <= cupMax){
 					return {band: band.value, cup: cup.value}
 				}
 				else {
@@ -288,6 +288,7 @@ $(document).ready(function(){
 
 	//Launch modals on anchor clicks
 	$.each( {
+		'.tropicalGardenMore': "#tropicalGardenText",
 		'.lycheeSorbetMore': '#lycheeSorbetText',
 		'.summerTimeMore': '#summerTimeText',
 		'.freeTimeMore': '#freeTimeText',
@@ -543,7 +544,7 @@ $(document).ready(function(){
 		$('.cartPreview').slideDown(1000, 'easeInOutQuint');
 	});
 
-	$('#shoppingCart').mouseleave	(function(){
+	$('#hide').click	(function(){
 		$('.cartPreview').delay(400).slideUp(1000, 'easeInOutQuint');
 	});
 
@@ -640,8 +641,9 @@ $(document).ready(function(){
 				<h3 id="cartDetails"><span class="cartHeader"></span> <br><a href="/cart.html">Checkout&raquo;</a></h3>
 				<div class="cartPreview">
 					<div class="simpleCart_items"></div>			
-					
+					<div id="hide"><a>Hide Cart</a></div>
 				</div>
+
 			</div>		
 		</div>
 

@@ -1012,6 +1012,10 @@ footer .copyright{
 #shoppingCart .item-quantity:after{
 	content: "x";
 }
+#hide a {
+	font-variant: small-caps;
+	font-size: 85%;
+}
 /*--------OVERLAY & MODALS-----------*/
 #overlay {
 	position: absolute;
@@ -1101,7 +1105,9 @@ footer .copyright{
 	height: 75px;
 	top: 2px;
 }
-
+.item-thumb {
+	text-align: left;
+}
 #shoppingCartFull .total {
 	width: 950px;
 	text-align: right;
