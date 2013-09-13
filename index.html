@@ -543,15 +543,14 @@ $(document).ready(function(){
 
 	//slideDown cart on mouseover
 	$('#cartDetails').mouseenter(function(){
-			$('.cartPreview').slideDown(1000, 'easeInOutQuint');			
+		$('.cartPreview').slideDown(600, 'easeInOutQuint');			
 	});
 
-<<<<<<< HEAD
-	$('#hide').click	(function(){
-		$('.cartPreview').delay(400).slideUp(1000, 'easeInOutQuint');
+
+	$('#hide').click(function(){
+		event.preventDefault();
+		$('.cartPreview').slideUp(1000, 'easeInOutQuint');
 	});
-=======
->>>>>>> 60bda0f047f9e837e842f7e5bbfd3a0bf2b6a9d3
 
 	//Add size selection dropdowns to a bra item view:
 	for (var i = 0; i <braSizes.length; i++) {
@@ -648,7 +647,7 @@ $(document).ready(function(){
 				</div>
 				<div class="cartPreview">
 					<div class="simpleCart_items"></div>			
-					<div id="hide"><a>Hide Cart</a></div>
+					<div id="hide"><a href="#">Hide Cart</a></div>
 				</div>
 
 			</div>		
