@@ -1,0 +1,21 @@
+---
+title: Tropical Garden
+main-thumb: "img/bras/tropical-garden.png"
+big-thumb: "img/bras/tropical-garden-big.jpg"
+small-thumb-1: "img/bras/tropical-garden-thumb1.jpg"
+small-thumb-2: "img/bras/tropical-garden-thumb2.jpg"
+bra-price: 59
+bottoms-price: 24
+bottoms-type: Thong
+tagline: "Tropical-garden-floral plunge bra, up to N cup! #wellfitting #bra"
+
+camelCase: tropicalGarden
+---
+Perfect for everyday wear, this bra will sure add some vivid tropical flavor to your lingerie collection.
+
+* Magenta and lime bold floral pattern over black lining
+* One layer black band
+* Lightly padded plunge bra
+* Fully adjustable straps
+* 3-hook fastening
+* Matching thongs
