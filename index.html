@@ -517,11 +517,13 @@ $(document).ready(function(){
 	        method: "POST" , 
 	    },
 	    afterAdd: function(item){
-	    	setCartHeader();
 	    	showSuccess(item);
 	    },
 	    load: function(){
 	    	setCartHeader();
+	    },
+	    update: function(){
+	    	setCartHeader();	
 	    },
 	});
 
@@ -540,12 +542,9 @@ $(document).ready(function(){
 
 	//slideDown cart on mouseover
 	$('#cartDetails').mouseenter(function(){
-		$('.cartPreview').slideDown(1000, 'easeInOutQuint');
+			$('.cartPreview').slideDown(1000, 'easeInOutQuint');			
 	});
 
-	$('#shoppingCart').mouseleave	(function(){
-		$('.cartPreview').delay(400).slideUp(1000, 'easeInOutQuint');
-	});
 
 	//Add size selection dropdowns to a bra item view:
 	for (var i = 0; i <braSizes.length; i++) {
@@ -636,8 +635,10 @@ $(document).ready(function(){
 				</div>
 			</nav>
 			<div id="shoppingCart">
-				<div id="bagIcon"></div>
-				<h3 id="cartDetails"><span class="cartHeader"></span> <br><a href="/cart.html">Checkout&raquo;</a></h3>
+				<div id="cartDetails">
+					<div id="bagIcon"></div>
+					<h3><span class="cartHeader"></span> <br><a href="/cart.html">Checkout&raquo;</a></h3>
+				</div>
 				<div class="cartPreview">
 					<div class="simpleCart_items"></div>			
 					
