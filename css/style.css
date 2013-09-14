@@ -1201,6 +1201,14 @@ footer .copyright{
 	background-color: #092324;
 }
 
+#clientInfo .stripeLogo {
+	float: right;
+	position: relative;
+	bottom: -45px;	
+	opacity: .75;
+}
+
+
 /*--- placeholder ---*/
 ---webkit-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
 ---moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 19+ */

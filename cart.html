@@ -135,54 +135,51 @@ $(document).ready(function(){
 	<section id="clientInfo" class="grid4">
 		<header><h1>Place your Order Now!</h1></header>
 		<div class="inner">
-			
+			<form>			
 				<div id="clientName" class="grid2-6">
 					<h2>Customer Info:</h2>
-						<form>
-						<div class="entry">
-							<input type="text" name="firstName" id="firstName" placeholder="First Name">
-						</div>
-						<div class="entry">
-							<input type="text" name="lastName" id="lastName" placeholder="Last Name">
-						</div>
-						<div class="entry">
-							<input type="email" name="email" id="email" placeholder="Your email">
-						</div>
-					</form>
+					<div class="entry">
+						<input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+					</div>
+					<div class="entry">
+						<input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+					</div>
+					<div class="entry">
+						<input type="email" name="email" id="email" placeholder="Your email" required>
+					</div>
 				</div>
 				<div id="shippingAddress" class="grid2-6">
 					<h2>Shipping Address:</h2>
-					<form>
-						<div class="entry">
-							<input type="text" name="address" id="address" placeholder="Street Address">
-						</div>
-						<div class="entry">
-							<input type="text" name="city" id="city" placeholder="City">
-						</div>
-						<div class="entry">	
-							<input type="text" name="zip" id="zip" placeholder="ZIP Code">
-						</div>
-						<div class="entry">
-							<input type="text" name="state" id="state" placeholder="State/Province">
-						</div>
-						<div class="entry">
-							<select name=slist>
-								<script language="javascript">
-									var states = new Array("United States", "Canada", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+					<div class="entry">
+						<input type="text" name="address" id="address" placeholder="Street Address" required>
+					</div>
+					<div class="entry">
+						<input type="text" name="city" id="city" placeholder="City" required>
+					</div>
+					<div class="entry">	
+						<input type="text" name="zip" id="zip" placeholder="ZIP Code" required>
+					</div>
+					<div class="entry">
+						<input type="text" name="state" id="state" placeholder="State/Province" required>
+					</div>
+					<div class="entry">
+						<select name="slist" required>
+							<script language="javascript">
+								var states = new Array("United States", "Canada", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
 
-									for(var hi=0; hi<states.length; hi++) 
-									document.write("<option value=\""+states[hi]+"\">"+states[hi]+"</option>");
-								</script>
-							</select>
-						</div>
-					</form>
+								for(var hi=0; hi<states.length; hi++) 
+								document.write("<option value=\""+states[hi]+"\">"+states[hi]+"</option>");
+							</script>
+						</select>
+					</div>
 				</div>
 				<div id ="paymentMethod" class="grid2-6">
 					<h2>Checkout and Pay</h2>
-					<a href="javascript:;" class="simpleCart_checkout button-huge" id="checkoutButton">Checkout</a>
 					<p>Pay securely with Visa, MasterCard, or American Express card. US clients can pay also with JCB, Discover and Diners Club cards. We charge your card in US dollars. Please note your bank may add up additional fees if your card was issued outside of the US.</p>
-					<p><img src="img/css/poweredbystripe.png" alt="Payments powered by Stripe"></p>
+					<button href="javascript:;" class="simpleCart_checkout button-huge" id="checkoutButtonx">Checkout</button>
+					<p><img src="img/css/poweredbystripe.png" alt="Payments powered by Stripe" class="stripeLogo"></p>
 				</div>
+			</form>
 			</div>
 	</section>
 
