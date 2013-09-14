@@ -518,6 +518,8 @@ $(document).ready(function(){
 	        // http method for form, "POST" or "GET", default is "POST"
 	        method: "POST" , 
 	    },
+	    currency: "USD",
+	    shippingFlatRate: 9.95,
 	    afterAdd: function(item){
 	    	showSuccess(item);
 	    },
@@ -712,7 +714,7 @@ $(document).ready(function(){
 		
 		<section class="grid4" id="sizes">
 			<header>
-				<h2>Like our bras? Get the spectacular uplift in your size!</h2>
+				<h2>Want to get the spectacular uplift in your size?</h2>
 				<h1>Find your Size in 2 Quick Steps!</h1>
 			</header>
 			<div class="inner">
@@ -794,7 +796,7 @@ $(document).ready(function(){
 					
 					<div class="grid3">
 						<div id="sizeTable">
-							<i>Highlight a size to see exact measurements</i>
+							<i>Our sizes are based on European sizing system. Highlight a size to see exact measurements!</i>
 						</div>
 					</div>
 					<div id="chartLabel" class="grid1">
@@ -829,13 +831,8 @@ $(document).ready(function(){
 
 					<div id="shippingPolicyText" class="nodisplay">
 						<h1 class="iconHeader shipping">Shipping Policy</h1>
-						<h2>What are your Shipping Rates?</h2>
-						<p>Priority registered mail with your home country postal service:</p>
-						<ul>
-							<li>US and Canada: $9.95</li>
-							<li>EU: $7.95</li>
-							<li>Rest of the World: $14.95</li>
-						</ul>
+						<h2>How do you ship?</h2>
+						<p>All packages are shipped with <strong>priority registered mail</strong> and delivered with your home country postal service. Shipping fee is $9.95 all over the world.</p> 
 						<p>If you'd like to request any special shipping arrangements, just let us know at <a href="mailto:hello@wellfitting.com">hello@wellfitting.com</a></p>
 						<h2>When will you dispatch my order?</h2>
 						<p>Once you place your order, your bra will be custom-made specially for you. In general it shouldn't take longer than 2 weeks for us to dispatch your bra. Your satisfaction with the quality and fit is our highest priority, that's why the ordering process looks a little bit different than when you order from regular mass-market lingerie brands.</p>

@@ -1175,7 +1175,8 @@ footer .copyright{
 	display: block;
 	float: left;
 }
-#clientInfo .entry input, #clientInfo .entry select {
+#clientInfo .entry input, 
+#clientInfo .entry select {
 	border-radius: 10px;
 	border: 0 !important;
 	font-size: 150%;
@@ -1193,10 +1194,13 @@ footer .copyright{
 }
 #clientInfo .button-huge {
 	background-color: #30C4C9;
+	margin: 10px 0 20px 0;
+	display: inline-block;
 }
 #clientInfo .button-huge:hover {
 	background-color: #092324;
 }
+
 /*--- placeholder ---*/
 ---webkit-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
 ---moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 19+ */
