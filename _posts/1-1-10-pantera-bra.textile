@@ -1,0 +1,21 @@
+---
+title: Pantera
+main-thumb: "img/bras/pantera.png"
+big-thumb: "img/bras/pantera-big.jpg"
+small-thumb-1: "img/bras/pantera-thumb1.jpg"
+small-thumb-2: "img/bras/pantera-thumb2.jpg"
+bra-price: 59
+bottoms-price: 24
+bottoms-type: Thongs
+tagline: "Animal print Pantera bra, up to N cup! #wellfitting #bra"
+
+camelCase: pantera
+---
+Add some thrill to your everyday outfit with this ultra smooth satine pantera print bra! 
+
+* Smooth satine over black lining
+* One layer pantera print band
+* Lightly padded plunge bra
+* Fully adjustable black straps
+* 2-hook fastening
+* Matching thongs
