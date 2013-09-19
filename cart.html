@@ -15,32 +15,17 @@
   	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	
-	<!--script src="js/simpleCart.js" type="text/javascript"></script-->
- 	<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+	<script src="js/simpleCart.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+	<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_UmG6FowVDbmrpCTC0EuCg2cN');
+  // ...
+	</script>
+
 	<script type="text/javascript">
 $(document).ready(function(){
-//Stripe popup
-	$('#checkoutButton').click(function(){
-	      var token = function(res){
-	        var $input = $('<input type=hidden name=stripeToken />').val(res.id);
-	        $('form').append($input).submit();
-	      };
-
-	      StripeCheckout.open({
-	        key:         'pk_test_UmG6FowVDbmrpCTC0EuCg2cN',
-	        address:     true,
-	        amount:      5000,
-	        currency:    'usd',
-	        name:        'Joes Pistachios',
-	        description: 'A bag of Pistachios',
-	        panelLabel:  'Checkout',
-	        token:       token
-	      });
-
-	      return false;
-	    });
-
-//Initialize simpleCart.js
 simpleCart({
 		cartColumns: [
 			{ view: "image", attr: "thumb", label: false},
@@ -51,8 +36,7 @@ simpleCart({
 			{ attr: "quantity", label: "Qty"},
 			{ view: "increment", label: false},
 			{ view: "remove", text: "remove", label: true},
-			{ view: "currency", attr: "total", label: "SubTotal" }
-			
+			{ view: "currency", attr: "total", label: "SubTotal" }			
 		],
 		currency: "USD",
 	    shippingFlatRate: 9.95,
@@ -62,54 +46,67 @@ simpleCart({
 			url: "http://babbage.local/checkout" ,
 			// http method for form, "POST" or "GET", default is "POST"
 			method: "POST", 
+			success: "index.html",
+			cancel: "http://gazeta.pl",
 			extra_data: {}
 		}
 	});
-});
+
+//Pass form input to SimpleCart checkout event
 simpleCart.bind('beforeCheckout', function(data) {
 	$.extend(data, {
-		    	firstName: $('#firstName').val(),
-		    	lastName: $('#lastName').val(),
-		    	email: $('#email').val(),
-		    	address: $('#address').val(),
-		    	city: $('#city').val(),
-		    	zip: $('#zip').val(),
-		    	state: $('#state').val(),
-		    	country: $('#country').val()
-		    })
+    	firstName: $('#firstName').val(),
+    	lastName: $('#lastName').val(),
+    	email: $('#email').val(),
+    	address: $('#address').val(),
+    	city: $('#city').val(),
+    	zip: $('#zip').val(),
+    	state: $('#state').val(),
+    	country: $('#country').val()
+    	})
+	});
+
+//Create Stripe Token
+jQuery(function($) {
+  $('#orderForm').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
 });
+
+var stripeResponseHandler = function(status, response) {
+  var $form = $('#orderForm');
+    	console.log('status', status);
+    	console.log('response', response);
+  if (response.error) {
+    // Show the errors on the form
+    console.log('error'+ response.error.message)
+    $form.find('.paymentErrors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // token contains id, last4, and card type
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};
+
+
+
+
+});
+
 
 	</script>
-
-	
-<script type="text/javascript">	
-// A jQuery based placeholder polyfill
-$(document).ready(function(){
-  function add() {
-    if($(this).val() === ''){
-      $(this).val($(this).attr('placeholder')).addClass('placeholder');
-    }
-  }
-
-  function remove() {
-    if($(this).val() === $(this).attr('placeholder')){
-      $(this).val('').removeClass('placeholder');
-    }
-  }
-
-  // Create a dummy element for feature detection
-  if (!('placeholder' in $('<input>')[0])) {
-
-    // Select the elements that have a placeholder attribute
-    $('input[placeholder], textarea[placeholder]').blur(add).focus(remove).each(add);
-
-    // Remove the placeholder text before the form is submitted
-    $('form').submit(function(){
-      $(this).find('input[placeholder], textarea[placeholder]').each(remove);
-    });
-  }
-});
-</script>
 </head>
 
 <body>
@@ -135,37 +132,45 @@ $(document).ready(function(){
 	<section id="clientInfo" class="grid4">
 		<header><h1>Place your Order Now!</h1></header>
 		<div class="inner">
-			<form>			
+			<form id="orderForm">			
 				<div id="clientName" class="grid2-6">
 					<h2>Customer Info:</h2>
 					<div class="entry">
-						<input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+						<label>First Name</label>
+						<input type="text" id="firstName" placeholder="First Name"  name="firstName">
 					</div>
 					<div class="entry">
-						<input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+						<label>Last Name</label>
+						<input type="text" id="lastName" placeholder="Last Name"  >
 					</div>
 					<div class="entry">
-						<input type="email" name="email" id="email" placeholder="Your email" required>
+						<label>Your Email</label>
+						<input type="email" id="email" placeholder="Your email"  >
 					</div>
 				</div>
 				<div id="shippingAddress" class="grid2-6">
 					<h2>Shipping Address:</h2>
 					<div class="entry">
-						<input type="text" name="address" id="address" placeholder="Street Address" required>
+						<label>Street Address</label>
+						<input type="text" id="address" placeholder="Street Address"  >
 					</div>
 					<div class="entry">
-						<input type="text" name="city" id="city" placeholder="City" required>
+						<label>City</label>
+						<input type="text" id="city" placeholder="City"  >
 					</div>
 					<div class="entry">	
-						<input type="text" name="zip" id="zip" placeholder="ZIP Code" required>
+						<label>ZIP Code</label>
+						<input type="text" id="zip" placeholder="ZIP Code"  >
 					</div>
 					<div class="entry">
-						<input type="text" name="state" id="state" placeholder="State/Province" required>
+						<label>State/Province</label>
+						<input type="text" id="state" placeholder="State/Province"  >
 					</div>
 					<div class="entry">
-						<select name="slist" required>
+						<label>Country</label>
+						<select id="country"  >
 							<script language="javascript">
-								var states = new Array("United States", "Canada", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+								var states = ["United States", "Canada", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
 
 								for(var hi=0; hi<states.length; hi++) 
 								document.write("<option value=\""+states[hi]+"\">"+states[hi]+"</option>");
@@ -175,8 +180,27 @@ $(document).ready(function(){
 				</div>
 				<div id ="paymentMethod" class="grid2-6">
 					<h2>Checkout and Pay</h2>
+					<div class="entry">
+						<label>Card Number</label>
+	      				<input type="text" size="20" data-stripe="number" placeholder="•••• •••• •••• ••••"/>
+					</div>
+
+					<div class="entry">
+						<label>CVC</label>
+      					<input type="text" size="4" data-stripe="cvc" placeholder="123" maxlength="3"/>
+					</div>
+					<div class="entry">
+						<label>Expiration</label>
+      					<input type="text" size="2" data-stripe="exp-month" placeholder="MM" maxlength="2"/><span> / </span>
+    					<input type="text" size="4" data-stripe="exp-year" placeholder="YYYY" maxlength="4"/>
+					</div>
+					
+					<div class="entry">
+						<div class="paymentErrors"><span>Error</span></div>
+						<button href="javascript:;" class="button-huge" id="checkoutButton" type="submit">Checkout</button>
+					</div>
+					
 					<p>Pay securely with Visa, MasterCard, or American Express card. US clients can pay also with JCB, Discover and Diners Club cards. We charge your card in US dollars. Please note your bank may add up additional fees if your card was issued outside of the US.</p>
-					<button href="javascript:;" class="simpleCart_checkout button-huge" id="checkoutButtonx">Checkout</button>
 					<p><img src="img/css/poweredbystripe.png" alt="Payments powered by Stripe" class="stripeLogo"></p>
 				</div>
 			</form>

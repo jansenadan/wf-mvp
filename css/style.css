@@ -802,38 +802,6 @@ td.highlighted .tooltip hr {
 	background-position: 0px -75px;
 }
 
-/*Order form popup*/
-#orderForm {
-	display: none;
-}
-
- #orderIframe{
- 	box-shadow: 0 0 1px rgba(9,35,36,.5);
- }
-
-.orderGallery {
-	display: block;
-	float: left;
-	margin: 0 0 60px 0;
-}
-
-.orderGallery li {
-	display: block;
-	float: left;
-	width:25%;
-	font-size: 75%;
-}
-
-.orderGallery li img {
-	width: 100%;
-}
-
-.orderGallery .caption{
-	background: rgba(255,255,255,.7);
-position: relative;
-margin: -50px 0 0 0;
-height: 50px;
-}
 /*------about ---------*/
 #about {
 	border-bottom: solid 1px rgba(9,35,36,.1);
@@ -1174,7 +1142,14 @@ footer .copyright{
 	padding: 10px 0;
 	display: block;
 	float: left;
+	clear: both;
 }
+
+#clientInfo .entry label {
+	display: block;
+	text-align: left;
+}
+
 #clientInfo .entry input, 
 #clientInfo .entry select {
 	border-radius: 10px;
@@ -1182,16 +1157,16 @@ footer .copyright{
 	font-size: 150%;
 	background-color: #FCF9FA !important;	
 	padding: 10px;
-	width: 100%;
 }
+
+
 #clientInfo form {
 	display: block;
 	float: left;
 	margin-bottom: 50px;
 }
-#paymentMethod {
-	text-align: left;
-}
+
+
 #clientInfo .button-huge {
 	background-color: #30C4C9;
 	margin: 10px 0 20px 0;
@@ -1208,10 +1183,17 @@ footer .copyright{
 	opacity: .75;
 }
 
+/*OrderForm*/
+#orderForm{
 
-/*--- placeholder ---*/
----webkit-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
----moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 19+ */
---moz-placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* FF 18- */
--ms-input-placeholder { color: rgba(9,35,36,.4); font-size: 150%; }
-.placeholder { color: rgba(9,35,36,.4); font-size: 150%; } /* for the polyfill */
+}
+
+#orderForm .paymentErrors {
+
+}
+
+#orderForm p {
+	display: block;
+	float: left;
+	clear: both;
+}
