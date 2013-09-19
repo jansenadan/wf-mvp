@@ -15,6 +15,13 @@
   	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	
+	
+	<script src="js/bootstrapformhelpers/js/bootstrap-formhelpers-selectbox.js"></script>
+    <script src="js/bootstrapformhelpers/js/bootstrap-formhelpers-countries.en_US.js"></script>
+    <script src="js/bootstrapformhelpers/js/bootstrap-formhelpers-countries.js"></script>
+    <script src="js/bootstrapformhelpers/js/bootstrap-formhelpers-states.en_US.js"></script>
+    <script src="js/bootstrapformhelpers/js/bootstrap-formhelpers-states.js"></script>
+
 	<script src="js/simpleCart.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -88,7 +95,7 @@ var stripeResponseHandler = function(status, response) {
   if (response.error) {
     // Show the errors on the form
     console.log('error'+ response.error.message)
-    $form.find('.paymentErrors').text(response.error.message);
+    $form.find('.paymentErrors').show().text(response.error.message);
     $form.find('button').prop('disabled', false);
   } else {
     // token contains id, last4, and card type
@@ -130,11 +137,14 @@ var stripeResponseHandler = function(status, response) {
 	</section>
 	
 	<section id="clientInfo" class="grid4">
-		<header><h1>Place your Order Now!</h1></header>
+		<header>
+			<h1>Place your Order Now!</h1>
+			<p>Pay securely with Visa, MasterCard, or American Express card. US clients can pay also with JCB, Discover and Diners Club cards. <br>We charge your card in US dollars. Please note your bank may add up additional fees if your card was issued outside of the US.</p>
+		</header>
 		<div class="inner">
-			<form id="orderForm">			
+			<form id="orderForm" class="grid4	">			
 				<div id="clientName" class="grid2-6">
-					<h2>Customer Info:</h2>
+					<h2>Customer Details</h2>
 					<div class="entry">
 						<label>First Name</label>
 						<input type="text" id="firstName" placeholder="First Name"  name="firstName">
@@ -144,15 +154,15 @@ var stripeResponseHandler = function(status, response) {
 						<input type="text" id="lastName" placeholder="Last Name"  >
 					</div>
 					<div class="entry">
-						<label>Your Email</label>
+						<label>Email</label>
 						<input type="email" id="email" placeholder="Your email"  >
 					</div>
 				</div>
 				<div id="shippingAddress" class="grid2-6">
-					<h2>Shipping Address:</h2>
+					<h2>Shipping Address</h2>
 					<div class="entry">
 						<label>Street Address</label>
-						<input type="text" id="address" placeholder="Street Address"  >
+						<textarea type="text" id="address" placeholder="Street Address"></textarea>
 					</div>
 					<div class="entry">
 						<label>City</label>
@@ -163,48 +173,52 @@ var stripeResponseHandler = function(status, response) {
 						<input type="text" id="zip" placeholder="ZIP Code"  >
 					</div>
 					<div class="entry">
-						<label>State/Province</label>
-						<input type="text" id="state" placeholder="State/Province"  >
+						<label>Country</label>
+						<select id="countries_states1" class="input-medium bfh-countries" data-country="US"></select>
 					</div>
 					<div class="entry">
-						<label>Country</label>
-						<select id="country"  >
-							<script language="javascript">
-								var states = ["United States", "Canada", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
-
-								for(var hi=0; hi<states.length; hi++) 
-								document.write("<option value=\""+states[hi]+"\">"+states[hi]+"</option>");
-							</script>
-						</select>
+						<label>State/Province</label>
+						<select class="input-medium bfh-states" data-country="countries_states1"></select>
 					</div>
 				</div>
 				<div id ="paymentMethod" class="grid2-6">
-					<h2>Checkout and Pay</h2>
+					<h2>Payment Details</h2>
 					<div class="entry">
-						<label>Card Number</label>
-	      				<input type="text" size="20" data-stripe="number" placeholder="•••• •••• •••• ••••"/>
+						<label>Name on Card</label>
+	      				<input type="text" id="nameOnCard" placeholder=""/>
 					</div>
 
-					<div class="entry">
+					<div class="entry cardNumber">
+						<label>Card Number</label>
+	      				<input type="text" size="20" data-stripe="number" placeholder="•••• •••• •••• ••••"/>
+	      				
+					</div>
+
+					<div class="entry cvc">
 						<label>CVC</label>
       					<input type="text" size="4" data-stripe="cvc" placeholder="123" maxlength="3"/>
 					</div>
-					<div class="entry">
-						<label>Expiration</label>
-      					<input type="text" size="2" data-stripe="exp-month" placeholder="MM" maxlength="2"/><span> / </span>
-    					<input type="text" size="4" data-stripe="exp-year" placeholder="YYYY" maxlength="4"/>
+
+					<div class="entry expiration">
+						<label>Expiration Date:</label>
+						<div class="month">
+							<label>Month</label>
+							<input type="text" size="2" data-stripe="exp-month" placeholder="MM" maxlength="2"/>
+						</div>
+						<div class="year">
+							<label>Year</label>
+							<input type="text" size="4" data-stripe="exp-year" placeholder="YYYY" maxlength="4"/>	
+						</div>
 					</div>
-					
 					<div class="entry">
 						<div class="paymentErrors"><span>Error</span></div>
 						<button href="javascript:;" class="button-huge" id="checkoutButton" type="submit">Checkout</button>
 					</div>
-					
-					<p>Pay securely with Visa, MasterCard, or American Express card. US clients can pay also with JCB, Discover and Diners Club cards. We charge your card in US dollars. Please note your bank may add up additional fees if your card was issued outside of the US.</p>
-					<p><img src="img/css/poweredbystripe.png" alt="Payments powered by Stripe" class="stripeLogo"></p>
+					<img class="stripeLogo" src="img/css/poweredbystripe.png">
 				</div>
 			</form>
-			</div>
+			
+		</div>
 	</section>
 
 		<footer class="">

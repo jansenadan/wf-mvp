@@ -1127,8 +1127,8 @@ footer .copyright{
 #clientInfo {
 	background-color: #FC328A;
 	color: #FCF9FA;
-	text-align: center;
 }
+
 #clientInfo h2 {
 	color: rgba(252, 249, 250, .6);
 }
@@ -1139,57 +1139,104 @@ footer .copyright{
 	text-align: left;
 }
 .entry {
-	padding: 10px 0;
-	display: block;
+	margin: 10px 0;
+	display: inline-block;
 	float: left;
+	width: 260px;
 	clear: both;
 }
 
-#clientInfo .entry label {
+#orderForm .entry label {
 	display: block;
 	text-align: left;
 }
 
-#clientInfo .entry input, 
-#clientInfo .entry select {
+#orderForm .entry input,
+#orderForm .entry textarea, 
+#orderForm .entry select {
 	border-radius: 10px;
 	border: 0 !important;
-	font-size: 150%;
+	font-size: 100%;
 	background-color: #FCF9FA !important;	
+	width: 100%;
 	padding: 10px;
 }
 
+#orderForm .entry select {
+	width: 280px !important;
+}
 
-#clientInfo form {
+#orderForm form {
 	display: block;
 	float: left;
 	margin-bottom: 50px;
 }
 
+#orderForm .cardNumber{
+	width: 190px;
+	clear: none;
+}
 
-#clientInfo .button-huge {
+#orderForm .cvc {
+	width: 40px;
+	margin-left: 30px;
+	clear: none;
+}
+
+#orderForm .expiration {
+	
+}
+#orderForm .expiration label{
+	width: 110px;
+	display: inline-block;
+	float: left;
+}
+
+
+#orderForm .expiration .month {
+	margin: 0 30px 0 0;
+	float: left;
+	width: 60px;
+	clear:  none;
+}
+
+
+#orderForm .expiration .year {
+	float: left;
+	width: 60px;
+	clear:  none;
+}
+
+#orderForm .button-huge {
 	background-color: #30C4C9;
 	margin: 10px 0 20px 0;
 	display: inline-block;
 }
-#clientInfo .button-huge:hover {
+#orderForm .button-huge:hover {
 	background-color: #092324;
 }
 
-#clientInfo .stripeLogo {
+#orderForm .button-huge:disabled{
+	opacity: .7;
+}
+
+
+#orderForm .stripeLogo {
 	float: right;
 	position: relative;
 	bottom: -45px;	
 	opacity: .75;
 }
 
-/*OrderForm*/
-#orderForm{
-
-}
 
 #orderForm .paymentErrors {
-
+	padding: 10px;
+	background: #7EFFE0;
+	color: #092324;
+	font-weight: bold;
+	display: none;
+	width: 260px;
+	margin: 20px 0;
 }
 
 #orderForm p {
