@@ -1157,7 +1157,7 @@ footer .copyright{
 	border-radius: 10px;
 	border: 0 !important;
 	font-size: 100%;
-	background-color: #FCF9FA !important;	
+	background-color: #FCF9FA;	
 	width: 100%;
 	padding: 10px;
 }
@@ -1229,7 +1229,8 @@ footer .copyright{
 }
 
 
-#orderForm .paymentErrors {
+#orderForm .paymentErrors,
+#orderForm .requiredErrors {
 	padding: 10px;
 	background: #7EFFE0;
 	color: #092324;
@@ -1239,8 +1240,6 @@ footer .copyright{
 	margin: 20px 0;
 }
 
-#orderForm p {
-	display: block;
-	float: left;
-	clear: both;
+#orderForm .errorRequired {
+	box-shadow: 0 0 10px #30C4C9 inset;
 }

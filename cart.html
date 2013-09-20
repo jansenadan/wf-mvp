@@ -73,7 +73,48 @@ simpleCart.bind('beforeCheckout', function(data) {
     	})
 	});
 
+//Validate form on Submit 
+function validate(form){
+	$(form).submit(function(){
+		var errors = [];
+		$('form input, form textarea, form select').each(function(index){	
+			var element = $(this);
+			if (element.val() === '') {
+				errors[index] = element;
+				element.addClass('errorRequired');
+			}
+			else {
+				element.removeClass('errorRequired');
+			};	
+		});
+		if (errors != []) {
+			form.find('.requiredErrors').show().text('Please fill out all the fields!');
+			console.log('invalid form');
+			return false;
+		}
+		else {
+			console.log('valid!!!!')
+			return true;
+		};
+	});
+};
+
+
+validate($('#orderForm'));
+
+
 //Create Stripe Token
+function createStripeToken(form){
+	$(form).submit(function(event) {
+	    // Disable the submit button to prevent repeated clicks
+	    $form.find('button').prop('disabled', true);
+	    Stripe.createToken(form, stripeResponseHandler);
+	    // Prevent the form from submitting with the default action
+	    return false;
+	  });	
+}
+
+
 jQuery(function($) {
   $('#orderForm').submit(function(event) {
     var $form = $(this);
@@ -142,7 +183,7 @@ var stripeResponseHandler = function(status, response) {
 			<p>Pay securely with Visa, MasterCard, or American Express card. US clients can pay also with JCB, Discover and Diners Club cards. <br>We charge your card in US dollars. Please note your bank may add up additional fees if your card was issued outside of the US.</p>
 		</header>
 		<div class="inner">
-			<form id="orderForm" class="grid4	">			
+			<form id="orderForm" class="grid4">			
 				<div id="clientName" class="grid2-6">
 					<h2>Customer Details</h2>
 					<div class="entry">
@@ -211,6 +252,7 @@ var stripeResponseHandler = function(status, response) {
 						</div>
 					</div>
 					<div class="entry">
+						<div class="requiredErrors"><span>Error</span></div>
 						<div class="paymentErrors"><span>Error</span></div>
 						<button href="javascript:;" class="button-huge" id="checkoutButton" type="submit">Checkout</button>
 					</div>
