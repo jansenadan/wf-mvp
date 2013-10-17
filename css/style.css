@@ -896,25 +896,29 @@ footer li{
 	background-position: 0 -225px;
 }
 .socialIcons .fb:hover {
-	background-position: -75px -225px;
+	opacity: .7;
+	background-color: #FCF9FA; 
 }
 .socialIcons .twitter {
 	background-position: 0 -374px;
 }
 .socialIcons .twitter:hover {
-	background-position: -75px -374px;
+	opacity: .7;
+	background-color: #FCF9FA; 
 }
 .socialIcons .pinterest {
 	background-position: 0 -450px;
 }
 .socialIcons .pinterest:hover {
-	background-position: -75px -450px;
+	opacity: .7;
+	background-color: #FCF9FA; 
 }
 .socialIcons .instagram {
 	background-position: 0 -299px;
 }
 .socialIcons .instagram:hover {
-	background-position: -76px -299px;
+	opacity: .7;
+	background-color: #FCF9FA; 
 }
 
 footer .copyright{
@@ -1125,7 +1129,7 @@ footer .copyright{
 	margin-bottom: 30px;
 }
 #clientInfo {
-	background-color: #FC328A;
+	background-color: #30C4C9;
 	color: #FCF9FA;
 }
 
@@ -1208,13 +1212,11 @@ footer .copyright{
 }
 
 #orderForm .button-huge {
-	background-color: #30C4C9;
-	margin: 10px 0 20px 0;
+	margin: 10px -20px 20px 0;
 	display: inline-block;
+	float: right;
 }
-#orderForm .button-huge:hover {
-	background-color: #092324;
-}
+
 
 #orderForm .button-huge:disabled{
 	opacity: .7;
@@ -1238,8 +1240,9 @@ footer .copyright{
 	display: none;
 	width: 260px;
 	margin: 20px 0;
+	border-radius: 10px;
 }
 
 #orderForm .errorRequired {
-	box-shadow: 0 0 10px #30C4C9 inset;
+	box-shadow: 0 0 10px #FC328A inset;
 }
